@@ -1,0 +1,6 @@
+bind main B !?git rebase -i %(commit)
+bind main V !?git revert %(commit)
+bind status A !git commit -v --amend
+bind status c !git commit -v
+bind ref B ?git checkout -b "%(prompt Enter new branch name: )"
+bind ref M ?git branch -M "%(prompt Enter new branch name: )"
