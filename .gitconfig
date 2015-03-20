@@ -1,0 +1,36 @@
+[core]
+	editor = vim
+[color]
+	ui = auto
+[github]
+	token = bd7c55de88492f3a6377ec9dd49d35ee
+[alias]
+	p4 = !git-p4
+	last = log -1 HEAD
+	unstage = reset HEAD --
+	br = branch
+	st = status
+	rs = reset
+	visual = !gitk
+	ps = push
+	pl = pull
+	rb = rebase
+	pl-master = pull origin master
+	co = commit
+	cp = cherry-pick
+	ps-head = push origin head
+	ck = checkout
+	sm = submodule
+	dif = diff
+	pl-dev = pull origin develop
+	branch-root = merge-base master HEAD
+	create-pull-request = !sh -c 'stash pull-request $0'
+[user]
+	name = Shin Yamamoto
+	email = syamamoto@uievolution.com
+[rebase]
+	autosquash = true
+[alias]
+  pbcopy = !printf "$1" | pbcopy
+[tig "bind"]
+  main = c ?@git pbcopy %(commit)
