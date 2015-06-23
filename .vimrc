@@ -31,7 +31,6 @@ Bundle 'Townk/vim-autoclose'
 Bundle 'grep.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'Align'
-Bundle 'plasticboy/vim-markdown'
 Bundle 'kannokanno/previm'
 Bundle 'tyru/open-browser.vim'
 
