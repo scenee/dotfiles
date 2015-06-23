@@ -49,3 +49,5 @@ autocmd BufRead,BufNewFile *.report set filetype=markdown
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+
+autocmd FileType markdown,md set tabstop=4 softtabstop=4 shiftwidth=4
