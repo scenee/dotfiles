@@ -6,6 +6,14 @@ set wrapscan
 set backspace=indent,eol,start
 set enc=utf-8
 set fenc=utf-8
+set tabstop=8
+set shiftwidth=8
+set autoindent
+set smartindent
+set softtabstop=8
+
+colorscheme desert
+
 
 " vundle
 if !1 | finish | endif
@@ -21,6 +29,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'thinca/vim-quickrun'
 Bundle 'Townk/vim-autoclose'
 Bundle 'grep.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'Align'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'kannokanno/previm'
 Bundle 'tyru/open-browser.vim'
