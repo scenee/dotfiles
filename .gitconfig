@@ -27,7 +27,7 @@
 	create-pull-request = !sh -c 'stash pull-request $0'
 [user]
 	name = Shin Yamamoto
-	email = syamamoto@uievolution.com
+	email = shin@scenee.com
 [rebase]
 	autosquash = true
 [alias]
