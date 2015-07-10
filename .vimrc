@@ -21,7 +21,7 @@ if !1 | finish | endif
 set nocompatible
 filetype off
 
-set runtimepath+=~/.vim/bundle/vundle/
+set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
