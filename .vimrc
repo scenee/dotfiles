@@ -33,6 +33,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'Align'
 Bundle 'kannokanno/previm'
 Bundle 'tyru/open-browser.vim'
+Bundle 'taglist.vim'
 
 filetype plugin indent on
 
