@@ -34,6 +34,9 @@ Bundle 'Align'
 Bundle 'kannokanno/previm'
 Bundle 'tyru/open-browser.vim'
 Bundle 'taglist.vim'
+
+Bundle 'Rip-Rip/clang_complete.git'
+
 Bundle 'jimenezrick/vimerl'
 Bundle 'vim-erlang/vim-erlang-skeletons'
 Bundle 'Shougo/vimproc.vim'
