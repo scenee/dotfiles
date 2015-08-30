@@ -35,6 +35,9 @@ Bundle 'kannokanno/previm'
 Bundle 'tyru/open-browser.vim'
 Bundle 'taglist.vim'
 Bundle 'jimenezrick/vimerl'
+Bundle 'vim-erlang/vim-erlang-skeletons'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'vim-erlang/vim-erlang-tags'
 
 filetype plugin indent on
 
@@ -55,3 +58,4 @@ vmap gx <Plug>(openbrowser-smart-search)
 " erlang
 autocmd BufRead,BufNewFile *.erl set filetype=erlang
 autocmd FileType erlang set tabstop=4 softtabstop=4 shiftwidth=4
+autocmd BufWritePost *.erl call vimproc#system_bg('~/.vim/bundle/vim-erlang-tags/bin/vim-erlang-tags.erl --otp')
