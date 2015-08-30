@@ -24,7 +24,7 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Bundle 'VundleVim/Vundle.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'thinca/vim-quickrun'
 Bundle 'Townk/vim-autoclose'
