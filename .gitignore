@@ -30,9 +30,5 @@ DerivedData
 *.mode1v3
 *.mode2v3
 
-# Original
-last_commit_date.txt
-out_*
-
 # CocoaPods
 Pods/
