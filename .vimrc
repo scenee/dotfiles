@@ -59,3 +59,6 @@ vmap gx <Plug>(openbrowser-smart-search)
 autocmd BufRead,BufNewFile *.erl set filetype=erlang
 autocmd FileType erlang set tabstop=4 softtabstop=4 shiftwidth=4
 autocmd BufWritePost *.erl call vimproc#system_bg('~/.vim/bundle/vim-erlang-tags/bin/vim-erlang-tags.erl --otp')
+
+" fix highlights for $(..) in 'sh' script because it was not supported by sh
+let g:is_bash = 1
