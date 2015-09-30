@@ -11,6 +11,7 @@ set shiftwidth=8
 set autoindent
 set smartindent
 set softtabstop=8
+set hlsearch
 
 colorscheme desert
 
