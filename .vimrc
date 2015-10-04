@@ -12,6 +12,7 @@ set autoindent
 set smartindent
 set softtabstop=8
 set hlsearch
+set incsearch
 
 colorscheme desert
 
