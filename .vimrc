@@ -51,6 +51,7 @@ Bundle 'vim-erlang/vim-erlang-tags'
 
 
 Bundle 'itchyny/lightline.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 
 filetype plugin indent on
 
