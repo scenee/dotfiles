@@ -64,3 +64,6 @@ autocmd BufWritePost *.erl call vimproc#system_bg('~/.vim/bundle/vim-erlang-tags
 
 " fix highlights for $(..) in 'sh' script because it was not supported by sh
 let g:is_bash = 1
+
+" python
+autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4
