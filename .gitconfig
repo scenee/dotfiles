@@ -34,3 +34,7 @@
   pbcopy = !printf "$1" | pbcopy
 [tig "bind"]
   main = c ?@git pbcopy %(commit)
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
