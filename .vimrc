@@ -49,6 +49,7 @@ Bundle 'jimenezrick/vimerl'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'vim-erlang/vim-erlang-tags'
 
+Bundle 'JesseKPhillips/d.vim'
 
 Bundle 'itchyny/lightline.vim'
 Bundle 'ctrlpvim/ctrlp.vim'
