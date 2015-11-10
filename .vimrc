@@ -13,9 +13,17 @@ set smartindent
 set softtabstop=8
 set hlsearch
 set incsearch
+set wildmenu wildmode=list:full
+set laststatus=2
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
 colorscheme desert
 
+" See https://code.google.com/p/mintty/wiki/Tips#Mode-dependent_cursor_in_vim
+let &t_ti.="\e[1 q"
+"let &t_SI.="\e[5 q"
+"let &t_EI.="\e[1 q"
+"let &t_te.="\e[1 q"
 
 " vundle
 if !1 | finish | endif
@@ -40,6 +48,9 @@ Bundle 'taglist.vim'
 Bundle 'jimenezrick/vimerl'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'vim-erlang/vim-erlang-tags'
+
+
+Bundle 'itchyny/lightline.vim'
 
 filetype plugin indent on
 
