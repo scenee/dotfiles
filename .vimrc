@@ -66,9 +66,9 @@ autocmd BufRead,BufNewFile *.report set filetype=markdown
 autocmd FileType markdown set tabstop=4 softtabstop=4 shiftwidth=4
 
 " open-browser.vim
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
+" let g:netrw_nogx = 1 " disable netrw's gw mapping.
+nmap <Leader>w <Plug>(openbrowser-smart-search)
+vmap <Leader>w <Plug>(openbrowser-smart-search)
 
 " erlang
 autocmd BufRead,BufNewFile *.erl set filetype=erlang
