@@ -79,4 +79,5 @@ autocmd BufWritePost *.erl call vimproc#system_bg('~/.vim/bundle/vim-erlang-tags
 let g:is_bash = 1
 
 " python
-autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4
+autocmd BufRead,BufNewFile *.kv set filetype=python
+autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
