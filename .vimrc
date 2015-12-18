@@ -18,6 +18,7 @@ set laststatus=2
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set list
 set listchars=trail:_,eol:¬,tab:▸\ 
+set foldmethod=syntax
 
 colorscheme desert
 
@@ -56,7 +57,18 @@ Bundle 'JesseKPhillips/d.vim'
 Bundle 'itchyny/lightline.vim'
 Bundle 'ctrlpvim/ctrlp.vim'
 
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Linux\n"
+    Bundle 'justmao945/vim-clang'
+  endif
+endif
+
 filetype plugin indent on
+
+" change the current dir automatically
+" See: http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
+autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 
 " nerdtree
 map <Leader>n :NERDTree<CR>
