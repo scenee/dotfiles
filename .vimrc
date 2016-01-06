@@ -22,6 +22,9 @@ set foldmethod=syntax
 
 colorscheme desert
 
+let &colorcolumn=join(range(81,1000),",")
+highlight ColorColumn ctermbg=234
+
 " See https://code.google.com/p/mintty/wiki/Tips#Mode-dependent_cursor_in_vim
 let &t_ti.="\e[1 q"
 "let &t_SI.="\e[5 q"
