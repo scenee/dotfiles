@@ -60,6 +60,8 @@ Bundle 'JesseKPhillips/d.vim'
 Bundle 'itchyny/lightline.vim'
 Bundle 'ctrlpvim/ctrlp.vim'
 
+Bundle 'plasticboy/vim-markdown'
+
 if has("unix")
   let s:uname = system("uname")
   if s:uname == "Linux\n"
