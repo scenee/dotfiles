@@ -69,6 +69,9 @@ Bundle 'plasticboy/vim-markdown'
 
 Bundle 'davidhalter/jedi-vim'
 
+Bundle 'othree/html5.vim'
+Bundle 'mattn/emmet-vim'
+
 if has("unix")
   let s:uname = system("uname")
   if s:uname == "Linux\n"
