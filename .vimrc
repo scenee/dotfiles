@@ -53,6 +53,9 @@ Bundle 'taglist.vim'
 
 Bundle 'jimenezrick/vimerl'
 Bundle 'Shougo/vimproc.vim'
+
+Bundle "Valloric/YouCompleteMe"
+
 Bundle 'vim-erlang/vim-erlang-tags'
 
 Bundle 'JesseKPhillips/d.vim'
@@ -100,3 +103,10 @@ let g:is_bash = 1
 " python
 autocmd BufRead,BufNewFile *.kv set filetype=python
 autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+
+" YCM
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+" jedi-vim
+"let g:jedi#force_py_version = 3
+autocmd FileType python setlocal completeopt-=preview
