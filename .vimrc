@@ -51,11 +51,13 @@ Bundle 'kannokanno/previm'
 Bundle 'tyru/open-browser.vim'
 Bundle 'taglist.vim'
 
-Bundle 'jimenezrick/vimerl'
+Bundle 'vim-scripts/gtags.vim'
+
 Bundle 'Shougo/vimproc.vim'
 
 Bundle "Valloric/YouCompleteMe"
 
+Bundle 'jimenezrick/vimerl'
 Bundle 'vim-erlang/vim-erlang-tags'
 
 Bundle 'JesseKPhillips/d.vim'
