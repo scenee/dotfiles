@@ -6,11 +6,11 @@ set wrapscan
 set backspace=indent,eol,start
 set enc=utf-8
 set fenc=utf-8
-set tabstop=8
-set shiftwidth=8
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set autoindent
 set smartindent
-set softtabstop=8
 set hlsearch
 set incsearch
 set wildmenu wildmode=list:full
@@ -83,7 +83,7 @@ filetype plugin indent on
 
 " change the current dir automatically
 " See: http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
-autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+" autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 
 " nerdtree
 map <Leader>n :NERDTree<CR>
@@ -98,6 +98,12 @@ autocmd FileType markdown set tabstop=4 softtabstop=4 shiftwidth=4
 " let g:netrw_nogx = 1 " disable netrw's gw mapping.
 nmap <Leader>w <Plug>(openbrowser-smart-search)
 vmap <Leader>w <Plug>(openbrowser-smart-search)
+
+" C
+autocmd FileType c set tabstop=8 softtabstop=8 shiftwidth=8
+
+" Shell
+autocmd FileType sh set tabstop=8 softtabstop=8 shiftwidth=8
 
 " erlang
 autocmd BufRead,BufNewFile *.erl set filetype=erlang
