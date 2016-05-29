@@ -30,6 +30,9 @@ let &t_ti.="\e[1 q"
 "let &t_SI.="\e[5 q"
 "let &t_EI.="\e[1 q"
 "let &t_te.="\e[1 q"
+"
+" fix highlights for $(..) in 'sh' script because it was not supported by sh
+let g:is_bash = 1
 
 " vundle
 if !1 | finish | endif
