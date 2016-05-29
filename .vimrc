@@ -68,6 +68,7 @@ Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'plasticboy/vim-markdown'
 
 Bundle 'davidhalter/jedi-vim'
+Bundle 'jmcantrell/vim-virtualenv'
 
 Bundle 'othree/html5.vim'
 Bundle 'mattn/emmet-vim'
@@ -110,16 +111,32 @@ autocmd BufRead,BufNewFile *.erl set filetype=erlang
 autocmd FileType erlang set tabstop=4 softtabstop=4 shiftwidth=4
 autocmd BufWritePost *.erl call vimproc#system_bg('~/.vim/bundle/vim-erlang-tags/bin/vim-erlang-tags.erl --otp')
 
-" fix highlights for $(..) in 'sh' script because it was not supported by sh
-let g:is_bash = 1
-
 " python
 autocmd BufRead,BufNewFile *.kv set filetype=python
 autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " YCM
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango)
+let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
+let g:ycm_complete_in_comments = 1 " Completion in comments
+let g:ycm_complete_in_strings = 1 " Completion in string
+
+" surround
+let b:surround_{char2nr("v")} = "{{ \r }}"
+let b:surround_{char2nr("{")} = "{{ \r }}"
+let b:surround_{char2nr("%")} = "{% \r %}"
+let b:surround_{char2nr("b")} = "{% block \1block name: \1 %}\r{% endblock \1\1 %}"
+let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
+let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
+let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
+let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}""
 
 " jedi-vim
-"let g:jedi#force_py_version = 3
-autocmd FileType python setlocal completeopt-=preview
+let g:jedi#completions_command = "<M-Space>"  " Prevent conflict with my Spotlight shutcut key on Mac
+let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map 
+""let g:jedi#force_py_version = 3
+""autocmd FileType python setlocal completeopt-=preview
+
