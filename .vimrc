@@ -136,6 +136,7 @@ let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
 let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
 let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
 let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}""
+autocmd FileType markdown let b:surround_{char2nr("*")} = "**\r**"
 
 " jedi-vim
 let g:jedi#completions_command = "<M-Space>"  " Prevent conflict with my Spotlight shutcut key on Mac
