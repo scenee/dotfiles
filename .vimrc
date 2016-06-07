@@ -104,10 +104,10 @@ autocmd FileType markdown set tabstop=4 softtabstop=4 shiftwidth=4
 nmap <Leader>w <Plug>(openbrowser-smart-search)
 vmap <Leader>w <Plug>(openbrowser-smart-search)
 
-" C
+" c
 autocmd FileType c set tabstop=8 softtabstop=8 shiftwidth=8
 
-" Shell
+" shell
 autocmd FileType sh set tabstop=8 softtabstop=8 shiftwidth=8
 
 " erlang
@@ -119,7 +119,7 @@ autocmd BufWritePost *.erl call vimproc#system_bg('~/.vim/bundle/vim-erlang-tags
 autocmd BufRead,BufNewFile *.kv set filetype=python
 autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
-" YCM
+" ycm
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango)
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
@@ -129,15 +129,26 @@ let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
 
 " surround
+autocmd FileType html,css call SetSurroundHTML()
+function SetSurroundHTML()
 let b:surround_{char2nr("v")} = "{{ \r }}"
 let b:surround_{char2nr("{")} = "{{ \r }}"
 let b:surround_{char2nr("%")} = "{% \r %}"
-let b:surround_{char2nr("b")} = "{% block \1block name: \1 %}\r{% endblock \1\1 %}"
-let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
+let b:surround_{char2nr("b")} = "{% block \1block name: \1 %}\n\r\n{% endblock \1\1 %}"
+let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\n\r\n{% else %}\n{% endif %}"
 let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
 let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
 let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}""
-autocmd FileType markdown let b:surround_{char2nr("*")} = "**\r**"
+endfunction
+autocmd FileType python call SetSurroundPython()
+function SetSurroundPython()
+	let b:surround_{char2nr("c")} = "\"\"\"\r\"\"\""
+endfunction
+autocmd FileType markdown call SetSurroundMarkdown()
+function SetSurroundMarkdown()
+	let b:surround_{char2nr("*")} = "**\r**"
+	let b:surround_{char2nr("_")} = "__\r__"
+endfunction
 
 " jedi-vim
 let g:jedi#completions_command = "<M-Space>"  " Prevent conflict with my Spotlight shutcut key on Mac
