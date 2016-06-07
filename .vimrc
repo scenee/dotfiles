@@ -19,6 +19,7 @@ set laststatus=2
 set list
 set listchars=trail:_,eol:¬,tab:▸\ 
 set foldmethod=syntax
+set nofoldenable 
 
 colorscheme desert
 
