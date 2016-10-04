@@ -26,6 +26,9 @@ colorscheme desert
 let &colorcolumn=join(range(81,1000),",")
 highlight ColorColumn ctermbg=234
 
+" Visual mode
+vnoremap // y/<C-R>"<CR>
+
 " See https://code.google.com/p/mintty/wiki/Tips#Mode-dependent_cursor_in_vim
 let &t_ti.="\e[1 q"
 "let &t_SI.="\e[5 q"
@@ -51,31 +54,36 @@ Bundle 'Townk/vim-autoclose'
 Bundle 'grep.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'Align'
-Bundle 'kannokanno/previm'
 Bundle 'tyru/open-browser.vim'
-Bundle 'taglist.vim'
-
-Bundle 'vim-scripts/gtags.vim'
-
+Bundle 'itchyny/lightline.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'Shougo/vimproc.vim'
 
+" c plugins
 Bundle "Valloric/YouCompleteMe"
+Bundle 'taglist.vim'
+Bundle 'vim-scripts/gtags.vim'
 
+" erlang plugins
 Bundle 'jimenezrick/vimerl'
 Bundle 'vim-erlang/vim-erlang-tags'
 
+" d plugins
 Bundle 'JesseKPhillips/d.vim'
 
-Bundle 'itchyny/lightline.vim'
-Bundle 'ctrlpvim/ctrlp.vim'
 
+" markdown plugins
+Bundle 'kannokanno/previm'
 Bundle 'plasticboy/vim-markdown'
 
+" python plugins
 Bundle 'davidhalter/jedi-vim'
 Bundle 'jmcantrell/vim-virtualenv'
 
+" html plugins
 Bundle 'othree/html5.vim'
 Bundle 'mattn/emmet-vim'
+
 
 if has("unix")
   let s:uname = system("uname")
@@ -97,7 +105,7 @@ map <Leader>N :NERDTreeClose<CR>
 " vim-markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.report set filetype=markdown
-autocmd FileType markdown set tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " open-browser.vim
 " let g:netrw_nogx = 1 " disable netrw's gw mapping.
@@ -105,21 +113,28 @@ nmap <Leader>w <Plug>(openbrowser-smart-search)
 vmap <Leader>w <Plug>(openbrowser-smart-search)
 
 " c
-autocmd FileType c set tabstop=8 softtabstop=8 shiftwidth=8
+autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8
 
 " shell
-autocmd FileType sh set tabstop=8 softtabstop=8 shiftwidth=8
+autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
 
 " erlang
-autocmd BufRead,BufNewFile *.erl set filetype=erlang
-autocmd FileType erlang set tabstop=4 softtabstop=4 shiftwidth=4
+autocmd BufRead,BufNewFile *.erl setlocal filetype=erlang
+autocmd FileType erlang setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd BufWritePost *.erl call vimproc#system_bg('~/.vim/bundle/vim-erlang-tags/bin/vim-erlang-tags.erl --otp')
 
 " python
 autocmd BufRead,BufNewFile *.kv set filetype=python
-autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd BufRead,BufNewFile *.py set filetype=python
+autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+
+" YAML
+autocmd BufRead,BufNewFile *.yml set filetype=yaml
+autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " ycm
+autocmd FileType c call SetYCM()
+function SetYCM()
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango)
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
@@ -127,6 +142,7 @@ let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
 let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
 let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
+endfunction
 
 " surround
 autocmd FileType html,css call SetSurroundHTML()
@@ -151,8 +167,11 @@ function SetSurroundMarkdown()
 endfunction
 
 " jedi-vim
+autocmd FileType python call SetJedi()
+function SetJedi()
 let g:jedi#completions_command = "<M-Space>"  " Prevent conflict with my Spotlight shutcut key on Mac
 let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map 
 ""let g:jedi#force_py_version = 3
 ""autocmd FileType python setlocal completeopt-=preview
+endfunction
 
