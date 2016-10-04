@@ -1,5 +1,6 @@
 [core]
 	editor = vim
+	ignorecase = false
 [color]
 	ui = auto
 [github]
