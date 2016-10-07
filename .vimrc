@@ -94,6 +94,7 @@ Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'othree/html5.vim'
 Bundle 'mattn/emmet-vim'
 
+Bundle "aklt/plantuml-syntax"
 
 if has("unix")
   let s:uname = system("uname")
@@ -194,5 +195,11 @@ let g:jedi#completions_command = "<M-Space>"  " Prevent conflict with my Spotlig
 let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map 
 ""let g:jedi#force_py_version = 3
 ""autocmd FileType python setlocal completeopt-=preview
+endfunction
+
+" PlantUML
+autocmd FileType plantuml call SetPlantUML()
+function SetPlantUML()
+let g:plantuml_executable_script = "~/.plantuml/plantuml""
 endfunction
 
