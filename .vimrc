@@ -1,4 +1,6 @@
 syntax on
+
+" Basic
 set shell=bash
 set title
 set number
@@ -21,6 +23,7 @@ set listchars=trail:_,eol:¬,tab:▸\
 set foldmethod=syntax
 set nofoldenable 
 
+" Color
 colorscheme desert
 
 let &colorcolumn=join(range(81,1000),",")
@@ -38,7 +41,9 @@ let &t_ti.="\e[1 q"
 " fix highlights for $(..) in 'sh' script because it was not supported by sh
 let g:is_bash = 1
 
-" vundle
+"=============================================================================
+" Vundle {{{1
+
 if !1 | finish | endif
 
 set nocompatible
@@ -55,9 +60,14 @@ Bundle 'grep.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'Align'
 Bundle 'tyru/open-browser.vim'
-Bundle 'itchyny/lightline.vim'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/unite.vim'
+
+"" customize status/tabline 
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+"" Bundle 'itchyny/lightline.vim'
 
 " c plugins
 Bundle "Valloric/YouCompleteMe"
@@ -92,15 +102,26 @@ if has("unix")
   endif
 endif
 
+" }}}1
+"=============================================================================
+
 filetype plugin indent on
 
 " change the current dir automatically
 " See: http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 " autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 
+autocmd QuickFixCmdPost *grep* cwindow
+
 " nerdtree
 map <Leader>n :NERDTree<CR>
 map <Leader>N :NERDTreeClose<CR>
+
+" ----- airline ------
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
 
 " vim-markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
