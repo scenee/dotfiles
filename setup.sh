@@ -1,5 +1,13 @@
 ln -s ${PWD}/.vimrc ~/.vimrc
-ln -s ${PWD}/.gitconfig ~/.gitconfig
+
+if test -f ~/.gitconfig;
+then
+	ln -s ${PWD}/.gitconfig ~/.gitconfig
+else
+	echo "Warning: Found a existing .gitconfig: $HOME/.gitconfig"
+	echo "	Please set up .gitconfig manually"
+fi
+
 ln -s ${PWD}/.git-completion.bash ~/.git-completion.bash
 ln -s ${PWD}/.tigrc ~/.tigrc
 

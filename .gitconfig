@@ -3,8 +3,6 @@
 	ignorecase = false
 [color]
 	ui = auto
-[github]
-	token = bd7c55de88492f3a6377ec9dd49d35ee
 [alias]
 	p4 = !git-p4
 	last = log -1 HEAD
