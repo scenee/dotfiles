@@ -63,6 +63,7 @@ Bundle 'tyru/open-browser.vim'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
+Bundle 'scrooloose/syntastic'
 
 "" customize status/tabline 
 Bundle 'vim-airline/vim-airline'
@@ -133,6 +134,9 @@ let g:quickrun_config._ = {
 " nerdtree
 map <Leader>n :NERDTree<CR>
 map <Leader>N :NERDTreeClose<CR>
+
+" syntastic
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 " ----- airline ------
 let g:airline#extensions#tabline#enabled = 1
@@ -218,4 +222,5 @@ autocmd FileType plantuml call SetPlantUML()
 function SetPlantUML()
 let g:plantuml_executable_script = "~/.plantuml/plantuml""
 endfunction
+
 
