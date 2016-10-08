@@ -114,6 +114,22 @@ filetype plugin indent on
 
 autocmd QuickFixCmdPost *grep* cwindow
 
+" quickrun
+set splitright
+let g:quickrun_config={'*': {}}
+
+let g:quickrun_config._ = {
+\    'split': 'vertical',
+\    'hook/time/enable': '1',
+\   'runner'    : 'vimproc',
+\   'runner/vimproc/updatetime' : 60,
+\   'outputter' : 'error',
+\   'outputter/error/success' : 'buffer',
+\   'outputter/error/error'   : 'quickfix',
+\   'outputter/buffer/close_on_empty' : 1,
+\}
+
+
 " nerdtree
 map <Leader>n :NERDTree<CR>
 map <Leader>N :NERDTreeClose<CR>
