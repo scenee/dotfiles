@@ -132,8 +132,8 @@ let g:quickrun_config._ = {
 
 
 " nerdtree
-map <Leader>n :NERDTree<CR>
-map <Leader>N :NERDTreeClose<CR>
+map <Leader>f :NERDTree<CR>
+map <Leader>F :NERDTreeClose<CR>
 
 " syntastic
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
