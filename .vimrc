@@ -105,8 +105,8 @@ filetype plugin indent on
 
 let g:quickrun_config = get(g:, 'quickrun_config', {})
 let g:quickrun_config._ = {
-\    'split': ':botright 16sp',
-\    'hook/time/enable': '1',
+\   'split': ':botright 16sp',
+\   'hook/time/enable': '1',
 \   'runner'    : 'vimproc',
 \   'runner/vimproc/updatetime' : 60,
 \   'outputter' : 'error',
@@ -140,8 +140,10 @@ vmap <Leader>w <Plug>(openbrowser-smart-search)
 " YCM
 
 autocmd FileType c call SetYCM()
+
 function SetYCM()
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = 
+\ '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango)
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
 let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
@@ -163,11 +165,15 @@ let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
 let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
 let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}""
 endfunction
+
 autocmd FileType python call SetSurroundPython()
+
 function SetSurroundPython()
 	let b:surround_{char2nr("c")} = "\"\"\"\r\"\"\""
 endfunction
+
 autocmd FileType markdown call SetSurroundMarkdown()
+
 function SetSurroundMarkdown()
 	let b:surround_{char2nr("*")} = "**\r**"
 	let b:surround_{char2nr("_")} = "__\r__"
@@ -176,6 +182,7 @@ endfunction
 " jedi-vim
 
 autocmd FileType python call SetJedi()
+
 function SetJedi()
 let g:jedi#completions_command = "<M-Space>"  " Prevent conflict with my Spotlight shutcut key on Mac
 let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map 
@@ -186,6 +193,7 @@ endfunction
 " plantuml-syntax 
 
 autocmd FileType plantuml call SetPlantUML()
+
 function SetPlantUML()
 let g:plantuml_executable_script = "~/.plantuml/plantuml""
 endfunction
@@ -212,7 +220,8 @@ autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
 " erlang
 autocmd BufRead,BufNewFile *.erl setlocal filetype=erlang
 autocmd FileType erlang setlocal tabstop=4 softtabstop=4 shiftwidth=4
-autocmd BufWritePost *.erl call vimproc#system_bg('~/.vim/bundle/vim-erlang-tags/bin/vim-erlang-tags.erl --otp')
+autocmd BufWritePost *.erl call 
+\ vimproc#system_bg('~/.vim/bundle/vim-erlang-tags/bin/vim-erlang-tags.erl --otp')
 
 " python
 autocmd BufRead,BufNewFile *.kv set filetype=python
