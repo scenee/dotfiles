@@ -38,18 +38,19 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 Bundle 'VundleVim/Vundle.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'thinca/vim-quickrun'
-Bundle 'Townk/vim-autoclose'
-Bundle 'grep.vim'
-Bundle 'tpope/vim-surround'
+
 Bundle 'Align'
-Bundle 'tyru/open-browser.vim'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
-Bundle 'scrooloose/syntastic'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Townk/vim-autoclose'
+Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'grep.vim'
 Bundle 'majutsushi/tagbar'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'thinca/vim-quickrun'
+Bundle 'tpope/vim-surround'
+Bundle 'tyru/open-browser.vim'
 
 " status/tabline 
 
