@@ -84,6 +84,7 @@ Bundle 'JesseKPhillips/d.vim'
 
 Bundle 'kannokanno/previm'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'godlygeek/tabular'
 
 " python plugins
 
