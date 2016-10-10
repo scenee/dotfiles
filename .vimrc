@@ -49,6 +49,7 @@ Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
 
 " status/tabline 
 
