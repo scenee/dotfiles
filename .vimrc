@@ -132,8 +132,8 @@ let g:ctrlp_clear_cache_on_exit = 0
 
 " NERDTree
 
-map <Leader>f :NERDTree<CR>
-map <Leader>F :NERDTreeClose<CR>
+map <Space>f :NERDTree<CR>
+map <Space>F :NERDTreeClose<CR>
 
 " syntastic
 
