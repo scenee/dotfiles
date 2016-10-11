@@ -52,6 +52,10 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'tpope/vim-surround'
 Bundle 'tyru/open-browser.vim'
 
+" snippet
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+
 " status/tabline 
 
 Bundle 'vim-airline/vim-airline'
@@ -134,6 +138,14 @@ map <Leader>F :NERDTreeClose<CR>
 " syntastic
 
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+
+" snippet
+let g:UltiSnipsExpandTrigger="<Leader>S"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 
 " vim-airline
 
