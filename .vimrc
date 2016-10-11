@@ -120,6 +120,9 @@ let g:quickrun_config._ = {
 
 " ctrlp
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_max_depth = 10
+let g:ctrlp_max_height = 16
+let g:ctrlp_clear_cache_on_exit = 0
 
 " NERDTree
 
