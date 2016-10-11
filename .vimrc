@@ -59,8 +59,10 @@ Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-fugitive'
 
 " c plugins
-
-Bundle "Valloric/YouCompleteMe"
+" Required Vim 7.4.143 or later on Ubuntu.
+" If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
+Bundle 'Valloric/YouCompleteMe' 
+" Required Eexuberant-ctags.
 Bundle 'taglist.vim'
 Bundle 'vim-scripts/gtags.vim'
 
@@ -135,7 +137,7 @@ let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 " vim-airline
 
-let g:airline_powerline_fonts = 1 " Install https://github.com/powerline/fonts 
+let g:airline_powerline_fonts = 1 " Install https://github.com/powerline/fonts
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
