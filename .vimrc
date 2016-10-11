@@ -118,6 +118,9 @@ let g:quickrun_config._ = {
 \   'outputter/buffer/close_on_empty' : 1,
 \}
 
+" ctrlp
+let g:ctrlp_show_hidden = 1
+
 " NERDTree
 
 map <Leader>f :NERDTree<CR>
@@ -254,5 +257,3 @@ let g:is_bash = 1
 " change the current dir automatically
 " See: http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 " autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
-
-
