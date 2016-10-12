@@ -66,29 +66,25 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-gitgutter'
 
 " c plugins
-if v:version >= 703 && has('patch885') && has("lua")
+
+if has("lua") && v:version > 703 || v:version == 703 && has('patch885')
+	" NeoComplete requires Vim 7.3.885+ with Lua enabled.
 	Bundle "Shougo/neocomplete.vim"
-else
-	echoerr "Error: NeoComplete requires Vim 7.3.885+ with Lua enabled."
 endif
 
-if v:version >= 704 && has('patch143') 
+if v:version > 704 || (v:version == 703 && has('patch143'))
 	\ && (has("python") || has("python3"))
+	" YouCompleteMe require Vim 7.3.885+ with Lua enabled.
 	" If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
 	Bundle 'Valloric/YouCompleteMe' 
-else
-	echoerr "Error: YouCompleteMe require Vim 7.3.885+ with Lua enabled."
 endif
 
 " Required Eexuberant-ctags.
 Bundle 'taglist.vim'
 Bundle 'vim-scripts/gtags.vim'
 
-if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Linux\n"
+if has("unix") && system("uname") == "Linux\n"
     Bundle 'justmao945/vim-clang'
-  endif
 endif
 
 " erlang plugins
