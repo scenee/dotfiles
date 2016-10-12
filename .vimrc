@@ -67,17 +67,17 @@ Bundle 'vim-gitgutter'
 
 " c plugins
 
+" Use NeoComplete now
 if has("lua") && v:version > 703 || v:version == 703 && has('patch885')
 	" NeoComplete requires Vim 7.3.885+ with Lua enabled.
 	Bundle "Shougo/neocomplete.vim"
 endif
-
-if v:version > 704 || (v:version == 703 && has('patch143'))
-	\ && (has("python") || has("python3"))
-	" YouCompleteMe require Vim 7.3.885+ with Lua enabled.
-	" If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
-	Bundle 'Valloric/YouCompleteMe' 
-endif
+"if v:version > 704 || (v:version == 703 && has('patch143'))
+	"\ && (has("python") || has("python3"))
+	"" YouCompleteMe require Vim 7.3.885+ with Lua enabled.
+	"" If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
+	"Bundle 'Valloric/YouCompleteMe' 
+"endif
 
 " Required Eexuberant-ctags.
 Bundle 'taglist.vim'
