@@ -47,6 +47,7 @@ Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'grep.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tpope/vim-surround'
@@ -63,9 +64,12 @@ Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-fugitive'
 
 " c plugins
+Bundle "Shougo/neocomplete.vim"
+
 " Required Vim 7.4.143 or later on Ubuntu.
 " If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
-Bundle 'Valloric/YouCompleteMe' 
+"Bundle 'Valloric/YouCompleteMe' 
+
 " Required Eexuberant-ctags.
 Bundle 'taglist.vim'
 Bundle 'vim-scripts/gtags.vim'
@@ -160,20 +164,29 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 nmap <Leader>w <Plug>(openbrowser-smart-search)
 vmap <Leader>w <Plug>(openbrowser-smart-search)
 
+" NeoComplete
+let g:neocomplete#enable_at_startup = 1
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
 " YCM
+"autocmd FileType * call SetYCM()
+"function SetYCM()
+"let g:ycm_global_ycm_extra_conf = 
+"\ '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"" See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango)
 
-autocmd FileType c call SetYCM()
-
-function SetYCM()
-let g:ycm_global_ycm_extra_conf = 
-\ '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-" See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango)
-let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
-let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
-let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
-let g:ycm_complete_in_comments = 1 " Completion in comments
-let g:ycm_complete_in_strings = 1 " Completion in string
-endfunction
+"let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+"let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+"let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
+"let g:ycm_complete_in_comments = 1 " Completion in comments
+"let g:ycm_complete_in_strings = 1 " Completion in string
+"let g:ycm_python_binary_path = 'python'
+"endfunction
 
 " surround
 
