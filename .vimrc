@@ -142,8 +142,8 @@ let g:ctrlp_clear_cache_on_exit = 0
 
 " NERDTree
 
-map <Space>f :NERDTree<CR>
-map <Space>F :NERDTreeClose<CR>
+nnoremap <silent> <Leader>f :NERDTree<CR>
+nnoremap <silent> <Leader>F :NERDTreeClose<CR>
 
 " syntastic
 
@@ -158,6 +158,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 
+" tagbar
+nnoremap <silent> <Leader>0 :Tagbar<CR>
+
 " vim-airline
 
 let g:airline_powerline_fonts = 1 " Install https://github.com/powerline/fonts
@@ -169,8 +172,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " open-browser
 
 " let g:netrw_nogx = 1 " disable netrw's gw mapping.
-nmap <Leader>w <Plug>(openbrowser-smart-search)
-vmap <Leader>w <Plug>(openbrowser-smart-search)
+nnoremap <Leader>w <Plug>(openbrowser-smart-search)
 
 " NeoComplete
 let g:neocomplete#enable_at_startup = 1
