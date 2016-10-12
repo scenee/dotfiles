@@ -63,6 +63,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-fugitive'
+Bundle 'vim-gitgutter'
 
 " c plugins
 if v:version >= 703 && has('patch885') && has("lua")
@@ -167,6 +168,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
+
 " open-browser
 
 " let g:netrw_nogx = 1 " disable netrw's gw mapping.
@@ -248,6 +250,10 @@ endfunction
 colorscheme desert
 let &colorcolumn=join(range(81,1000),",")
 highlight ColorColumn ctermbg=234
+
+" vim-gitgutter color settings
+let g:gitgutter_override_sign_column_highlight = 0
+highlight clear SignColumn
 
 " ----- FileType -----
 
