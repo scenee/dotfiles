@@ -23,7 +23,7 @@ set laststatus=2
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set list
 set listchars=trail:_,eol:¬,tab:▸\ 
-set foldmethod=syntax
+set foldmethod=marker
 set nofoldenable 
 
 " ------- Plugins --------
@@ -151,6 +151,7 @@ let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 " snippet
 let g:UltiSnipsExpandTrigger="<Leader>S"
+
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
@@ -173,6 +174,7 @@ vmap <Leader>w <Plug>(openbrowser-smart-search)
 
 " NeoComplete
 let g:neocomplete#enable_at_startup = 1
+let g:vim_markdown_folding_disabled = 1
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
