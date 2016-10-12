@@ -1,5 +1,6 @@
 " ===== vimrc =====
 
+
 " ----- Basic -----
 
 syntax on
@@ -64,11 +65,19 @@ Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-fugitive'
 
 " c plugins
-Bundle "Shougo/neocomplete.vim"
+if v:version >= 703 && has('patch885') && has("lua")
+	Bundle "Shougo/neocomplete.vim"
+else
+	echoerr "Error: NeoComplete requires Vim 7.3.885+ with Lua enabled."
+endif
 
-" Required Vim 7.4.143 or later on Ubuntu.
-" If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
-"Bundle 'Valloric/YouCompleteMe' 
+if v:version >= 704 && has('patch143') 
+	\ && (has("python") || has("python3"))
+	" If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
+	Bundle 'Valloric/YouCompleteMe' 
+else
+	echoerr "Error: YouCompleteMe require Vim 7.3.885+ with Lua enabled."
+endif
 
 " Required Eexuberant-ctags.
 Bundle 'taglist.vim'
