@@ -25,6 +25,7 @@ set list
 set listchars=trail:_,eol:¬,tab:▸\ 
 set foldmethod=marker
 set nofoldenable 
+set virtualedit+=block
 
 " ------- Plugins --------
 
@@ -283,12 +284,23 @@ autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd BufRead,BufNewFile *.yml set filetype=yaml
 autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
-" ----- Others -----
+" ----- Key Mapping -----
 
-autocmd QuickFixCmdPost *grep* cwindow
+noremap <C-h> :<C-u>help<Space>
+nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><CR>
+nnoremap ; :
+nnoremap : ;
+nnoremap Q gq
+noremap <Space>h  ^
+noremap <Space>l  $
+noremap <Space>n  %
 
 " Search text selected on visual mode
 vnoremap // y/<C-R>"<CR>
+
+" ----- Others -----
+
+autocmd QuickFixCmdPost *grep* cwindow
 
 " See https://code.google.com/p/mintty/wiki/Tips#Mode-dependent_cursor_in_vim
 let &t_ti.="\e[1 q"
