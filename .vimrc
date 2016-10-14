@@ -153,8 +153,8 @@ let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 " snippet
 let g:UltiSnipsExpandTrigger="<Leader>S"
 
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
