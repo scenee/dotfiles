@@ -7,6 +7,7 @@
 	p4 = !git-p4
 	last = log -1 HEAD
 	unstage = reset HEAD --
+	a = add
 	br = branch
 	st = status
 	rs = reset
@@ -16,11 +17,11 @@
 	rb = rebase
 	pl-master = pull origin master
 	co = commit
-	cp = cherry-pick
+	cr = cherry-pick
 	ps-head = push origin head
-	ck = checkout
+	ch = checkout
 	sm = submodule
-	dif = diff
+	d = diff
 	pl-dev = pull origin develop
 	branch-root = merge-base master HEAD
 	create-pull-request = !sh -c 'stash pull-request $0'
