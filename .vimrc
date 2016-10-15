@@ -173,7 +173,7 @@ let g:airline#extensions#tabline#enabled = 1
 " open-browser
 
 " let g:netrw_nogx = 1 " disable netrw's gw mapping.
-nnoremap <Leader>w <Plug>(openbrowser-smart-search)
+nmap <Leader>w <Plug>(openbrowser-smart-search)
 
 " NeoComplete
 "let g:neocomplete#enable_at_startup = 1
