@@ -38,58 +38,77 @@ fi
 # Mac
 if [ "$(uname)" = 'Darwin' ];
 then
-	### brew ###
-	if [ -f $(brew --prefix)/etc/bash_completion ]; then
-		. $(brew --prefix)/etc/bash_completion
+	### Homebrew ###
+	if which brew > /dev/null;
+	then
+		if [ -f $(brew --prefix)/etc/bash_completion ]; then
+			. $(brew --prefix)/etc/bash_completion
+		fi
+		# WARN:  Please set HOMEBREW_GITHUB_API_TOKEN in ~/.bashrc
+		alias ctags="`brew --prefix`/bin/ctags"
 	fi
-	HOMEBREW_GITHUB_API_TOKEN=354059136c23a22c9755813533648ae396a58118
-	alias ctags="`brew --prefix`/bin/ctags"
 
-	### Shortcut ###
-	KEYVAULT_PATH="/Volumes/KeyVault"
-	DROPBOX_PATH=~/Dropbox
-	DOCUMENT_PATH="$DROPBOX_PATH/Documents"
-	SETTING_PATH="$DROPBOX_PATH/Settings"
+	### Dropbox ###
+	if test -d /Applications/Dropbox.app;
+	then
+		DROPBOX_PATH=~/Dropbox
+		DOCUMENT_PATH="$DROPBOX_PATH/Documents"
+		SETTING_PATH="$DROPBOX_PATH/Settings"
+		KEYVAULT_PATH="/Volumes/KeyVault"
+		function mount_keyvault() {
+			$DROPBOX_PATH/EncryptedData/mnt_keyvault
+		}
 
-	function mount_keyvault() {
-		$DROPBOX_PATH/EncryptedData/mnt_keyvault
-	}
-
-	function umount_keyvault() {
-		$DROPBOX_PATH/EncryptedData/umnt_keyvault
-	}
-
-	### Octave ###
-	## To define a plot application
-	export GNUTERM=x11
+		function umount_keyvault() {
+			$DROPBOX_PATH/EncryptedData/umnt_keyvault
+		}
+	fi
 
 	### rbenv ###
-	export PATH=~/.rbenv/shims:$PATH
-	if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-	PATH="~/.rbenv/shims:~/.rbenv/versions/2.2.2/bin:$PATH"
+	if which rbenv > /dev/null;
+	then
+		export PATH=~/.rbenv/shims:$PATH
+		if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+		PATH="~/.rbenv/shims:~/.rbenv/versions/2.2.2/bin:$PATH"
+	fi
 
-	#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-	[[ -s "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh" ]] && source "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh"
-
-	function activate_anaconda() {
-		# added by Anaconda3 4.0.0 installer
-		PATH0="$PATH"
-		export PATH="/Users/syamamoto/anaconda3/bin:$PATH"
-	} 
-
-	function deactivate_anaconda() {
-		if test ${PATH0:-undefined} != undefined; then
-			export PATH="$PATH0"
-		fi
-	}
+	### gvm ###
+	if which gvm > /dev/null;
+	then
+		#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+		[[ -s "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh" ]] && source "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh"
+	fi
 
 	##### pyenv ###
-  if which pyenv 2>&1 >&-;
-  then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-  fi
+	if which pyenv > /dev/null;
+	then
+		export PYENV_ROOT="$HOME/.pyenv"
+		export PATH="$PYENV_ROOT/bin:$PATH"
+		eval "$(pyenv init -)"
+	fi
+
+	### Anaconda ###
+	if test -d  ~/anaconda*;
+	then
+		function activate_anaconda() {
+			# added by Anaconda3 4.0.0 installer
+			PATH0="$PATH"
+			export PATH="/Users/syamamoto/anaconda3/bin:$PATH"
+		} 
+
+		function deactivate_anaconda() {
+			if test ${PATH0:-undefined} != undefined; then
+				export PATH="$PATH0"
+			fi
+		}
+	fi
+
+	### Octave ###
+	if which octave > /dev/null;
+	then
+		## To define a plot application
+		export GNUTERM=x11
+	fi
 fi
 
 [ -r ~/.bashrc ] && source ~/.bashrc
