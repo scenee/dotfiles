@@ -20,7 +20,7 @@ alias vi="vim"
 alias x="xargs"
 
 if [ ! -z $BASH_VERSION ]; then
-	export PS1="\w$ "
+	export PS1="[\u@\h \W]\$ "
 elif [ ! -z $ZSH_VERSION ]; then
 	export PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 fi
