@@ -151,7 +151,7 @@ nnoremap <silent> <Leader>F :NERDTreeClose<CR>
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 " snippet
-let g:UltiSnipsExpandTrigger="<Leader>S"
+let g:UltiSnipsExpandTrigger="<Leader>p"
 
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
