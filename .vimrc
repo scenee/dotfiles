@@ -56,7 +56,10 @@ Bundle 'tpope/vim-surround'
 Bundle 'tyru/open-browser.vim'
 
 " snippet
-Bundle 'SirVer/ultisnips'
+if v:version > 700 && (has("python") || has("python3"))
+	Bundle 'SirVer/ultisnips'
+endif
+
 Bundle 'honza/vim-snippets'
 
 " status/tabline 
