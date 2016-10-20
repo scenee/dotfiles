@@ -9,6 +9,6 @@ ln -s ${PWD}/.gitconfig ~/.gitconfig
 # Install vundle
 if ! test -d ~/.vim/bundle;
 then
-	mkdir ~/.vim/bundle
+	echo "Install Vundle for vim..."
 	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi

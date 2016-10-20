@@ -1,6 +1,16 @@
 #!/bin/bash -eu
 
-if test uname = Darwin; then
+install() {
+	if test $dist = Raspbian -or $dist = Ubuntu; then
+		sudo apt-get -qy update
+		sudo apt-get -qy install $1
+	else
+		: # TODO
+	fi
+}
+
+os_name=$(uname)
+if test $os_name = Darwin; then
 
 	echo "==> Check xcode-select"
 
@@ -11,31 +21,27 @@ if test uname = Darwin; then
 		xcode-select --install
 	fi
 
-elif test uname = Linux; then
+elif test $os_name = Linux; then
 
 	dist="$(lsb_release -i | awk '{ print $3 }')"
 
-	if test $dist = Raspbian -or $dist = Ubuntu; then
-
-		echo "==> Check git"
-		if ! which git > /dev/null; then
-			echo "==> Install git"
-			sudo apt-get install git -y 
-		fi
-	else
-		: # TODO
+	echo "==> Detect distribution: $dist"
+	echo "==> Check git"
+	if ! which git > /dev/null; then
+		echo "==> Install git"
+		install git
 	fi
-
 fi
 
-echo "OK"
+echo "==> Fetch dotfiles..."
+echo ""
+git clone https://github.com/SCENEE/dotfiles.git
 
-echo "=> Fetch dotfiles"
-git clone https://github.com/SCENEE/dotfiles.git > /dev/null
-
-pushd dotfiles
-echo "=> Set up"
+pushd dotfiles > /dev/null
+echo "==> Set up dotfiles..."
+echo ""
 ./setup.sh
-popd
+popd > /dev/null
 
+echo ""
 echo "Done!"
