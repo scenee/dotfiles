@@ -288,10 +288,11 @@ autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " ----- Key Mapping -----
 
 noremap <C-h> :<C-u>help<Space>
-nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><CR>
-nnoremap ; :
-nnoremap : ;
-nnoremap Q gq
+
+noremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><CR>
+noremap ; :
+noremap : ;
+noremap Q gq
 noremap <Space>h  ^
 noremap <Space>l  $
 noremap <Space>n  %
