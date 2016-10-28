@@ -305,6 +305,8 @@ vnoremap // y/<C-R>"<CR>
 
 " ----- Others -----
 
+" You can pop a vertical window to display grep results
+" 	autocmd QuickFixCmdPost *grep* :vert 100 cwindow
 autocmd QuickFixCmdPost *grep* cwindow
 
 " See https://code.google.com/p/mintty/wiki/Tips#Mode-dependent_cursor_in_vim
