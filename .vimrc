@@ -190,8 +190,8 @@ nmap <Leader>w <Plug>(openbrowser-smart-search)
 
 " YCM
 
-autocmd FileType * call SetYCM()
-function SetYCM()
+autocmd FileType * call s:SetYCM()
+function! s:SetYCM()
 let g:ycm_global_ycm_extra_conf = 
 \ '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango)
@@ -206,8 +206,8 @@ endfunction
 
 " surround
 
-autocmd FileType html,css call SetSurroundHTML()
-function SetSurroundHTML()
+autocmd FileType html,css call s:SetSurroundHTML()
+function! s:SetSurroundHTML()
 let b:surround_{char2nr("v")} = "{{ \r }}"
 let b:surround_{char2nr("{")} = "{{ \r }}"
 let b:surround_{char2nr("%")} = "{% \r %}"
@@ -218,24 +218,24 @@ let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
 let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}""
 endfunction
 
-autocmd FileType python call SetSurroundPython()
+autocmd FileType python call s:SetSurroundPython()
 
-function SetSurroundPython()
+function! s:SetSurroundPython()
 	let b:surround_{char2nr("c")} = "\"\"\"\r\"\"\""
 endfunction
 
-autocmd FileType markdown call SetSurroundMarkdown()
+autocmd FileType markdown call s:SetSurroundMarkdown()
 
-function SetSurroundMarkdown()
+function! s:SetSurroundMarkdown()
 	let b:surround_{char2nr("*")} = "**\r**"
 	let b:surround_{char2nr("_")} = "__\r__"
 endfunction
 
 " jedi-vim
 
-autocmd FileType python call SetJedi()
+autocmd FileType python call s:SetJedi()
 
-function SetJedi()
+function! s:SetJedi()
 let g:jedi#completions_command = "<M-Space>"  " Prevent conflict with my Spotlight shutcut key on Mac
 let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map 
 ""let g:jedi#force_py_version = 3
@@ -244,9 +244,9 @@ endfunction
 
 " plantuml-syntax 
 
-autocmd FileType plantuml call SetPlantUML()
+autocmd FileType plantuml call s:SetPlantUML()
 
-function SetPlantUML()
+function! s:SetPlantUML()
 let g:plantuml_executable_script = "~/.plantuml/plantuml""
 endfunction
 
