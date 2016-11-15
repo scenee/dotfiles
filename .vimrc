@@ -67,7 +67,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-fugitive'
-Bundle 'vim-gitgutter'
+Bundle 'airblade/vim-gitgutter'
 
 " c plugins
 
