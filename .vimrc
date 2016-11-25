@@ -16,7 +16,9 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 set smartindent
+set smartcase
 set hlsearch
+set nowrap 
 set incsearch
 set wildmenu wildmode=list:full
 set laststatus=2
