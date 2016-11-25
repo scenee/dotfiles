@@ -58,11 +58,14 @@ Bundle 'tpope/vim-surround'
 Bundle 'tyru/open-browser.vim'
 
 " snippet
-if v:version > 700 && (has("python") || has("python3"))
-	Bundle 'SirVer/ultisnips'
-endif
+Bundle 'Shougo/neosnippet'
+Bundle 'Shougo/neosnippet-snippets'
 
-Bundle 'honza/vim-snippets'
+" if v:version > 700 && (has("python") || has("python3"))
+" 	Bundle 'SirVer/ultisnips'
+" endif
+" 
+" Bundle 'honza/vim-snippets'
 
 " status/tabline 
 
@@ -156,13 +159,30 @@ nnoremap <silent> <Leader>F :NERDTreeClose<CR>
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 " snippet
-let g:UltiSnipsExpandTrigger="<Leader>p"
-
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<Leader>p"
+" 
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
 
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
 " tagbar
 nnoremap <silent> <Leader>0 :Tagbar<CR>
