@@ -27,6 +27,13 @@ fi
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
+# Less
+export LESS='-g -i -M -R -S -W -z-4 -x4'
+export PAGER=less
+if which lesspipe.sh > /dev/null; then
+	export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
+fi
+
 # Subversion
 export SVN_EDITOR=vim
 
