@@ -108,8 +108,8 @@ Bundle 'JesseKPhillips/d.vim'
 " markdown plugins
 
 Bundle 'kannokanno/previm'
-Bundle 'plasticboy/vim-markdown'
 Bundle 'godlygeek/tabular'
+Bundle 'plasticboy/vim-markdown'
 
 " python plugins
 
@@ -288,6 +288,7 @@ highlight clear SignColumn
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.report set filetype=markdown
 autocmd FileType markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+let g:vim_markdown_conceal = 0
 
 " c
 autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8
