@@ -86,7 +86,7 @@ then
 		[[ -s "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh" ]] && source "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh"
 	fi
 
-	##### pyenv ###
+	### pyenv ###
 	if which pyenv > /dev/null;
 	then
 		export PYENV_ROOT="$HOME/.pyenv"

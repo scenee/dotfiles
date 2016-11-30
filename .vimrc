@@ -18,7 +18,7 @@ set autoindent
 set smartindent
 set smartcase
 set hlsearch
-set nowrap 
+"set nowrap 
 set incsearch
 set wildmenu wildmode=list:full
 set laststatus=2
