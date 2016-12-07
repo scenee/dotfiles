@@ -313,13 +313,21 @@ autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " ----- Key Mapping -----
 
-noremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><CR>
+" General
 noremap ; :
 noremap : ;
 noremap Q gq
 noremap <Space>h  ^
 noremap <Space>l  $
 noremap <Space>n  %
+
+
+" Gtags
+noremap <C-g> :Gtags 
+noremap <C-h> :Gtags -f %<CR>
+noremap <C-j> :GtagsCursor<CR>
+noremap <C-n> :cn<CR>
+noremap <C-p> :cp<CR>
 
 " Search text selected on visual mode
 vnoremap // y/<C-R>"<CR>
@@ -351,4 +359,5 @@ function! s:DiffWithSaved()
 	exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
+
 
