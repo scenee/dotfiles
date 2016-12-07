@@ -96,6 +96,10 @@ then
 
 	fi
 
+	### relax ###
+	if which relax > /dev/null; then source "$(relax init completion)"; fi
+
+
 	### Anaconda ###
 	if test -d  ~/anaconda*;
 	then
