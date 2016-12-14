@@ -1,6 +1,5 @@
 " ===== vimrc =====
 
-
 " ----- Basic -----
 
 syntax on
@@ -183,6 +182,9 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+" gtags
+let g:Gtags_OpenQuickfixWindow = 0
 
 " tagbar
 nnoremap <silent> <Leader>0 :Tagbar<CR>
