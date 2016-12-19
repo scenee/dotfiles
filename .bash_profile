@@ -122,6 +122,11 @@ then
 		## To define a plot application
 		export GNUTERM=x11
 	fi
+
+	### iTerm ###
+	chtname()  { 
+		echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
+	}
 fi
 
 [ -r ~/.bashrc ] && source ~/.bashrc
