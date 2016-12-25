@@ -56,6 +56,7 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'tpope/vim-surround'
 Bundle 'tyru/open-browser.vim'
 
+
 " color
 
 Bundle "w0ng/vim-hybrid"
@@ -127,6 +128,9 @@ Bundle 'mattn/emmet-vim'
 " plantuml plugins
 
 Bundle "aklt/plantuml-syntax"
+
+" bats plugins
+Bundle 'vim-scripts/bats.vim'
 
 filetype plugin indent on
 
