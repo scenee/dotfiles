@@ -59,9 +59,6 @@ then
 	if test -d /Applications/Dropbox.app;
 	then
 		DROPBOX_PATH=~/Dropbox
-		DOCUMENT_PATH="$DROPBOX_PATH/Documents"
-		SETTING_PATH="$DROPBOX_PATH/Settings"
-		KEYVAULT_PATH="/Volumes/KeyVault"
 		function mount_keyvault() {
 			$DROPBOX_PATH/EncryptedData/mnt_keyvault
 		}
