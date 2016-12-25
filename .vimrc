@@ -276,12 +276,7 @@ let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map
 endfunction
 
 " plantuml-syntax 
-
-autocmd FileType plantuml call s:SetPlantUML()
-
-function! s:SetPlantUML()
 let g:plantuml_executable_script = "~/.plantuml/plantuml""
-endfunction
 
 " ----- Color -----
 
