@@ -1,15 +1,18 @@
 #!/bin/bash
 
-ln -s ${PWD}/.bash_profile ~/.bash_profile
-ln -s ${PWD}/.vimrc ~/.vimrc
-ln -s ${PWD}/.git-completion.bash ~/.git-completion.bash
-ln -s ${PWD}/.tigrc ~/.tigrc
-ln -s ${PWD}/.gitconfig ~/.gitconfig
-ln -s ${PWD}/.plantuml ~/.plantuml
+DOTFILES=${PWD}
 
-# Install vundle
-if ! test -d ~/.vim/bundle;
-then
-	echo "Install Vundle for vim..."
-	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
+pushd ~/ >/dev/null
+[[ ! -f .bash_profile ]] || rm .bash_profile
+[[ ! -f .vimrc ]] || rm .vimrc
+[[ ! -f .git-completion.bash ]] || rm .git-completion.bash
+[[ ! -f .tigrc ]] || rm .tigrc
+[[ ! -f .gitconfig ]] || rm .gitconfig
+[[ ! -d .plantuml ]] || rm -rf .plantuml
+ln -s ${DOTFILES}/.bash_profile
+ln -s ${DOTFILES}/.vimrc
+ln -s ${DOTFILES}/.git-completion.bash
+ln -s ${DOTFILES}/.tigrc
+ln -s ${DOTFILES}/.gitconfig
+ln -s ${DOTFILES}/.plantuml
+popd >/dev/null

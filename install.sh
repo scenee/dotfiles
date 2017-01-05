@@ -51,7 +51,8 @@ pushd dotfiles > /dev/null
 
 print "$ARROW Set up dotfiles"
 
-./setup.sh
+make all
+
 popd > /dev/null
 
 print "${BOLD}Done!${NC}"
