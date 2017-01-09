@@ -48,6 +48,15 @@ endif
 vnoremap // y/<C-R>"<CR>
 
 set shell=bash
+" fix highlights for $(..) in 'sh' script because it was not supported by sh
+let g:is_bash = 1
+
+" You can pop a vertical window to display grep results
+" 	autocmd QuickFixCmdPost *grep* :vert 100 cwindow
+autocmd QuickFixCmdPost *grep* cwindow
+
+" See https://code.google.com/p/mintty/wiki/Tips#Mode-dependent_cursor_in_vim
+let &t_ti.="\e[1 q"
 
 " ------- Plugins --------
 if !1 | finish | endif
@@ -72,19 +81,16 @@ Bundle 'scrooloose/syntastic'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tpope/vim-surround'
 Bundle 'tyru/open-browser.vim'
+Bundle 'ervandew/supertab'
 
 " color
 Bundle "w0ng/vim-hybrid"
 
 " snippet
-Bundle 'Shougo/neosnippet'
-Bundle 'Shougo/neosnippet-snippets'
-
-" if v:version > 700 && (has("python") || has("python3"))
-" 	Bundle 'SirVer/ultisnips'
-" endif
-" 
-" Bundle 'honza/vim-snippets'
+if v:version > 700 && (has("python") || has("python3"))
+	Bundle 'SirVer/ultisnips'
+endif
+Bundle 'honza/vim-snippets'
 
 " status/tabline 
 Bundle 'vim-airline/vim-airline'
@@ -93,12 +99,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 
 " c plugins
-
-"" NeoComplete has problem in python completion.
-"if has("lua") && v:version > 703 || v:version == 703 && has('patch885')
-	"" NeoComplete requires Vim 7.3.885+ with Lua enabled.
-	"Bundle "Shougo/neocomplete.vim"
-"endif
 if v:version > 704 || (v:version == 703 && has('patch143'))
 	\ && (has("python") || has("python3"))
 	" YouCompleteMe require Vim 7.3.885+ with Lua enabled.
@@ -173,25 +173,11 @@ nnoremap <silent> <Leader>F :NERDTreeClose<CR>
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 " snippet
-" let g:UltiSnipsExpandTrigger="<Leader>p"
-" 
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<Leader>s"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+let g:UltiSnipsEditSplit="vertical"
 
 " For conceal markers.
 if has('conceal')
@@ -215,16 +201,7 @@ let g:airline#extensions#tabline#enabled = 1
 " open-browser
 nmap <Leader>w <Plug>(openbrowser-smart-search)
 " let g:netrw_nogx = 1 " disable netrw's gw mapping.
-
-" NeoComplete
-"let g:neocomplete#enable_at_startup = 1
-"let g:vim_markdown_folding_disabled = 1
-"" Enable omni completion.
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
+ 
 " YCM
 " If you use pyenv, you have to reinstall a python. See also https://github.com/yyuu/pyenv/issues/99
 " ```
@@ -237,7 +214,7 @@ let g:ycm_global_ycm_extra_conf =
 " See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango)
 
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
-"let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
 let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
 let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
@@ -339,33 +316,3 @@ autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 " YAML
 autocmd BufRead,BufNewFile *.yml set filetype=yaml
 autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-
-" ----- Others -----
-
-" You can pop a vertical window to display grep results
-" 	autocmd QuickFixCmdPost *grep* :vert 100 cwindow
-autocmd QuickFixCmdPost *grep* cwindow
-
-" See https://code.google.com/p/mintty/wiki/Tips#Mode-dependent_cursor_in_vim
-let &t_ti.="\e[1 q"
-"let &t_SI.="\e[5 q"
-"let &t_EI.="\e[1 q"
-"let &t_te.="\e[1 q"
-"
-" fix highlights for $(..) in 'sh' script because it was not supported by sh
-let g:is_bash = 1
-
-" change the current dir automatically
-" See: http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
-" autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
-
-function! s:DiffWithSaved()
-	let filetype=&ft
-	diffthis
-	vnew | r # | normal! 1Gdd
-	diffthis
-	exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-endfunction
-com! DiffSaved call s:DiffWithSaved()
-
-
