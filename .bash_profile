@@ -73,7 +73,7 @@ then
 	then
 		export PATH=~/.rbenv/shims:$PATH
 		if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-		PATH="~/.rbenv/shims:~/.rbenv/versions/2.2.2/bin:$PATH"
+		PATH="~/.rbenv/shims:$PATH"
 	fi
 
 	### gvm ###
