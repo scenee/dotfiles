@@ -45,9 +45,9 @@ fi
 
 print "$ARROW Fetch dotfiles"
 
-git clone https://github.com/SCENEE/dotfiles.git
+git clone https://github.com/SCENEE/dotfiles.git ~/.dotfiles
 
-pushd dotfiles > /dev/null
+pushd ~/.dotfiles > /dev/null
 
 print "$ARROW Set up dotfiles"
 
