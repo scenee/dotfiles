@@ -28,20 +28,32 @@ set foldmethod=marker
 set nofoldenable 
 set virtualedit+=block
 
-" ------- Plugins --------
+" ----- Key Mapping -----
+
+" General
+noremap ; :
+noremap : ;
+noremap Q gq
+noremap <Space>h  ^
+noremap <Space>l  $
+noremap <Space>n  %
+
+
+" Search text selected on visual mode
+vnoremap // y/<C-R>"<CR>
 
 set shell=bash
 
+" ------- Plugins --------
 if !1 | finish | endif
 
 set nocompatible
 filetype off
 
 set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
+call vundle#begin()
 
 Bundle 'VundleVim/Vundle.vim'
-
 Bundle 'Align'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc.vim'
@@ -56,9 +68,7 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'tpope/vim-surround'
 Bundle 'tyru/open-browser.vim'
 
-
 " color
-
 Bundle "w0ng/vim-hybrid"
 
 " snippet
@@ -72,7 +82,6 @@ Bundle 'Shougo/neosnippet-snippets'
 " Bundle 'honza/vim-snippets'
 
 " status/tabline 
-
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-fugitive'
@@ -101,37 +110,32 @@ if has("unix") && system("uname") == "Linux\n"
 endif
 
 " erlang plugins
-
 Bundle 'jimenezrick/vimerl'
 Bundle 'vim-erlang/vim-erlang-tags'
 
 " d plugins
-
 Bundle 'JesseKPhillips/d.vim'
 
 " markdown plugins
-
 Bundle 'kannokanno/previm'
 Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
 
 " python plugins
-
 Bundle 'davidhalter/jedi-vim'
 Bundle 'jmcantrell/vim-virtualenv'
 
 " html plugins
-
 Bundle 'othree/html5.vim'
 Bundle 'mattn/emmet-vim'
 
 " plantuml plugins
-
 Bundle "aklt/plantuml-syntax"
 
 " bats plugins
 Bundle 'vim-scripts/bats.vim'
 
+call vundle#end()
 filetype plugin indent on
 
 " ----- Plugin settings -----
@@ -157,12 +161,10 @@ let g:ctrlp_max_height = 16
 let g:ctrlp_clear_cache_on_exit = 0
 
 " NERDTree
-
 nnoremap <silent> <Leader>f :NERDTree<CR>
 nnoremap <silent> <Leader>F :NERDTreeClose<CR>
 
 " syntastic
-
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 " snippet
@@ -199,7 +201,6 @@ let g:Gtags_OpenQuickfixWindow = 0
 nnoremap <silent> <Leader>0 :Tagbar<CR>
 
 " vim-airline
-
 let g:airline_powerline_fonts = 1 " Install https://github.com/powerline/fonts
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
@@ -207,9 +208,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 
 " open-browser
-
-" let g:netrw_nogx = 1 " disable netrw's gw mapping.
 nmap <Leader>w <Plug>(openbrowser-smart-search)
+" let g:netrw_nogx = 1 " disable netrw's gw mapping.
 
 " NeoComplete
 "let g:neocomplete#enable_at_startup = 1
@@ -218,11 +218,13 @@ nmap <Leader>w <Plug>(openbrowser-smart-search)
 "autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 "autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 "autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " YCM
-
+" If you use pyenv, you have to reinstall a python. See also https://github.com/yyuu/pyenv/issues/99
+" ```
+" env PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang" pyenv install 3.6.0
+" ````
 autocmd FileType * call s:SetYCM()
 function! s:SetYCM()
 let g:ycm_global_ycm_extra_conf = 
@@ -230,15 +232,14 @@ let g:ycm_global_ycm_extra_conf =
 " See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango)
 
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
-let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+"let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
 let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
 let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
-let g:ycm_python_binary_path = 'python'
+"let g:ycm_python_binary_path = 'python'
 endfunction
 
 " surround
-
 autocmd FileType html,css call s:SetSurroundHTML()
 function! s:SetSurroundHTML()
 let b:surround_{char2nr("v")} = "{{ \r }}"
@@ -264,15 +265,26 @@ function! s:SetSurroundMarkdown()
 	let b:surround_{char2nr("_")} = "__\r__"
 endfunction
 
-" jedi-vim
+" Gtags
+autocmd FileType c,cpp call s:SetGTAG()
 
+function! s:SetGTAG()
+noremap <C-g> :Gtags 
+noremap <C-h> :Gtags -f %<CR>
+noremap <C-j> :GtagsCursor<CR>
+noremap <C-n> :cn<CR>
+noremap <C-p> :cp<CR>
+endfunction
+
+" jedi-vim
 autocmd FileType python call s:SetJedi()
 
 function! s:SetJedi()
-let g:jedi#completions_command = "<M-Space>"  " Prevent conflict with my Spotlight shutcut key on Mac
+let g:jedi#completions_command = "<C-Space>"  " Prevent conflict with my Spotlight shutcut key on Mac
 let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map 
+let g:jedi#goto_command = "<C-j>"
 ""let g:jedi#force_py_version = 3
-""autocmd FileType python setlocal completeopt-=preview
+"setlocal completeopt-=preview
 endfunction
 
 " plantuml-syntax 
@@ -281,7 +293,6 @@ let g:plantuml_executable_script = "~/.plantuml/plantuml""
 " ----- Color -----
 
 "colorscheme desert
-
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette. "
 set background=dark
@@ -323,27 +334,6 @@ autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 " YAML
 autocmd BufRead,BufNewFile *.yml set filetype=yaml
 autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-
-" ----- Key Mapping -----
-
-" General
-noremap ; :
-noremap : ;
-noremap Q gq
-noremap <Space>h  ^
-noremap <Space>l  $
-noremap <Space>n  %
-
-
-" Gtags
-noremap <C-g> :Gtags 
-noremap <C-h> :Gtags -f %<CR>
-noremap <C-j> :GtagsCursor<CR>
-noremap <C-n> :cn<CR>
-noremap <C-p> :cp<CR>
-
-" Search text selected on visual mode
-vnoremap // y/<C-R>"<CR>
 
 " ----- Others -----
 
