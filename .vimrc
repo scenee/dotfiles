@@ -38,6 +38,11 @@ noremap <Space>h  ^
 noremap <Space>l  $
 noremap <Space>n  %
 
+" Continuous increment/decrement
+if v:version > 705 || (v:version > 704 && has('patch754'))
+vnoremap <c-a> <c-a>gv
+vnoremap <c-x> <c-x>gv
+endif
 
 " Search text selected on visual mode
 vnoremap // y/<C-R>"<CR>
