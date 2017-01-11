@@ -28,7 +28,7 @@ export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
 # Less
-export LESS='-g -i -R -W -z-4 -x4'
+export LESS='-g -i -R -z-4 -x4'
 export PAGER=less
 if which lesspipe.sh > /dev/null; then
 	export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
