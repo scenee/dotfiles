@@ -264,7 +264,7 @@ endfunction
 autocmd FileType python call s:SetJedi()
 
 function! s:SetJedi()
-let g:jedi#completions_command = "<C-Space>"  " Prevent conflict with my Spotlight shutcut key on Mac
+let g:jedi#completions_command = "<Tab>"  " Prevent conflict with my Spotlight shutcut key on Mac
 let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map 
 let g:jedi#goto_command = "<C-j>"
 ""let g:jedi#force_py_version = 3
