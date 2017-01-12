@@ -191,6 +191,7 @@ let g:Gtags_OpenQuickfixWindow = 0
 
 " tagbar
 nnoremap <silent> <Leader>0 :Tagbar<CR>
+let g:tagbar_sort = 0
 
 " vim-airline
 let g:airline_powerline_fonts = 1 " Install https://github.com/powerline/fonts
