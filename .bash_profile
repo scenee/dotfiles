@@ -1,4 +1,7 @@
-# LANG
+# Env
+export EDITOR=vim
+
+## LANG
 export LANG=en_US.UTF-8
 export LC_CTYPE=UTF-8
 export LC_ALL=en_US.UTF-8
@@ -88,9 +91,9 @@ then
 	then
 		export PYENV_ROOT="$HOME/.pyenv"
 		export PATH="$PYENV_ROOT/bin:$PATH"
+		export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 		eval "$(pyenv init -)"
 		eval "$(pip completion --bash)"
-
 	fi
 
 	### relax ###
@@ -129,4 +132,3 @@ fi
 [ -r ~/.bashrc ] && source ~/.bashrc
 
 export PATH="/usr/local/sbin:$PATH"
-export EDITOR=vim
