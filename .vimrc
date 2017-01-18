@@ -266,6 +266,7 @@ autocmd FileType python call s:SetJedi()
 autocmd FileType python setlocal completeopt-=preview
 
 function! s:SetJedi()
+let g:jedi#completions_enabled = 0
 let g:jedi#completions_command = "<Tab>"  " Prevent conflict with my Spotlight shutcut key on Mac
 let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map 
 let g:jedi#goto_command = "<C-j>"
