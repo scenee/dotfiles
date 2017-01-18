@@ -91,7 +91,7 @@ then
 	then
 		export PYENV_ROOT="$HOME/.pyenv"
 		export PATH="$PYENV_ROOT/bin:$PATH"
-		export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+		export VIRTUALENVWRAPPER_PYTHON="$PYENV_ROOT/shims/python"
 		eval "$(pyenv init -)"
 		eval "$(pip completion --bash)"
 	fi
