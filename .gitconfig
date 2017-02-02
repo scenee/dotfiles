@@ -4,26 +4,22 @@
 [color]
 	ui = auto
 [alias]
-	p4 = !git-p4
-	last = log -1 HEAD
-	unstage = reset HEAD --
-	a = add
+	ad = add
 	br = branch
 	st = status
 	rs = reset
-	visual = !gitk
 	ps = push
 	pl = pull
 	rb = rebase
-	pl-master = pull origin master
 	co = commit
 	cr = cherry-pick
-	ps-head = push origin head
 	ch = checkout
 	sm = submodule
 	d = diff
-	pl-dev = pull origin develop
 	branch-root = merge-base master HEAD
+	ps-head = push origin head
+	pl-master = pull origin master
+	pl-develop = pull origin develop
 	create-pull-request = !sh -c 'stash pull-request $0'
 [user]
 	name = Shin Yamamoto
@@ -31,9 +27,9 @@
 [rebase]
 	autosquash = true
 [alias]
-  pbcopy = !printf "$1" | pbcopy
+	pbcopy = !printf "$1" | pbcopy
 [tig "bind"]
-  main = c ?@git pbcopy %(commit)
+	main = c ?@git pbcopy %(commit)
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
