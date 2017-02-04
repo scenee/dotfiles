@@ -88,6 +88,15 @@ then
 		echo "Not found .bash_private"
 	fi
 
+	function empty-trash () {
+		if [ -z "$(ls -A ~/.Trash/)" ]; then
+			echo "Trash is empty"
+		else
+			osascript -e 'tell app "Finder" to empty'
+		fi
+	}
+	
+
 	### Homebrew ###
 	if which brew > /dev/null;
 	then
