@@ -10,7 +10,6 @@ export IGNOREEOF=3
 # custmizing commands
 alias c="cd "
 alias cp="cp -i"
-alias grep="grep -E"
 alias ll="ls -AlFh"
 alias ls="ls -F"
 alias o="open "
