@@ -94,7 +94,10 @@ then
 			osascript -e 'tell app "Finder" to empty'
 		fi
 	}
-	
+
+	function shutdown-applescript () {
+		osascript -e 'tell app "loginwindow" to «event aevtrsdn»'
+	}
 
 	### Homebrew ###
 	if which brew > /dev/null;
