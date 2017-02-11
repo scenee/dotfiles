@@ -165,5 +165,3 @@ then
 fi
 
 [ -r ~/.bashrc ] && source ~/.bashrc
-
-export PATH="/usr/local/sbin:$PATH"
