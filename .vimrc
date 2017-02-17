@@ -225,7 +225,7 @@ let g:ycm_python_binary_path = 'python'
 endfunction
 
 " surround
-autocmd FileType html,css call s:SetSurroundHTML()
+autocmd FileType html,htmldjango,css call s:SetSurroundHTML()
 function! s:SetSurroundHTML()
 let b:surround_{char2nr("v")} = "{{ \r }}"
 let b:surround_{char2nr("{")} = "{{ \r }}"
@@ -302,6 +302,9 @@ let g:vim_markdown_conceal = 0
 
 " c
 autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8
+
+" html
+autocmd FileType html,htmldjango,css setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " shell
 autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
