@@ -83,6 +83,7 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'tpope/vim-surround'
 Bundle 'tyru/open-browser.vim'
 Bundle 'ervandew/supertab'
+Bundle 'dhruvasagar/vim-table-mode'
 
 " color
 Bundle "w0ng/vim-hybrid"
