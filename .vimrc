@@ -295,12 +295,6 @@ highlight clear SignColumn
 
 " ----- FileType -----
 
-" vim-markdown
-autocmd BufRead,BufNewFile *.md set filetype=markdown
-autocmd BufRead,BufNewFile *.report set filetype=markdown
-autocmd FileType markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-let g:vim_markdown_conceal = 0
-
 " c
 autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8
 
@@ -324,3 +318,14 @@ autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 " YAML
 autocmd BufRead,BufNewFile *.yml set filetype=yaml
 autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+" conf
+autocmd BufRead,BufNewFile *.conf set filetype=conf
+autocmd FileType conf setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+
+" vim-markdown
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+autocmd BufRead,BufNewFile *.report set filetype=markdown
+autocmd FileType markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+let g:vim_markdown_conceal = 0
+
