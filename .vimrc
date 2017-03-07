@@ -135,6 +135,9 @@ Bundle 'jmcantrell/vim-virtualenv'
 " html plugins
 Bundle 'othree/html5.vim'
 Bundle 'mattn/emmet-vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'maxmellon/vim-jsx-pretty'
+
 
 " plantuml plugins
 Bundle "aklt/plantuml-syntax"
@@ -299,7 +302,7 @@ highlight clear SignColumn
 autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8
 
 " html
-autocmd FileType html,htmldjango,css setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType html,htmldjango,javascript,css setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " shell
 autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
