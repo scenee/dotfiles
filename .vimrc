@@ -1,6 +1,6 @@
 " ===== vimrc =====
 
-" ----- Basic -----
+" Basic {{{1
 
 syntax on
 set shell=bash
@@ -25,11 +25,12 @@ set laststatus=2
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set list
 set listchars=trail:_,eol:¬,tab:▸\ 
-set foldmethod=marker
-set nofoldenable 
+"set nofoldenable 
 set virtualedit+=block
 
-" ----- Key Mapping -----
+" }}}1
+
+" Key Mapping {{{1
 
 " General
 noremap ; :
@@ -59,7 +60,9 @@ autocmd QuickFixCmdPost *grep* cwindow
 " See https://code.google.com/p/mintty/wiki/Tips#Mode-dependent_cursor_in_vim
 let &t_ti.="\e[1 q"
 
-" ------- Plugins --------
+" }}}1
+
+" Plugins {{{
 if !1 | finish | endif
 
 set nocompatible
@@ -85,22 +88,25 @@ Bundle 'tyru/open-browser.vim'
 Bundle 'ervandew/supertab'
 Bundle 'dhruvasagar/vim-table-mode'
 
-" color
+" Color {{{
 Bundle "w0ng/vim-hybrid"
+" }}}
 
-" snippet
+" Snippets {{{
 if v:version > 700 && (has("python") || has("python3"))
 	Bundle 'SirVer/ultisnips'
 endif
 Bundle 'honza/vim-snippets'
+" }}}
 
-" status/tabline 
+" Status/Tabline {{{
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
+" }}}
 
-" c plugins
+" C Plugins {{{
 if v:version > 704 || (v:version == 703 && has('patch143'))
 	\ && (has("python") || has("python3"))
 	" YouCompleteMe require Vim 7.3.885+ with Lua enabled.
@@ -115,40 +121,49 @@ Bundle 'vim-scripts/gtags.vim'
 if has("unix") && system("uname") == "Linux\n"
     Bundle 'justmao945/vim-clang'
 endif
+" }}}
 
-" erlang plugins
+" Erlang plugins {{{
 Bundle 'jimenezrick/vimerl'
 Bundle 'vim-erlang/vim-erlang-tags'
+" }}}
 
-" d plugins
+" D plugins {{{
 Bundle 'JesseKPhillips/d.vim'
+" }}}
 
-" markdown plugins
+" Markdown plugins {{{
 Bundle 'kannokanno/previm'
 Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
+" }}}
 
-" python plugins
+" Python plugins {{{
 Bundle 'davidhalter/jedi-vim'
 Bundle 'jmcantrell/vim-virtualenv'
+" }}}
 
-" html plugins
+" HTML/JS plugins {{{
 Bundle 'othree/html5.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'maxmellon/vim-jsx-pretty'
+" }}}
 
-
-" plantuml plugins
+" PlantUML plugins {{{
 Bundle "aklt/plantuml-syntax"
+" }}}
 
-" bats plugins
+" bats plugins {{{
 Bundle 'vim-scripts/bats.vim'
+" }}}
 
 call vundle#end()
 filetype plugin indent on
 
-" ----- Plugin settings -----
+" }}}
+
+" Plugin settings {{{
 
 " quickrun.vim 
 
@@ -280,7 +295,9 @@ endfunction
 " plantuml-syntax 
 let g:plantuml_executable_script = "~/.plantuml/plantuml""
 
-" ----- Color -----
+" }}}
+
+" Color {{{1
 
 "colorscheme desert
 let g:hybrid_custom_term_colors = 1
@@ -296,28 +313,30 @@ highlight ColorColumn ctermbg=234
 let g:gitgutter_override_sign_column_highlight = 0
 highlight clear SignColumn
 
-" ----- FileType -----
+" }}}1
 
-" c
+" FileType {{{1
+
+" C
 autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8
 
 " bats
 autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
-" html
+" HTML
 autocmd FileType html,htmldjango,css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType javascript setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " shell
 autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
 
-" erlang
+" Erlang
 autocmd BufRead,BufNewFile *.erl setlocal filetype=erlang
 autocmd FileType erlang setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd BufWritePost *.erl call 
 \ vimproc#system_bg('~/.vim/bundle/vim-erlang-tags/bin/vim-erlang-tags.erl --otp')
 
-" python
+" Python
 autocmd BufRead,BufNewFile *.kv set filetype=python
 autocmd BufRead,BufNewFile *.py set filetype=python
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
@@ -330,9 +349,12 @@ autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd BufRead,BufNewFile *.conf set filetype=conf
 autocmd FileType conf setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
-" vim-markdown
+" Markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.report set filetype=markdown
 autocmd FileType markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 let g:vim_markdown_conceal = 0
 
+" }}}1
+" 
+" vim:foldmethod=marker:foldlevel=0
