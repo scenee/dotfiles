@@ -12,10 +12,10 @@ set fenc=utf-8
 set hlsearch
 set incsearch
 set laststatus=2
-set lazyredraw
 set list
 set listchars=trail:_,eol:¬,tab:▸\ 
 set number
+set nofoldenable
 set shell=bash
 set shiftwidth=4
 set showcmd
@@ -201,6 +201,8 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " NERDTree
 nnoremap <silent> <Leader>f :NERDTree<CR>
 nnoremap <silent> <Leader>F :NERDTreeClose<CR>
+autocmd VimEnter *  NERDTree
+autocmd VimEnter * wincmd p
 
 " syntastic
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
@@ -223,6 +225,7 @@ let g:Gtags_OpenQuickfixWindow = 0
 
 " tagbar
 nnoremap <silent> <Leader>0 :Tagbar<CR>
+autocmd VimEnter * nested :TagbarOpen
 let g:tagbar_sort = 0
 
 " vim-airline
@@ -332,6 +335,7 @@ highlight clear SignColumn
 
 " C
 autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8
+autocmd FileType c nested :TagbarOpen
 
 " bats
 autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -339,6 +343,7 @@ autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
 " HTML
 autocmd FileType html,htmldjango,css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType javascript setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType javascript nested :TagbarOpen
 
 " shell
 autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
@@ -353,6 +358,7 @@ autocmd BufWritePost *.erl call
 autocmd BufRead,BufNewFile *.kv set filetype=python
 autocmd BufRead,BufNewFile *.py set filetype=python
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType python nested :TagbarOpen
 
 " YAML
 autocmd BufRead,BufNewFile *.yml set filetype=yaml
