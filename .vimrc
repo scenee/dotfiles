@@ -3,30 +3,33 @@
 " Basic {{{1
 
 syntax on
-set shell=bash
-set title
-set number
-set wrapscan
+set autochdir
+set autoindent
 set backspace=indent,eol,start
+set cursorline
 set enc=utf-8
 set fenc=utf-8
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set autoindent
-set autochdir
-set smartindent
-set smartcase
 set hlsearch
-"set nowrap 
 set incsearch
-set wildmenu wildmode=list:full
 set laststatus=2
-"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+set lazyredraw
 set list
 set listchars=trail:_,eol:¬,tab:▸\ 
-"set nofoldenable 
+set number
+set shell=bash
+set shiftwidth=4
+set showcmd
+set showmatch
+set smartcase
+set smartindent
+set softtabstop=4
+set tabstop=4
+set title
 set virtualedit+=block
+set wildmenu wildmode=list:full
+set wrapscan
+"set nowrap 
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
 " }}}1
 
@@ -39,6 +42,7 @@ noremap Q gq
 noremap <Space>h  ^
 noremap <Space>l  $
 noremap <Space>n  %
+inoremap jk <esc>
 
 " Continuous increment/decrement
 if v:version > 705 || (v:version > 704 && has('patch754'))
@@ -87,6 +91,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tyru/open-browser.vim'
 Bundle 'ervandew/supertab'
 Bundle 'dhruvasagar/vim-table-mode'
+Bundle 'ag.vim'
 
 " Color {{{
 Bundle "w0ng/vim-hybrid"
@@ -179,11 +184,19 @@ let g:quickrun_config._ = {
 \   'outputter/buffer/close_on_empty' : 1,
 \}
 
+" ag.vim
+nnoremap <leader>a :Ag
+
+
 " ctrlp
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_depth = 10
 let g:ctrlp_max_height = 16
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " NERDTree
 nnoremap <silent> <Leader>f :NERDTree<CR>
