@@ -225,7 +225,6 @@ let g:Gtags_OpenQuickfixWindow = 0
 
 " tagbar
 nnoremap <silent> <Leader>0 :Tagbar<CR>
-autocmd VimEnter * nested :TagbarOpen
 let g:tagbar_sort = 0
 
 " vim-airline
@@ -257,6 +256,7 @@ let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language
 let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
 let g:ycm_python_binary_path = 'python'
+let g:ycm_path_to_python_interpreter = 'python'
 endfunction
 
 " surround
@@ -335,7 +335,6 @@ highlight clear SignColumn
 
 " C
 autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8
-autocmd FileType c nested :TagbarOpen
 
 " bats
 autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -343,7 +342,6 @@ autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
 " HTML
 autocmd FileType html,htmldjango,css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType javascript setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-autocmd FileType javascript nested :TagbarOpen
 
 " shell
 autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
@@ -358,7 +356,6 @@ autocmd BufWritePost *.erl call
 autocmd BufRead,BufNewFile *.kv set filetype=python
 autocmd BufRead,BufNewFile *.py set filetype=python
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-autocmd FileType python nested :TagbarOpen
 
 " YAML
 autocmd BufRead,BufNewFile *.yml set filetype=yaml
