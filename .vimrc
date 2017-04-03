@@ -50,6 +50,9 @@ vnoremap <c-a> <c-a>gv
 vnoremap <c-x> <c-x>gv
 endif
 
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
 " Search text selected on visual mode
 vnoremap // y/<C-R>"<CR>
 
