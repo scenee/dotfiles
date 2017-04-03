@@ -158,6 +158,10 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'maxmellon/vim-jsx-pretty'
 " }}}
 
+" Go {{{
+Bundle 'fatih/vim-go'
+" }}}
+
 " PlantUML plugins {{{
 Bundle "aklt/plantuml-syntax"
 " }}}
