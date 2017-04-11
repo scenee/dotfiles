@@ -50,6 +50,9 @@ vnoremap <c-a> <c-a>gv
 vnoremap <c-x> <c-x>gv
 endif
 
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
 " Search text selected on visual mode
 vnoremap // y/<C-R>"<CR>
 
@@ -158,6 +161,10 @@ Bundle 'othree/html5.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'maxmellon/vim-jsx-pretty'
+" }}}
+
+" Go {{{
+Bundle 'fatih/vim-go'
 " }}}
 
 " PlantUML plugins {{{

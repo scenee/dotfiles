@@ -37,6 +37,9 @@ if which lesspipe.sh > /dev/null; then
 	export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
 fi
 
+# Undefine Ctrl-S for i-search
+stty stop undef
+
 # Subversion
 export SVN_EDITOR=vim
 
