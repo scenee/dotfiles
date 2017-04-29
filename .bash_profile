@@ -63,6 +63,7 @@ fi
 [[ -s "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh" ]] && source "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh"
 
 ### pyenv ###
+if [ "$(uname)" = 'Darwin' ]; then export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"; fi
 if which pyenv > /dev/null;
 then
 	export PYENV_ROOT="$HOME/.pyenv"
