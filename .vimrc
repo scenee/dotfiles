@@ -75,48 +75,42 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " }}}1
 
 " Plugins {{{
-if !1 | finish | endif
+call plug#begin('~/.vim/plugged')
 
-set nocompatible
-filetype off
-
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Bundle 'VundleVim/Vundle.vim'
-Bundle 'Align'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'Townk/vim-autoclose'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'grep.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'thinca/vim-quickrun'
-Bundle 'tpope/vim-surround'
-Bundle 'tyru/open-browser.vim'
-Bundle 'ervandew/supertab'
-Bundle 'dhruvasagar/vim-table-mode'
-Bundle 'ag.vim'
+Plug 'VundleVim/Vundle.vim'
+Plug 'Align'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'Townk/vim-autoclose'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'grep.vim'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'thinca/vim-quickrun'
+Plug 'tpope/vim-surround'
+Plug 'tyru/open-browser.vim'
+Plug 'ervandew/supertab'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'ag.vim'
 
 " Color {{{
-Bundle "w0ng/vim-hybrid"
+Plug 'w0ng/vim-hybrid'
 " }}}
 
 " Snippets {{{
 if v:version > 700 && (has("python") || has("python3"))
-	Bundle 'SirVer/ultisnips'
+	Plug 'SirVer/ultisnips'
 endif
-Bundle 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 " }}}
 
 " Status/Tabline {{{
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 " }}}
 
 " C Plugins {{{
@@ -124,60 +118,58 @@ if v:version > 704 || (v:version == 703 && has('patch143'))
 	\ && (has("python") || has("python3"))
 	" YouCompleteMe require Vim 7.3.885+ with Lua enabled.
 	" If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
-	Bundle 'Valloric/YouCompleteMe' 
+	Plug 'Valloric/YouCompleteMe' 
 endif
 
 " Required Eexuberant-ctags.
-Bundle 'taglist.vim'
-Bundle 'vim-scripts/gtags.vim'
+Plug 'taglist.vim'
+Plug 'vim-scripts/gtags.vim'
 
 if has("unix") && system("uname") == "Linux\n"
-    Bundle 'justmao945/vim-clang'
+    Plug 'justmao945/vim-clang'
 endif
 " }}}
 
 " Erlang plugins {{{
-Bundle 'jimenezrick/vimerl'
-Bundle 'vim-erlang/vim-erlang-tags'
+Plug 'jimenezrick/vimerl'
+Plug 'vim-erlang/vim-erlang-tags'
 " }}}
 
 " D plugins {{{
-Bundle 'JesseKPhillips/d.vim'
+Plug 'JesseKPhillips/d.vim'
 " }}}
 
 " Markdown plugins {{{
-Bundle 'kannokanno/previm'
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
+Plug 'kannokanno/previm'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 " }}}
 
 " Python plugins {{{
-Bundle 'davidhalter/jedi-vim'
-Bundle 'jmcantrell/vim-virtualenv'
+Plug 'davidhalter/jedi-vim'
+Plug 'jmcantrell/vim-virtualenv'
 " }}}
 
 " HTML/JS plugins {{{
-Bundle 'othree/html5.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'maxmellon/vim-jsx-pretty'
+Plug 'othree/html5.vim'
+Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
 " }}}
 
 " Go {{{
-Bundle 'fatih/vim-go'
+Plug 'fatih/vim-go'
 " }}}
 
 " PlantUML plugins {{{
-Bundle "aklt/plantuml-syntax"
+Plug 'aklt/plantuml-syntax'
 " }}}
 
 " bats plugins {{{
-Bundle 'vim-scripts/bats.vim'
+Plug 'vim-scripts/bats.vim'
 " }}}
 
-call vundle#end()
-filetype plugin indent on
-
+call plug#end()
 " }}}
 
 " Plugin settings {{{
