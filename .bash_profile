@@ -82,6 +82,9 @@ which psql >/dev/null && export PGDATA=/usr/local/var/postgres
 ### nodebrew ###
 which nodebrew >/dev/null && export PATH=$HOME/.nodebrew/current/bin:$PATH
 
+### go ###
+which go >/dev/null && export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
 # Mac
 if [ "$(uname)" = 'Darwin' ];
 then
