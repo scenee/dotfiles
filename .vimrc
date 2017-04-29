@@ -211,7 +211,7 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " NERDTree
-nnoremap <silent> <Leader>1 :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>1 :NERDTree<CR>
 
 " syntastic
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
