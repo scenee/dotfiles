@@ -77,7 +77,6 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
 Plug 'vim-scripts/Align'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
