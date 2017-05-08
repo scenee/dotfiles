@@ -78,12 +78,12 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 call plug#begin('~/.vim/plugged')
 
 Plug 'VundleVim/Vundle.vim'
-Plug 'Align'
+Plug 'vim-scripts/Align'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'Townk/vim-autoclose'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'grep.vim'
+Plug 'vim-scripts/grep.vim'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -93,7 +93,7 @@ Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
 Plug 'ervandew/supertab'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'ag.vim'
+Plug 'vim-scripts/ag.vim'
 
 " Color {{{
 Plug 'w0ng/vim-hybrid'
@@ -122,7 +122,7 @@ if v:version > 704 || (v:version == 703 && has('patch143'))
 endif
 
 " Required Eexuberant-ctags.
-Plug 'taglist.vim'
+Plug 'vim-scripts/taglist.vim'
 Plug 'vim-scripts/gtags.vim'
 
 if has("unix") && system("uname") == "Linux\n"
