@@ -4,7 +4,6 @@
 [color]
 	ui = auto
 [alias]
-	ad = add
 	br = branch
 	st = status
 	rs = reset
@@ -12,9 +11,6 @@
 	pl = pull
 	rb = rebase
 	co = commit
-	cr = cherry-pick
-	ch = checkout
-	sm = submodule
 	d = diff
 	branch-root = merge-base master HEAD
 	ps-head = push origin head
