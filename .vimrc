@@ -358,8 +358,7 @@ autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8
 autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " HTML
-autocmd FileType html,htmldjango,css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-autocmd FileType javascript setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType html,htmldjango,css,javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " shell
 autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
