@@ -154,6 +154,7 @@ Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'posva/vim-vue'
 " }}}
 
 " Go {{{
