@@ -1,6 +1,6 @@
 
 .PHONY: all
-all: setup install_vundle
+all: setup install_plug
 
 .PHONEY: test
 test:
@@ -12,7 +12,11 @@ setup: clean
 
 .PHONY: install_vundle
 install_vundle:
-	./install_vundle.sh
+	@./install_vundle.sh
+
+.PHONY: install_plug
+install_plug:
+	@./install_vim-plug.sh
 
 .PHONY: clean
 clean:
