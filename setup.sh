@@ -8,5 +8,6 @@ ln -s ${DOTFILES}/.vimrc
 ln -s ${DOTFILES}/.git-completion.bash
 ln -s ${DOTFILES}/.tigrc
 ln -s ${DOTFILES}/.gitconfig
+ln -s ${DOTFILES}/.tmux.conf
 ln -s ${DOTFILES}/.plantuml
 popd >/dev/null
