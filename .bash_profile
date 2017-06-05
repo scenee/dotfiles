@@ -13,12 +13,10 @@ alias cp="cp -i"
 alias ll="ls -AlFh"
 alias ls="ls -F"
 alias o="open "
-alias po="popd "
-alias pu="pushd "
 alias py="python "
 alias rm="rm -id"
 alias v="vim"
-alias vi="vim"
+alias vi="vim" # Use vim installed by brew
 alias x="xargs"
 alias getplain='pbpaste | pbcopy'
 
