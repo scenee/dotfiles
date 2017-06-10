@@ -191,6 +191,8 @@ let g:ctrlp_working_path_mode = 'ra'
 
 " emmet.vim {{{
 let g:user_emmet_install_global = 0
+let g:user_emmet_mode='inv'  "enable all functions, which is equal to
+let g:user_emmet_leader_key='<C-Z>'
 " }}}
 
 " jedi-vim {{{

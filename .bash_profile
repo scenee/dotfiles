@@ -1,5 +1,6 @@
 # Env
 export EDITOR=vim
+export TERM="xterm-256color"
 
 ## LANG
 export LANG=en_US.UTF-8
