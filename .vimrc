@@ -174,6 +174,64 @@ call plug#end()
 
 " Plugin settings {{{
 
+" ag.vim {{{
+nnoremap <leader>a :Ag
+"}}}
+
+" ctrlp {{{
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_max_depth = 10
+let g:ctrlp_max_height = 16
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_user_command = 'ag --hidden --ignore .git -f -g ""'
+let g:ctrlp_working_path_mode = 'ra'
+"}}}
+
+" emmet.vim {{{
+let g:user_emmet_install_global = 0
+" }}}
+
+" jedi-vim {{{
+autocmd FileType python call s:SetJedi()
+autocmd FileType python setlocal completeopt-=preview
+
+function! s:SetJedi()
+let g:jedi#completions_enabled = 0
+let g:jedi#completions_command = "<Tab>"  " Prevent conflict with my Spotlight shutcut key on Mac
+let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map 
+let g:jedi#goto_command = "<C-j>"
+let g:jedi#force_py_version = 3
+endfunction
+"}}}
+
+" gtags {{{
+let g:Gtags_OpenQuickfixWindow = 0
+autocmd FileType c,cpp call s:SetGTAG()
+
+function! s:SetGTAG()
+noremap <C-g> :Gtags 
+noremap <C-h> :Gtags -f %<CR>
+noremap <C-j> :GtagsCursor<CR>
+noremap <C-n> :cn<CR>
+noremap <C-p> :cp<CR>
+endfunction
+"}}}
+
+" NERDTree {{{
+nnoremap <silent> <Leader>1 :NERDTree<CR>
+"}}}
+
+" open-browser {{{
+nmap <Leader>w <Plug>(openbrowser-smart-search)
+" let g:netrw_nogx = 1 " disable netrw's gw mapping.
+" }}}
+
+" plantuml-syntax  {{{
+let g:plantuml_executable_script = "~/.plantuml/plantuml""
+"}}}
+
 " quickrun.vim {{{
 
 let g:quickrun_config = get(g:, 'quickrun_config', {})
@@ -189,53 +247,7 @@ let g:quickrun_config._ = {
 \}
 
 " }}}
-
-" ag.vim {{{
-nnoremap <leader>a :Ag
-"}}}
-
-" emmit.vim }}}
-let g:user_emmet_install_global = 0
-" }}}
-
-" unite.vim {{{
-
-let g:unite_enable_start_insert = 1
-let g:unite_enable_ignore_case = 1
-let g:unite_enable_smart_case = 1
-
-nnoremap <silent> ,e  :<C-u>Unite file_rec/async:!<CR>
-nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR
-
-" unite grep に ag(The Silver Searcher) を使う
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
-endif
-"}}}
-
-" ctrlp {{{
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_max_depth = 10
-let g:ctrlp_max_height = 16
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_user_command = 'ag --hidden --ignore .git -f -g ""'
-let g:ctrlp_working_path_mode = 'ra'
-"}}}
-
-" NERDTree {{{
-nnoremap <silent> <Leader>1 :NERDTree<CR>
-"}}}
-
-" syntastic {{{
-let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-"}}}
-
+"
 " snippet {{{
 let g:UltiSnipsExpandTrigger="<Leader>s"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -249,49 +261,6 @@ if has('conceal')
 "  set conceallevel=2 concealcursor=niv
 endif
 "}}}
-
-" gtags {{{
-let g:Gtags_OpenQuickfixWindow = 0
-"}}}
-
-" tagbar {{{
-nnoremap <silent> <Leader>0 :Tagbar<CR>
-let g:tagbar_sort = 0
-"}}}
-
-" vim-airline {{{
-let g:airline_powerline_fonts = 1 " Install https://github.com/powerline/fonts
-let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
-"}}}
-
-" open-browser {{{
-nmap <Leader>w <Plug>(openbrowser-smart-search)
-" let g:netrw_nogx = 1 " disable netrw's gw mapping.
-" }}}
- 
-" YCM {{{
-" If you use pyenv, you have to reinstall a python. See also https://github.com/yyuu/pyenv/issues/99
-" ```
-" env PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang" pyenv install 3.6.0
-" ````
-command! YcmCompleter call plug#load('YouCompleteMe') | call youcompleteme#Enable() | YcmCompleter
-autocmd FileType * call s:SetYCM()
-function! s:SetYCM()
-let g:ycm_global_ycm_extra_conf = 
-\ '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-" See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango)
-
-let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
-let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
-let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
-let g:ycm_complete_in_comments = 1 " Completion in comments
-let g:ycm_complete_in_strings = 1 " Completion in string
-let g:ycm_python_binary_path = 'python'
-let g:ycm_path_to_python_interpreter = 'python'
-endfunction
-" }}}
 
 " surround {{{
 autocmd FileType html,htmldjango,css call s:SetSurroundHTML()
@@ -320,34 +289,62 @@ function! s:SetSurroundMarkdown()
 endfunction
 " }}}
 
-" Gtags {{{
-autocmd FileType c,cpp call s:SetGTAG()
+" syntastic {{{
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+"}}}
 
-function! s:SetGTAG()
-noremap <C-g> :Gtags 
-noremap <C-h> :Gtags -f %<CR>
-noremap <C-j> :GtagsCursor<CR>
-noremap <C-n> :cn<CR>
-noremap <C-p> :cp<CR>
+" tagbar {{{
+nnoremap <silent> <Leader>0 :Tagbar<CR>
+let g:tagbar_sort = 0
+"}}}
+
+" unite.vim {{{
+
+let g:unite_enable_start_insert = 1
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
+nnoremap <silent> ,e  :<C-u>Unite file_rec/async:!<CR>
+nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR
+
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+"}}}
+
+" vim-airline {{{
+let g:airline_powerline_fonts = 1 " Install https://github.com/powerline/fonts
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+"}}}
+ 
+" YCM {{{
+" If you use pyenv, you have to reinstall a python. See also https://github.com/yyuu/pyenv/issues/99
+" ```
+" env PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang" pyenv install 3.6.0
+" ````
+command! YcmCompleter call plug#load('YouCompleteMe') | call youcompleteme#Enable() | YcmCompleter
+autocmd FileType * call s:SetYCM()
+function! s:SetYCM()
+let g:ycm_global_ycm_extra_conf = 
+\ '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango)
+
+let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
+let g:ycm_complete_in_comments = 1 " Completion in comments
+let g:ycm_complete_in_strings = 1 " Completion in string
+let g:ycm_python_binary_path = 'python'
+let g:ycm_path_to_python_interpreter = 'python'
 endfunction
-"}}}
-
-" jedi-vim {{{
-autocmd FileType python call s:SetJedi()
-autocmd FileType python setlocal completeopt-=preview
-
-function! s:SetJedi()
-let g:jedi#completions_enabled = 0
-let g:jedi#completions_command = "<Tab>"  " Prevent conflict with my Spotlight shutcut key on Mac
-let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map 
-let g:jedi#goto_command = "<C-j>"
-let g:jedi#force_py_version = 3
-endfunction
-"}}}
-
-" plantuml-syntax  {{{
-let g:plantuml_executable_script = "~/.plantuml/plantuml""
-"}}}
+" }}}
 
 "}}}
 
