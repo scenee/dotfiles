@@ -194,6 +194,10 @@ let g:quickrun_config._ = {
 nnoremap <leader>a :Ag
 "}}}
 
+" emmit.vim }}}
+let g:user_emmet_install_global = 0
+" }}}
+
 " unite.vim {{{
 
 let g:unite_enable_start_insert = 1
@@ -375,6 +379,7 @@ autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " HTML
 autocmd FileType html,htmldjango,css,javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType html,htmldjango,css,javascript EmmetInstall
 
 " shell
 autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
