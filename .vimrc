@@ -1,6 +1,6 @@
 " ===== vimrc =====
 
-" Basic {{{1
+" Basic  {{{
 
 syntax on
 set autochdir
@@ -30,8 +30,8 @@ set wildmenu wildmode=list:full
 set wrapscan
 "set nowrap 
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-
-" }}}1
+"
+" }}}
 
 " Key Mapping {{{1
 
@@ -174,7 +174,7 @@ call plug#end()
 
 " Plugin settings {{{
 
-" quickrun.vim 
+" quickrun.vim {{{
 
 let g:quickrun_config = get(g:, 'quickrun_config', {})
 let g:quickrun_config._ = {
@@ -188,10 +188,13 @@ let g:quickrun_config._ = {
 \   'outputter/buffer/close_on_empty' : 1,
 \}
 
-" ag.vim
-nnoremap <leader>a :Ag
+" }}}
 
-" unite.vim
+" ag.vim {{{
+nnoremap <leader>a :Ag
+"}}}
+
+" unite.vim {{{
 
 let g:unite_enable_start_insert = 1
 let g:unite_enable_ignore_case = 1
@@ -208,8 +211,9 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
+"}}}
 
-" ctrlp
+" ctrlp {{{
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_depth = 10
 let g:ctrlp_max_height = 16
@@ -218,14 +222,17 @@ let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_user_command = 'ag --hidden --ignore .git -f -g ""'
 let g:ctrlp_working_path_mode = 'ra'
+"}}}
 
-" NERDTree
+" NERDTree {{{
 nnoremap <silent> <Leader>1 :NERDTree<CR>
+"}}}
 
-" syntastic
+" syntastic {{{
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+"}}}
 
-" snippet
+" snippet {{{
 let g:UltiSnipsExpandTrigger="<Leader>s"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -237,26 +244,30 @@ if has('conceal')
 	let g:tex_conceal=''
 "  set conceallevel=2 concealcursor=niv
 endif
+"}}}
 
-" gtags
+" gtags {{{
 let g:Gtags_OpenQuickfixWindow = 0
+"}}}
 
-" tagbar
+" tagbar {{{
 nnoremap <silent> <Leader>0 :Tagbar<CR>
 let g:tagbar_sort = 0
+"}}}
 
-" vim-airline
+" vim-airline {{{
 let g:airline_powerline_fonts = 1 " Install https://github.com/powerline/fonts
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
+"}}}
 
-
-" open-browser
+" open-browser {{{
 nmap <Leader>w <Plug>(openbrowser-smart-search)
 " let g:netrw_nogx = 1 " disable netrw's gw mapping.
+" }}}
  
-" YCM
+" YCM {{{
 " If you use pyenv, you have to reinstall a python. See also https://github.com/yyuu/pyenv/issues/99
 " ```
 " env PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang" pyenv install 3.6.0
@@ -276,8 +287,9 @@ let g:ycm_complete_in_strings = 1 " Completion in string
 let g:ycm_python_binary_path = 'python'
 let g:ycm_path_to_python_interpreter = 'python'
 endfunction
+" }}}
 
-" surround
+" surround {{{
 autocmd FileType html,htmldjango,css call s:SetSurroundHTML()
 function! s:SetSurroundHTML()
 let b:surround_{char2nr("v")} = "{{ \r }}"
@@ -302,8 +314,9 @@ function! s:SetSurroundMarkdown()
 	let b:surround_{char2nr("*")} = "**\r**"
 	let b:surround_{char2nr("_")} = "__\r__"
 endfunction
+" }}}
 
-" Gtags
+" Gtags {{{
 autocmd FileType c,cpp call s:SetGTAG()
 
 function! s:SetGTAG()
@@ -313,8 +326,9 @@ noremap <C-j> :GtagsCursor<CR>
 noremap <C-n> :cn<CR>
 noremap <C-p> :cp<CR>
 endfunction
+"}}}
 
-" jedi-vim
+" jedi-vim {{{
 autocmd FileType python call s:SetJedi()
 autocmd FileType python setlocal completeopt-=preview
 
@@ -325,11 +339,13 @@ let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map
 let g:jedi#goto_command = "<C-j>"
 let g:jedi#force_py_version = 3
 endfunction
+"}}}
 
-" plantuml-syntax 
+" plantuml-syntax  {{{
 let g:plantuml_executable_script = "~/.plantuml/plantuml""
+"}}}
 
-" }}}
+"}}}
 
 " Color {{{1
 
