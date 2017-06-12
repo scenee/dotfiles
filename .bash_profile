@@ -73,19 +73,25 @@ then
 fi
 
 ### swiftenv ###
->/dev/null which swiftenv && eval "$(swiftenv init -)"
+>/dev/null which swiftenv \
+	&& eval "$(swiftenv init -)"
 
 ### PostgreSQL ###
->/dev/null which psql && export PGDATA=/usr/local/var/postgres
+>/dev/null which psql \
+	&& export PGDATA=/usr/local/var/postgres
 
 ### nodebrew ###
->/dev/null which nodebrew && export PATH=$HOME/.nodebrew/current/bin:$PATH
+>/dev/null which nodebrew \
+	&& export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 ### go ###
->/dev/null which go && export PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/go/bin
+>/dev/null which go \
+	&& export GOPATH=$HOME/.go \
+	&& export PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/.go/bin
 
 ### haskell-stack ###
->/dev/null which stack && export PATH="$HOME/.local/bin:$PATH"
+>/dev/null which stack \
+	&& export PATH="$HOME/.local/bin:$PATH"
 
 # Mac
 if [ "$(uname)" = 'Darwin' ];
