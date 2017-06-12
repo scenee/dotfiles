@@ -15,6 +15,7 @@ alias ll="ls -AlFh"
 alias ls="ls -F"
 alias o="open "
 alias py="python "
+alias t="tmux"
 alias rm="rm -id"
 alias v="vim"
 alias vi="vim" # Use vim installed by brew
