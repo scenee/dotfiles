@@ -158,6 +158,7 @@ Plug 'ap/vim-css-color'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'posva/vim-vue'
+Plug 'Yggdroot/indentLine'
 " }}}
 
 " Go {{{
@@ -328,7 +329,7 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 "}}}
- 
+
 " YCM {{{
 " If you use pyenv, you have to reinstall a python. See also https://github.com/yyuu/pyenv/issues/99
 " ```
