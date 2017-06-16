@@ -380,7 +380,7 @@ autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8
 autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " HTML
-autocmd FileType html,htmldjango,css,javascript,json,sass
+autocmd FileType html,htmldjango,css,javascript,json,sass,scss
       \ setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType html,htmldjango,css,javascript EmmetInstall
 
