@@ -61,7 +61,7 @@ set shell=bash
 let g:is_bash = 1
 
 " You can pop a vertical window to display grep results
-" 	autocmd QuickFixCmdPost *grep* :vert 100 cwindow
+"     autocmd QuickFixCmdPost *grep* :vert 100 cwindow
 autocmd QuickFixCmdPost *grep* cwindow
 
 " See https://code.google.com/p/mintty/wiki/Tips#Mode-dependent_cursor_in_vim
@@ -86,7 +86,7 @@ Plug 'vim-scripts/grep.vim'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
@@ -100,7 +100,7 @@ Plug 'w0ng/vim-hybrid'
 
 " Snippets {{{
 if v:version > 700 && (has("python") || has("python3"))
-	Plug 'SirVer/ultisnips'
+    Plug 'SirVer/ultisnips'
 endif
 Plug 'honza/vim-snippets'
 " }}}
@@ -114,10 +114,10 @@ Plug 'airblade/vim-gitgutter'
 
 " C Plugins {{{
 if v:version > 704 || (v:version == 703 && has('patch143'))
-	\ && (has("python") || has("python3"))
-	" YouCompleteMe require Vim 7.3.885+ with Lua enabled.
-	" If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
-	Plug 'Valloric/YouCompleteMe' 
+    \ && (has("python") || has("python3"))
+    " YouCompleteMe require Vim 7.3.885+ with Lua enabled.
+    " If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
+    Plug 'Valloric/YouCompleteMe' 
 endif
 
 " Required Eexuberant-ctags.
@@ -263,7 +263,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 " For conceal markers.
 if has('conceal')
-	let g:tex_conceal=''
+    let g:tex_conceal=''
 "  set conceallevel=2 concealcursor=niv
 endif
 "}}}
@@ -284,14 +284,14 @@ endfunction
 autocmd FileType python call s:SetSurroundPython()
 
 function! s:SetSurroundPython()
-	let b:surround_{char2nr("c")} = "\"\"\"\r\"\"\""
+    let b:surround_{char2nr("c")} = "\"\"\"\r\"\"\""
 endfunction
 
 autocmd FileType markdown call s:SetSurroundMarkdown()
 
 function! s:SetSurroundMarkdown()
-	let b:surround_{char2nr("*")} = "**\r**"
-	let b:surround_{char2nr("_")} = "__\r__"
+    let b:surround_{char2nr("*")} = "**\r**"
+    let b:surround_{char2nr("_")} = "__\r__"
 endfunction
 " }}}
 
@@ -376,12 +376,17 @@ highlight clear SignColumn
 " C
 autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8
 
+" vim
+autocmd FileType vim setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+
 " bats
 autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " HTML
 autocmd FileType html,htmldjango,css,javascript,json,sass,scss
-      \ setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    \ setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType html,htmldjango,css, sass, scss
+    \ foldmethod=indent
 autocmd FileType html,htmldjango,css,javascript EmmetInstall
 
 " shell
@@ -391,7 +396,7 @@ autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
 autocmd BufRead,BufNewFile *.erl setlocal filetype=erlang
 autocmd FileType erlang setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd BufWritePost *.erl call 
-\ vimproc#system_bg('~/.vim/bundle/vim-erlang-tags/bin/vim-erlang-tags.erl --otp')
+    \ vimproc#system_bg('~/.vim/bundle/vim-erlang-tags/bin/vim-erlang-tags.erl --otp')
 
 " Python
 autocmd BufRead,BufNewFile *.kv set filetype=python
