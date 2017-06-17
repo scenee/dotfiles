@@ -1,14 +1,24 @@
-# Env
+# env
 export EDITOR=vim
 export TERM="xterm-256color"
 
-## LANG
 export LANG=en_US.UTF-8
 export LC_CTYPE=UTF-8
 export LC_ALL=en_US.UTF-8
 export IGNOREEOF=3
 
-# custmizing commands
+if [ ! -z $BASH_VERSION ]; then
+	export PS1="[\u@\h \W]\$ "
+elif [ ! -z $ZSH_VERSION ]; then
+	export PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
+fi
+export CLICOLOR=1
+export LSCOLORS=DxGxcxdxCxegedabagacad
+
+## undefine Ctrl-S for i-search
+stty stop undef
+
+# aliases 
 alias c="cd "
 alias cp="cp -i"
 alias ll="ls -AlFh"
@@ -22,79 +32,65 @@ alias vi="vim" # Use vim installed by brew
 alias x="xargs"
 alias getplain='pbpaste | pbcopy'
 
-if [ ! -z $BASH_VERSION ]; then
-	export PS1="[\u@\h \W]\$ "
-elif [ ! -z $ZSH_VERSION ]; then
-	export PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
-fi
-export CLICOLOR=1
-export LSCOLORS=DxGxcxdxCxegedabagacad
-
-# Less
+# less
 export LESS='-g -i -R -z-4 -x4'
 export PAGER=less
 if which lesspipe.sh > /dev/null; then
 	export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
 fi
 
-# Undefine Ctrl-S for i-search
-stty stop undef
-
-# Subversion
+## svn ##
 export SVN_EDITOR=vim
 
-# Git
+## git ##
 if [ ! -z $BASH_VERSION ] ; then
   source ~/.git-completion.bash
 fi
 
-## Common ###
 
-### rbenv ###
-if which rbenv > /dev/null;
-then
-	export PATH=~/.rbenv/shims:$PATH
-	eval "$(rbenv init -)";
-	PATH="~/.rbenv/shims:$PATH"
-fi
+## rbenv ##
+>/dev/null which rbenv \
+	&& export PATH=~/.rbenv/shims:$PATH \
+	&& eval "$(rbenv init -)" \
+	&& PATH="~/.rbenv/shims:$PATH"
 
-### gvm ###
+## gvm ##
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh" ]] && source "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh"
+[[ -s "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh" ]] \
+	&& source "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh"
 
-### pyenv ###
-if [ "$(uname)" = 'Darwin' ]; then export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"; fi
-if which pyenv > /dev/null;
-then
-	export PYENV_ROOT="$HOME/.pyenv"
-	export PATH="$PYENV_ROOT/bin:$PATH"
-	export VIRTUALENVWRAPPER_PYTHON="$PYENV_ROOT/shims/python"
-	eval "$(pyenv init -)"
-	eval "$(pip completion --bash)"
-fi
+## pyenv ##
+[ "$(uname)" = 'Darwin' ] \
+	&& export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
+> /dev/null which pyenv \
+	&& export PYENV_ROOT="$HOME/.pyenv" \
+	&& export PATH="$PYENV_ROOT/bin:$PATH" \
+	&& export VIRTUALENVWRAPPER_PYTHON="$PYENV_ROOT/shims/python" \
+	&& eval "$(pyenv init -)" \
+	&& eval "$(pip completion --bash)"
 
-### swiftenv ###
+## swiftenv ##
 >/dev/null which swiftenv \
 	&& eval "$(swiftenv init -)"
 
-### PostgreSQL ###
+## postgresql ##
 >/dev/null which psql \
 	&& export PGDATA=/usr/local/var/postgres
 
-### nodebrew ###
+## nodebrew ##
 >/dev/null which nodebrew \
 	&& export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-### go ###
+## go ##
 >/dev/null which go \
 	&& export GOPATH=$HOME/.go \
 	&& export PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/.go/bin
 
-### haskell-stack ###
+## haskell-stack ##
 >/dev/null which stack \
 	&& export PATH="$HOME/.local/bin:$PATH"
 
-# Mac
+# macOS
 if [ "$(uname)" = 'Darwin' ];
 then
 	if [ -r ~/.bash_private ]; then
@@ -115,7 +111,7 @@ then
 		osascript -e 'tell app "loginwindow" to «event aevtrsdn»'
 	}
 
-	### Homebrew ###
+	## brew ##
 	if which brew > /dev/null;
 	then
 		if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -125,7 +121,7 @@ then
 		alias ctags="`brew --prefix`/bin/ctags"
 	fi
 
-	### Dropbox ###
+	## dropbox ##
 	if test -d /Applications/Dropbox.app;
 	then
 		DROPBOX_PATH=~/Dropbox
@@ -138,10 +134,10 @@ then
 		}
 	fi
 
-	### relax ###
+	## relax ##
 	which relax > /dev/null && source "$(relax init completion)"
 
-	### Anaconda ###
+	## anaconda ##
 	if test -d  ~/anaconda*;
 	then
 		function activate_anaconda() {
@@ -157,7 +153,7 @@ then
 		}
 	fi
 
-	### Octave ###
+	## octave ##
 	if which octave > /dev/null;
 	then
 		## To define a plot application
