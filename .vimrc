@@ -157,8 +157,8 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'posva/vim-vue'
 Plug 'Yggdroot/indentLine'
+Plug 'darthmall/vim-vue'
 " }}}
 
 " Go {{{
@@ -196,7 +196,8 @@ let g:ctrlp_working_path_mode = 'ra'
 " emmet.vim {{{
 let g:user_emmet_install_global = 0
 let g:user_emmet_mode='inv'  "enable all functions, which is equal to
-let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_leader_key='<C-Y>'
+autocmd FileType html,htmldjango,css,javascript,sass,vue EmmetInstall
 " }}}
 
 " jedi-vim {{{
@@ -383,11 +384,10 @@ autocmd FileType vim setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " HTML
-autocmd FileType html,htmldjango,css,javascript,json,sass,scss
+autocmd FileType html,htmldjango,css,javascript,json,sass,scss,vue
     \ setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-autocmd FileType html,htmldjango,css, sass, scss
-    \ foldmethod=indent
-autocmd FileType html,htmldjango,css,javascript EmmetInstall
+autocmd FileType html,htmldjango,css,sass,scss,vue
+    \ setlocal foldmethod=indent
 
 " shell
 autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
