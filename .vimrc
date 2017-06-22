@@ -44,6 +44,7 @@ noremap <Space>l  $
 noremap <Space>n  %
 inoremap jk <esc>
 
+
 " Continuous increment/decrement
 if v:version > 705 || (v:version > 704 && has('patch754'))
 vnoremap <c-a> <c-a>gv
@@ -55,6 +56,10 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " Search text selected on visual mode
 vnoremap // y/<C-R>"<CR>
+
+" Timestamp
+nnoremap <silent> ,dt :r !date "+\%Y-\%m-\%dT\%H:\%M:\%S\%z"<CR>
+
 
 set shell=bash
 " fix highlights for $(..) in 'sh' script because it was not supported by sh
