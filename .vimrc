@@ -60,7 +60,6 @@ vnoremap // y/<C-R>"<CR>
 " Timestamp
 nnoremap <silent> ,dt :r !date "+\%Y-\%m-\%dT\%H:\%M:\%S\%z"<CR>
 
-
 set shell=bash
 " fix highlights for $(..) in 'sh' script because it was not supported by sh
 let g:is_bash = 1
@@ -302,6 +301,7 @@ endfunction
 " }}}
 
 " syntastic {{{
+noremap <silent> ,s :SyntasticCheck<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
