@@ -165,6 +165,11 @@ Plug 'Yggdroot/indentLine'
 Plug 'darthmall/vim-vue'
 " }}}
 
+" HashiVim {{{
+Plug 'hashivim/vim-terraform'
+autocmd FileType terraform setlocal commentstring=#%s
+" }}}
+
 " Go {{{
 Plug 'fatih/vim-go'
 " }}}
@@ -202,6 +207,10 @@ let g:user_emmet_install_global = 0
 let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 let g:user_emmet_leader_key='<C-Y>'
 autocmd FileType html,htmldjango,css,javascript,sass,vue EmmetInstall
+" }}}
+
+" HashiVim {{{
+let g:terraform_align=1
 " }}}
 
 " jedi-vim {{{
@@ -423,6 +432,9 @@ autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " conf
 autocmd BufRead,BufNewFile *.conf set filetype=conf
 autocmd FileType conf setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+
+" HCL
+autocmd FileType terraform setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " Markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
