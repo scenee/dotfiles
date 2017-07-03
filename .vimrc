@@ -3,6 +3,7 @@
 " Basic  {{{
 
 syntax on
+syntax sync minlines=256
 set autochdir
 set autoindent
 set backspace=indent,eol,start
@@ -97,6 +98,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'ervandew/supertab'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-scripts/ag.vim'
+Plug 'Yggdroot/indentLine'
 
 " Color {{{
 Plug 'w0ng/vim-hybrid'
@@ -121,7 +123,7 @@ if v:version > 704 || (v:version == 703 && has('patch143'))
     \ && (has("python") || has("python3"))
     " YouCompleteMe require Vim 7.3.885+ with Lua enabled.
     " If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
-    Plug 'Valloric/YouCompleteMe' 
+    Plug 'Valloric/YouCompleteMe'
 endif
 
 " Required Eexuberant-ctags.
@@ -154,15 +156,19 @@ Plug 'jmcantrell/vim-virtualenv'
 " }}}
 
 " HTML/JS plugins {{{
-Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
+
+Plug 'othree/html5.vim'
+Plug 'digitaltoad/vim-pug'
+
 Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+
+Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'Yggdroot/indentLine'
-Plug 'darthmall/vim-vue'
+
+Plug 'posva/vim-vue'
 " }}}
 
 " HashiVim {{{
@@ -206,7 +212,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:user_emmet_install_global = 0
 let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 let g:user_emmet_leader_key='<C-Y>'
-autocmd FileType html,htmldjango,css,javascript,sass,vue EmmetInstall
+autocmd FileType html,htmldjango EmmetInstall
 " }}}
 
 " HashiVim {{{
@@ -410,6 +416,10 @@ autocmd FileType html,htmldjango,css,javascript,json,sass,scss,vue
     \ setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType html,htmldjango,css,sass,scss,vue
     \ setlocal foldmethod=indent
+
+" Vue
+autocmd FileType vue syntax sync fromstart
+autocmd FileType vue setlocal nocursorline " Disable cursorline to make vim-vue fast
 
 " shell
 autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
