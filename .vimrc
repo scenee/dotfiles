@@ -7,7 +7,7 @@ syntax sync minlines=256
 set autochdir
 set autoindent
 set backspace=indent,eol,start
-set cursorline
+set nocursorline  " cursorline make vim slow with highlighting
 set enc=utf-8
 set fenc=utf-8
 set hlsearch
@@ -417,7 +417,7 @@ autocmd FileType html,htmldjango,css,javascript,json,sass,scss,vue
 autocmd FileType html,htmldjango,css,sass,scss,vue
     \ setlocal foldmethod=indent
 
-" Vue
+" Vuejs
 autocmd FileType vue syntax sync fromstart
 autocmd FileType vue setlocal nocursorline " Disable cursorline to make vim-vue fast
 
