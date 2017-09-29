@@ -328,6 +328,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ["flake8"]
 let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225'
+let g:syntastic_go_checkers = ['go']
 "}}}
 
 " tagbar {{{
