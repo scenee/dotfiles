@@ -24,6 +24,8 @@ set showmatch
 set smartcase
 set smartindent
 set softtabstop=4
+set spell
+set spelllang=en,cjk
 set tabstop=4
 set title
 set virtualedit+=block
