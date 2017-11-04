@@ -363,6 +363,7 @@ endif
 "}}}
 
 " vim-airline {{{
+let g:airline_theme = "hybrid"
 let g:airline_powerline_fonts = 1 " Install https://github.com/powerline/fonts
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
@@ -395,10 +396,9 @@ endfunction
 
 " Color {{{1
 
-"colorscheme desert
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette. "
 set background=dark
+" let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette. "
 colorscheme hybrid
 
 let &colorcolumn=join(range(81,1000),",")
