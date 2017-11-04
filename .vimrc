@@ -7,7 +7,6 @@ syntax sync minlines=256
 set autochdir
 set autoindent
 set backspace=indent,eol,start
-set nocursorline  " cursorline make vim slow with highlighting
 set enc=utf-8
 set fenc=utf-8
 set hlsearch
@@ -15,8 +14,9 @@ set incsearch
 set laststatus=2
 set list
 set listchars=trail:_,eol:¬,tab:▸\ 
-set number
+set nocursorline  " cursorline make vim slow with highlighting
 set nofoldenable
+set number
 set shell=bash
 set shiftwidth=4
 set showcmd
