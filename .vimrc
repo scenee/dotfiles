@@ -24,7 +24,6 @@ set showmatch
 set smartcase
 set smartindent
 set softtabstop=4
-set spell
 set spelllang=en,cjk
 set tabstop=4
 set title
@@ -456,6 +455,9 @@ autocmd FileType conf setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " HCL
 autocmd FileType terraform setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+" git
+autocmd FileType gitcommit setlocal spell
 
 " Markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
