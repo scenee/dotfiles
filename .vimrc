@@ -328,8 +328,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ["flake8"]
-let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225'
+" let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225'
 let g:syntastic_go_checkers = ['go']
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 "}}}
 
 " tagbar {{{
