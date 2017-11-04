@@ -99,6 +99,7 @@ Plug 'ervandew/supertab'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-scripts/ag.vim'
 Plug 'Yggdroot/indentLine'
+Plug 'cohama/lexima.vim'
 
 " Color {{{
 Plug 'w0ng/vim-hybrid'
