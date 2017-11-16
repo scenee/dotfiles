@@ -392,6 +392,9 @@ let g:ycm_path_to_python_interpreter = 'python'
 endfunction
 " }}}
 
+" {{{ vim-go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
 "}}}
 
 " Color {{{1
