@@ -445,6 +445,10 @@ autocmd BufRead,BufNewFile *.kv set filetype=python
 autocmd BufRead,BufNewFile *.py set filetype=python
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
+" Ruby
+autocmd BufRead,BufNewFile *.podspec set filetype=ruby
+autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
 " YAML
 autocmd BufRead,BufNewFile *.yml set filetype=yaml
 autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
