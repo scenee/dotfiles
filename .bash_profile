@@ -177,6 +177,9 @@ then
 
 	## Travis CI ##
 	[ -f /Users/syamamoto/.travis/travis.sh ] && source /Users/syamamoto/.travis/travis.sh
+
+	# History search using peco
+	bind -x '"\C-r": eval "$(history | cut -c 8- | sed "s,^ *,,; s, *$,," | sort | uniq | sort -k1,1nr | peco)"'
 fi
 
 [ -r ~/.bashrc ] && source ~/.bashrc
