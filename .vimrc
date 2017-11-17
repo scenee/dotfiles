@@ -446,11 +446,11 @@ autocmd BufWritePost *.erl call
 " Python
 autocmd BufRead,BufNewFile *.kv set filetype=python
 autocmd BufRead,BufNewFile *.py set filetype=python
-autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab spell
 
 " Ruby
 autocmd BufRead,BufNewFile *.podspec set filetype=ruby
-autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab spell
 
 " YAML
 autocmd BufRead,BufNewFile *.yml set filetype=yaml
