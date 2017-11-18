@@ -24,6 +24,7 @@ set showmatch
 set smartcase
 set smartindent
 set softtabstop=4
+set spell
 set spelllang=en,cjk
 set tabstop=4
 set title
@@ -59,7 +60,7 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 " Search text selected on visual mode
 vnoremap // y/<C-R>"<CR>
 
-" Timestamp
+" timestamp
 nnoremap <silent> ,dt :r !date "+\%Y-\%m-\%dT\%H:\%M:\%S\%z"<CR>
 
 set shell=bash
@@ -446,11 +447,11 @@ autocmd BufWritePost *.erl call
 " Python
 autocmd BufRead,BufNewFile *.kv set filetype=python
 autocmd BufRead,BufNewFile *.py set filetype=python
-autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab spell
+autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " Ruby
 autocmd BufRead,BufNewFile *.podspec set filetype=ruby
-autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab spell
+autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " YAML
 autocmd BufRead,BufNewFile *.yml set filetype=yaml
@@ -462,9 +463,6 @@ autocmd FileType conf setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " HCL
 autocmd FileType terraform setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-
-" git
-autocmd FileType gitcommit setlocal spell
 
 " Markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
