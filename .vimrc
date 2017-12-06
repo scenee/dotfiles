@@ -333,7 +333,9 @@ let g:syntastic_python_checkers = ["flake8"]
 " let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225'
 let g:syntastic_go_checkers = ['go']
 let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+" See https://github.com/vim-syntastic/syntastic/issues/1736
+let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 "}}}
 
 " tagbar {{{
