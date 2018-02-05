@@ -18,20 +18,29 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 ## undefine Ctrl-S for i-search
 stty stop undef
 
-# aliases 
-alias c="cd "
+###############
+# Aliases (custom)
+alias ..='cd ..'
 alias cp="cp -i"
-alias ll="ls -AlFh"
-alias ls="ls -F"
-alias o="open "
-alias py="python "
 alias t="tmux"
 alias rm="rm -id"
+alias x="xargs"
+
+if [ "$(uname)" = 'Darwin' ];
+then
+alias ls='ls -GpF' # Mac OSX specific
+alias ll='ls -alGpF' # Mac OSX specific
+alias o="open "
+alias getplain='pbpaste | pbcopy'
+else
+alias ll="ls -AlFh"
+alias ls="ls -F"
+fi
+
 alias v="vim"
 alias vi="vim" # Use vim installed by brew
-alias x="xargs"
-alias getplain='pbpaste | pbcopy'
 
+###############
 # less
 export LESS='-g -i -R -z-4 -x4'
 export PAGER=less
@@ -39,10 +48,12 @@ if which lesspipe.sh > /dev/null; then
 	export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
 fi
 
-## svn ##
+###############
+# svn
 export SVN_EDITOR=vim
 
-## git ##
+###############
+# git
 if [ ! -z $BASH_VERSION ] ; then
   source ~/.git-completion.bash
 fi
