@@ -84,24 +84,29 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-scripts/Align'
+
+Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'Townk/vim-autoclose'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-scripts/grep.vim'
-Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'vim-syntastic/syntastic'
-Plug 'thinca/vim-quickrun'
-Plug 'tpope/vim-surround'
-Plug 'tyru/open-browser.vim'
-Plug 'ervandew/supertab'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'vim-scripts/ag.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'cohama/lexima.vim'
+Plug 'corylanou/vim-present', {'for' : 'present'}
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
+Plug 'ervandew/supertab'
+Plug 'junegunn/vim-easy-align'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'thinca/vim-quickrun'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tyru/open-browser.vim'
+Plug 'vim-scripts/ag.vim'
+Plug 'vim-scripts/grep.vim'
+Plug 'vim-syntastic/syntastic'
 
 " Color {{{
 Plug 'w0ng/vim-hybrid'
@@ -199,6 +204,7 @@ call plug#end()
 " ag.vim {{{
 nnoremap <leader>a :Ag
 "}}}
+
 
 " ctrlp {{{
 let g:ctrlp_show_hidden = 1
@@ -393,6 +399,11 @@ let g:ycm_complete_in_strings = 1 " Completion in string
 let g:ycm_python_binary_path = 'python'
 let g:ycm_path_to_python_interpreter = 'python'
 endfunction
+" }}}
+
+" {{{ vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 " }}}
 
 " {{{ vim-go
