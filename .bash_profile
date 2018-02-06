@@ -95,7 +95,7 @@ fi
 ## go ##
 >/dev/null which go \
 	&& export GOPATH=$HOME/.go \
-	&& export PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/.go/bin
+	&& export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
 
 ## haskell-stack ##
 >/dev/null which stack \
