@@ -98,7 +98,6 @@ Plug 'vim-scripts/grep.vim'
 Plug 'vim-syntastic/syntastic'
 
 " Color
-" Plug 'w0ng/vim-hybrid'
 Plug 'tomasr/molokai'
 
 " Snippets
@@ -322,8 +321,7 @@ if executable('ag')
 endif
 
 " vim-airline
-let g:airline_theme = "hybrid"
-" let g:airline_theme = "molokai"
+let g:airline_theme = "tomorrow"
 let g:airline_powerline_fonts = 1 " Install https://github.com/powerline/fonts
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
@@ -363,16 +361,14 @@ let g:go_highlight_methods = 1
 " {{{
 
 set background=dark
-" let g:hybrid_custom_term_colors = 1
-" let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette. "
-" colorscheme hybrid
 set t_Co=256
-let g:molokai_original = 1
+" "If you prefer the scheme to match the original monokai background color,
+" let g:molokai_original = 1 
 let g:rehash256 = 1
 colorscheme molokai
 
 let &colorcolumn=join(range(81,1000),",")
-highlight ColorColumn ctermbg=234
+highlight ColorColumn ctermbg=235
 
 " vim-gitgutter color settings
 let g:gitgutter_override_sign_column_highlight = 0
