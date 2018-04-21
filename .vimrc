@@ -122,10 +122,6 @@ endif
 Plug 'vim-scripts/taglist.vim' " Required Eexuberant-ctags.
 Plug 'vim-scripts/gtags.vim'
 
-if has("unix") && system("uname") == "Linux\n"
-    Plug 'justmao945/vim-clang'
-endif
-
 " Erlang
 Plug 'jimenezrick/vimerl'
 Plug 'vim-erlang/vim-erlang-tags'
@@ -140,7 +136,7 @@ Plug 'plasticboy/vim-markdown'
 
 " Python plugins
 Plug 'davidhalter/jedi-vim'
-Plug 'jmcantrell/vim-virtualenv'
+" Plug 'jmcantrell/vim-virtualenv'
 
 " HTML/JS plugins
 Plug 'mattn/emmet-vim'
@@ -199,7 +195,7 @@ autocmd FileType python setlocal completeopt-=preview
 
 function! s:SetJedi()
 let g:jedi#completions_enabled = 0
-let g:jedi#completions_command = "<Tab>"  " Prevent conflict with my Spotlight shutcut key on Mac
+" let g:jedi#completions_command = "<Tab>"  " Prevent conflict with my Spotlight shutcut key on Mac
 let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map 
 let g:jedi#goto_command = "<C-j>"
 let g:jedi#force_py_version = 3
@@ -335,17 +331,18 @@ let g:airline#extensions#tabline#enabled = 1
 command! YcmCompleter call plug#load('YouCompleteMe') | call youcompleteme#Enable() | YcmCompleter
 autocmd FileType * call s:SetYCM()
 function! s:SetYCM()
-let g:ycm_global_ycm_extra_conf = 
-\ '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-" See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango)
-
-let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
-let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
-let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
-let g:ycm_complete_in_comments = 1 " Completion in comments
-let g:ycm_complete_in_strings = 1 " Completion in string
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_python_binary_path = 'python'
 let g:ycm_path_to_python_interpreter = 'python'
+
+" See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango) {{{
+let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword{{{}}}
+let g:ycm_complete_in_comments = 1 " Completion in comments{{{}}}
+let g:ycm_complete_in_strings = 1 " Completion in string
+" }}}
+
 endfunction
 
 " vim-easy-align
