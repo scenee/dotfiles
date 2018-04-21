@@ -147,11 +147,11 @@ then
 	if test -d /Applications/Dropbox.app;
 	then
 		DROPBOX_PATH=~/Dropbox
-		function mnt_kv() {
+		function kvopen() {
 			$DROPBOX_PATH/EncryptedData/mnt_keyvault
 		}
 
-		function umnt_kv() {
+		function kvclose() {
 			$DROPBOX_PATH/EncryptedData/umnt_keyvault
 		}
 	fi
