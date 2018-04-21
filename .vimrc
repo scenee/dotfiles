@@ -119,7 +119,11 @@ if v:version > 704 || (v:version == 703 && has('patch143'))
     " If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
     Plug 'Valloric/YouCompleteMe'
 endif
+
+Plug 'airblade/vim-rooter' " Must be before vim-easytags
 Plug 'vim-scripts/taglist.vim' " Required Eexuberant-ctags.
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
 Plug 'vim-scripts/gtags.vim'
 
 " Erlang
@@ -200,6 +204,12 @@ let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map
 let g:jedi#goto_command = "<C-j>"
 let g:jedi#force_py_version = 3
 endfunction
+
+" vim-easytag
+let g:easytags_file = '~/.vim/tags'
+let g:easytags_async = 1
+let g:easytags_always_enabled = 0
+let g:easytags_include_members = 1
 
 " gtags
 let g:Gtags_OpenQuickfixWindow = 0
@@ -302,9 +312,10 @@ let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
 nnoremap <silent> ,e  :<C-u>Unite file_rec/async:!<CR>
-nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ,g :<C-u>Unite grep/git:/:--cached -buffer-name=search-buffer<CR><C-R><C-W>
+" nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-nnoremap <silent> ,rg :<C-u>Unite grep/git:/:--cached -buffer-name=search-buffer<CR><C-R><C-W>
+" nnoremap <silent> ,rg :<C-u>Unite grep/git:/:--cached -buffer-name=search-buffer<CR><C-R><C-W>
 nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR
 let s:unite_ignore_directory_patterns=
       \ ''
@@ -376,7 +387,8 @@ highlight clear SignColumn
 " {{{
 
 " C
-autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8
+autocmd FileType c,cpp setlocal tabstop=8 softtabstop=8 shiftwidth=8
+autocmd FileType c,cpp let easytags_always_enabled = 1
 
 " vim
 autocmd FileType vim setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
