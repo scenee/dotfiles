@@ -188,6 +188,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " emmet.vim
+let g:emmet_html5 = 0 " Self-closing tag is needed.
 let g:user_emmet_install_global = 0
 let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 let g:user_emmet_leader_key='<C-Y>'
