@@ -97,6 +97,9 @@ Plug 'vim-scripts/ag.vim'
 Plug 'vim-scripts/grep.vim'
 Plug 'vim-syntastic/syntastic'
 
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
 " Color
 Plug 'tomasr/molokai'
 
