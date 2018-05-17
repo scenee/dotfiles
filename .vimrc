@@ -187,6 +187,7 @@ let g:ctrlp_user_command = 'ag --hidden --ignore .git -f -g ""'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
+
 " emmet.vim
 let g:emmet_html5 = 0 " Self-closing tag is needed.
 let g:user_emmet_install_global = 0
@@ -194,8 +195,10 @@ let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 let g:user_emmet_leader_key='<C-Y>'
 autocmd FileType html,htmldjango EmmetInstall
 
+
 " HashiVim
 let g:terraform_align=1
+
 
 " jedi-vim
 autocmd FileType python call s:SetJedi()
@@ -227,15 +230,19 @@ noremap <C-n> :cn<CR>
 noremap <C-p> :cp<CR>
 endfunction
 
+
 " NERDTree
 nnoremap <silent> <Leader>1 :NERDTree<CR>
+
 
 " open-browser
 nmap <Leader>w <Plug>(openbrowser-smart-search)
 " let g:netrw_nogx = 1 " disable netrw's gw mapping.
 
+
 " plantuml-syntax
 let g:plantuml_executable_script = "~/.plantuml/plantuml""
+
 
 " quickrun.vim
 let g:quickrun_config = get(g:, 'quickrun_config', {})
@@ -261,6 +268,7 @@ if has('conceal')
     let g:tex_conceal=''
 "  set conceallevel=2 concealcursor=niv
 endif
+
 
 " surround.vim
 autocmd FileType html,htmldjango,css call s:SetSurroundHTML()
@@ -288,6 +296,7 @@ function! s:SetSurroundMarkdown()
     let b:surround_{char2nr("_")} = "__\r__"
 endfunction
 
+
 " syntastic
 noremap <silent> ,s :SyntasticCheck<CR>
 set statusline+=%#warningmsg#
@@ -306,9 +315,11 @@ let g:syntastic_javascript_checkers=['eslint']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
+
 " tagbar
 nnoremap <silent> <Leader>0 :Tagbar<CR>
 let g:tagbar_sort = 0
+
 
 " unite.vim
 let g:unite_enable_start_insert = 1
@@ -331,12 +342,14 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
+
 " vim-airline
 let g:airline_theme = "tomorrow"
 let g:airline_powerline_fonts = 1 " Install https://github.com/powerline/fonts
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
+
 
 " YCM
 " If you use pyenv, you have to reinstall a python. See also https://github.com/yyuu/pyenv/issues/99
@@ -360,6 +373,7 @@ let g:ycm_complete_in_strings = 1 " Completion in string
 
 endfunction
 
+
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
@@ -367,6 +381,7 @@ nmap ga <Plug>(EasyAlign)
 " vim-go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
+
 
 " }}}
 "===================== COLOR ======================
@@ -394,11 +409,14 @@ highlight clear SignColumn
 autocmd FileType c,cpp setlocal tabstop=8 softtabstop=8 shiftwidth=8
 autocmd FileType c,cpp let easytags_always_enabled = 1
 
+
 " vim
 autocmd FileType vim setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
+
 " bats
 autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
+
 
 " HTML
 autocmd FileType html,htmldjango,css,javascript,json,sass,scss,vue
@@ -406,12 +424,15 @@ autocmd FileType html,htmldjango,css,javascript,json,sass,scss,vue
 autocmd FileType html,htmldjango,css,sass,scss,vue
     \ setlocal foldmethod=indent
 
+
 " Vuejs
 autocmd FileType vue syntax sync fromstart
 autocmd FileType vue setlocal nocursorline " Disable cursorline to make vim-vue fast
 
+
 " shell
 autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
+
 
 " Erlang
 autocmd BufRead,BufNewFile *.erl setlocal filetype=erlang
@@ -419,34 +440,42 @@ autocmd FileType erlang setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd BufWritePost *.erl call 
     \ vimproc#system_bg('~/.vim/bundle/vim-erlang-tags/bin/vim-erlang-tags.erl --otp')
 
+
 " Python
 autocmd BufRead,BufNewFile *.kv set filetype=python
 autocmd BufRead,BufNewFile *.py set filetype=python
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
+
 " Ruby
 autocmd BufRead,BufNewFile *.podspec set filetype=ruby
 autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
 
 " YAML
 autocmd BufRead,BufNewFile *.yml set filetype=yaml
 autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
+
 " conf
 autocmd BufRead,BufNewFile *.conf set filetype=conf
 autocmd FileType conf setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
+
 " HCL
 autocmd FileType terraform setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
+
 " Terraform
 autocmd FileType terraform setlocal commentstring=#%s
+
 
 " Markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.report set filetype=markdown
 autocmd FileType markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 let g:vim_markdown_conceal = 0
+
 
 " }}}
 " vim:foldmethod=marker:foldlevel=0
