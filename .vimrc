@@ -109,25 +109,27 @@ if v:version > 700 && (has("python") || has("python3"))
 endif
 Plug 'honza/vim-snippets'
 
+" Tags
+" Plug 'airblade/vim-rooter' " Must be before vim-easytags
+Plug 'vim-scripts/taglist.vim' " Required Eexuberant-ctags.
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
+Plug 'vim-scripts/gtags.vim'
+"
 " Status/Tabline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" C
+" C/C++
+Plug 'ericcurtin/CurtineIncSw.vim'
 if v:version > 704 || (v:version == 703 && has('patch143'))
     \ && (has("python") || has("python3"))
     " YouCompleteMe require Vim 7.3.885+ with Lua enabled.
     " If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
     Plug 'Valloric/YouCompleteMe'
 endif
-
-Plug 'airblade/vim-rooter' " Must be before vim-easytags
-Plug 'vim-scripts/taglist.vim' " Required Eexuberant-ctags.
-Plug 'xolox/vim-easytags'
-Plug 'xolox/vim-misc'
-Plug 'vim-scripts/gtags.vim'
 
 " Erlang
 Plug 'jimenezrick/vimerl'
@@ -172,11 +174,17 @@ call plug#end()
 " }}}
 "===================== PLUGIN SETTINGS ======================
 " {{{
-
 " ag.vim
 nnoremap <leader>a :Ag
 
+
+" CurtineIncSw.vim
+autocmd FileType c,cpp nnoremap <S-J> :call CurtineIncSw()<CR>
+
+
 " ctrlp
+let g:ctrlp_map = '<c-t>'
+let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_depth = 10
 let g:ctrlp_max_height = 16
@@ -212,11 +220,6 @@ let g:jedi#goto_command = "<C-j>"
 let g:jedi#force_py_version = 3
 endfunction
 
-" vim-easytag
-let g:easytags_file = '~/.vim/tags'
-let g:easytags_async = 1
-let g:easytags_always_enabled = 0
-let g:easytags_include_members = 1
 
 " gtags
 let g:Gtags_OpenQuickfixWindow = 0
@@ -370,13 +373,20 @@ let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language
 let g:ycm_complete_in_comments = 1 " Completion in comments{{{}}}
 let g:ycm_complete_in_strings = 1 " Completion in string
 " }}}
-
 endfunction
 
 
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+
+" vim-easytag
+let g:easytags_file = '~/.vim/tags'
+let g:easytags_async = 1
+let g:easytags_always_enabled = 0
+let g:easytags_include_members = 1
+
 
 " vim-go
 let g:go_highlight_functions = 1
