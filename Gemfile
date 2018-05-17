@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+group :ci do
+  gem 'danger'
+end
+
 group :ios do
   gem 'cocoapods'
   gem 'xcpretty'
