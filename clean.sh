@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Removing symbolic links to dotfiles..."
+
 pushd ~/ >/dev/null
 [[ -L .bash_profile ]] && rm -f .bash_profile
 [[ -L .vimrc ]] && rm -f .vimrc
@@ -8,3 +10,7 @@ pushd ~/ >/dev/null
 [[ -L .gitconfig ]] && rm -f .gitconfig
 [[ -L .plantuml ]] && rm -rf .plantuml
 popd >/dev/null
+
+echo "Cleaning gems..."
+
+gem uninstall -I -a -x --user-install --force

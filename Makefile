@@ -12,11 +12,11 @@ setup: clean
 
 .PHONY: install_plug
 install_plug:
-	@./install_vim-plug.sh
+	./install_vim-plug.sh
 
 .PHONEY: gems
 gems:
-	@bundle install --system
+	bundle install --system
 
 .PHONY: clean
 clean:
