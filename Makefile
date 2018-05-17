@@ -18,6 +18,10 @@ install_vundle:
 install_plug:
 	@./install_vim-plug.sh
 
+.PHONEY: gems
+gems:
+	@bundle install --system
+
 .PHONY: clean
 clean:
 	./clean.sh
