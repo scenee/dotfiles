@@ -1,4 +1,4 @@
-# env
+# ===================== Env ========================
 export EDITOR=vim
 export TERM="xterm-256color"
 
@@ -18,8 +18,7 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 ## undefine Ctrl-S for i-search
 stty stop undef
 
-###############
-# Aliases (custom)
+# ===================== Alias ======================
 alias ..='cd ..'
 alias cp="cp -i"
 alias t="tmux"
@@ -40,39 +39,36 @@ fi
 alias v="vim"
 alias vi="vim" # Use vim installed by brew
 
-###############
-# less
+# ===================== less ======================
 export LESS='-g -i -R -z-4 -x4'
 export PAGER=less
 if which lesspipe.sh > /dev/null; then
 	export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
 fi
 
-###############
-# svn
+# ===================== svn =======================
 export SVN_EDITOR=vim
 
-###############
-# git
+# ===================== git ======================-
 if [ ! -z $BASH_VERSION ] ; then
   source ~/.git-completion.bash
 fi
 
-
-## rbenv ##
+# ===================== rbenv ======================
 >/dev/null which rbenv \
 	&& export PATH=~/.rbenv/shims:$PATH \
 	&& eval "$(rbenv init -)" \
 	&& PATH="~/.rbenv/shims:$PATH"
 
-## gvm ##
+# ===================== gvm ========================
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh" ]] \
 	&& source "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh"
 
-## pyenv ##
+# ===================== pyenv ======================
 [ "$(uname)" = 'Darwin' ] \
 	&& export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
+
 > /dev/null which pyenv \
 	&& export PYENV_ROOT="$HOME/.pyenv" \
 	&& export PATH="$PYENV_ROOT/bin:$PATH" \
@@ -80,33 +76,32 @@ fi
 	&& eval "$(pyenv init -)" \
 	&& eval "$(pip completion --bash)"
 
-## pipenv ##
+# ===================== pipenv ======================
 > /dev/null which pipenv \
 	eval "$(pipenv --completion)"
 
-## swiftenv ##
+# ===================== swiftenv ====================
 >/dev/null which swiftenv \
 	&& eval "$(swiftenv init -)"
 
-## postgresql ##
+# ===================== postgres ====================
 >/dev/null which psql \
 	&& export PGDATA=/usr/local/var/postgres
 
-## nodebrew ##
+# ===================== nodebrew ====================
 >/dev/null which nodebrew \
 	&& export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-## go ##
+# ===================== go ==========================
 >/dev/null which go \
 	&& export GOPATH=$HOME/.go \
 	&& export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
 
-## haskell-stack ##
+# ===================== haskell =====================
 >/dev/null which stack \
 	&& export PATH="$HOME/.local/bin:$PATH"
 
-## peco ##
-
+# ===================== peco ========================
 if >/dev/null which peco; then
 	peco-select-history() {
 		declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$READLINE_LINE")
@@ -116,7 +111,10 @@ if >/dev/null which peco; then
 	bind -x '"\C-r": peco-select-history'
 fi
 
-# macOS
+# ===================== fzf =========================
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# ===================== macOS =======================
 if [ "$(uname)" = 'Darwin' ];
 then
 	if [ -r ~/.bash_private ]; then
@@ -137,7 +135,7 @@ then
 		osascript -e 'tell app "loginwindow" to «event aevtrsdn»'
 	}
 
-	## brew ##
+	# ------------------ brew -------------------
 	if which brew > /dev/null;
 	then
 		if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -147,7 +145,7 @@ then
 		alias ctags="`brew --prefix`/bin/ctags"
 	fi
 
-	## dropbox ##
+	# ------------------ dropbox -----------------
 	if test -d /Applications/Dropbox.app;
 	then
 		DROPBOX_PATH=~/Dropbox
@@ -160,10 +158,10 @@ then
 		}
 	fi
 
-	## relax ##
+	# ------------------ relax --------------------
 	which relax > /dev/null && source "$(relax init completion)"
 
-	## anaconda ##
+	# ------------------ anaconda -----------------
 	if test -d  ~/anaconda*;
 	then
 		function activate_anaconda() {
@@ -179,30 +177,31 @@ then
 		}
 	fi
 
-	## octave ##
+	# ------------------ octave -------------------
 	if which octave > /dev/null;
 	then
 		## To define a plot application
 		export GNUTERM=x11
 	fi
 
-	## iTerm ##
+	# ------------------ iterm ---------------------
 	tt ()  { 
 		echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
 	}
 
-	## Fix OpenSSL version for macOS ##
+	# ------------------ openssl --------------------
 	if [ -d /usr/local/opt/openssl ]; then
 		export PATH=/usr/local/opt/openssl/bin:$PATH
 		export LD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$LD_LIBRARY_PATH
 		export CPATH=/usr/local/opt/openssl/include:$LD_LIBRARY_PATH
 	fi
 
-	### gettext ###
+	# ------------------ gettext --------------------
 	export PATH="/usr/local/opt/gettext/bin:$PATH"
 
-	## Travis CI ##
+	# ------------------ travis ci ------------------
 	[ -f /Users/syamamoto/.travis/travis.sh ] && source /Users/syamamoto/.travis/travis.sh
 fi
 
 [ -r ~/.bashrc ] && source ~/.bashrc
+
