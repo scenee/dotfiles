@@ -203,6 +203,3 @@ then
 	# ------------------ travis ci ------------------
 	[ -f /Users/syamamoto/.travis/travis.sh ] && source /Users/syamamoto/.travis/travis.sh
 fi
-
-[ -r ~/.bashrc ] && source ~/.bashrc
-
