@@ -66,17 +66,6 @@ cdrepo () { cd "`git rev-parse --show-toplevel`"; }
 [[ -s "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh" ]] \
 	&& source "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh"
 
-# ===================== pyenv ======================
-[ "$(uname)" = 'Darwin' ] \
-	&& export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
-
-> /dev/null which pyenv \
-	&& export PYENV_ROOT="$HOME/.pyenv" \
-	&& export PATH="$PYENV_ROOT/bin:$PATH" \
-	&& export VIRTUALENVWRAPPER_PYTHON="$PYENV_ROOT/shims/python" \
-	&& eval "$(pyenv init -)" \
-	&& eval "$(pip completion --bash)"
-
 # ===================== pipenv ======================
 > /dev/null which pipenv \
 	eval "$(pipenv --completion)"
@@ -124,6 +113,7 @@ then
 		echo "Not found .bash_private"
 	fi
 
+	# ------------------ functions-------------------
 	function empty-trash () {
 		if [ -z "$(ls -A ~/.Trash/)" ]; then
 			echo "Trash is empty"
@@ -135,6 +125,9 @@ then
 	function shutdown-applescript () {
 		osascript -e 'tell app "loginwindow" to «event aevtrsdn»'
 	}
+
+	# ------------------ YouCompleteMe.vim -------------------
+	export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
 
 	# ------------------ brew -------------------
 	if which brew > /dev/null;
