@@ -20,3 +20,7 @@ end
 group :web do
   gem 'sass'
 end
+
+group :xevo do
+  gem 'atlassian-stash'
+end
