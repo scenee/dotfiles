@@ -16,7 +16,6 @@
 	ps-head = push origin head
 	pl-master = pull origin master
 	pl-develop = pull origin develop
-	create-pull-request = !sh -c 'stash pull-request $0'
 	toplevel = rev-parse --show-toplevel
 [user]
 	name = Shin Yamamoto
