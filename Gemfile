@@ -6,15 +6,16 @@ end
 
 group :ios do
   gem 'cocoapods'
-  gem 'xcpretty'
-  gem 'simctl'
   gem 'fastlane'
+  gem 'jazzy'
+  gem 'simctl'
+  gem 'xcpretty'
 end
 
 group :utils do
+  gem 'asciidoctor'
   gem 'ronn'
   gem 'rouge'
-  gem 'asciidoctor'
 end
 
 group :web do
