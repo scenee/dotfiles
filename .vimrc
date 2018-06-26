@@ -489,6 +489,12 @@ let g:vim_markdown_conceal = 0
 "===================== Custom vimscript ======================
 " {{{
 
+" http://blog.erw.dk/2016/04/19/entering-dates-and-times-in-vim/
+noremap! <expr> ,t strftime("%H:%M:%S")
+noremap! <expr> ,d strftime("%Y-%m-%d")
+noremap! <expr> ,l strftime("%Y-%m-%d %H:%M")
+noremap! ,, ,
+
 " [Multiple Cursors](http://www.kevinli.co/posts/2017-01-19-multiple-cursors-in-500-bytes-of-vimscript/)
 let g:mc = "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>"
 
