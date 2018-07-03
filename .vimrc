@@ -26,6 +26,7 @@ set softtabstop=4
 set shell=bash
 set spell
 set spelllang=en,cjk
+set splitright
 set tabstop=4
 set title
 set virtualedit+=block
@@ -353,6 +354,13 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 
+" vim-markdown
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_toc_autofit = 1
+autocmd FileType markdown call s:SetMarkDown()
+function! s:SetMarkDown()
+nnoremap <silent> <Leader>0 :Toc<CR>
+endfunction
 
 " YCM
 " If you use pyenv, you have to reinstall a python. See also https://github.com/yyuu/pyenv/issues/99
@@ -439,7 +447,6 @@ autocmd FileType html,htmldjango,css,sass,scss,vue
 autocmd FileType vue syntax sync fromstart
 autocmd FileType vue setlocal nocursorline " Disable cursorline to make vim-vue fast
 
-
 " shell
 autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
 
@@ -484,7 +491,6 @@ autocmd FileType terraform setlocal commentstring=#%s
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.report set filetype=markdown
 autocmd FileType markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-let g:vim_markdown_conceal = 0
 " }}}
 "===================== Custom vimscript ======================
 " {{{
