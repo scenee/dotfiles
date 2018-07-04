@@ -195,4 +195,7 @@ then
 
 	# ------------------ travis ci ------------------
 	[ -f /Users/syamamoto/.travis/travis.sh ] && source /Users/syamamoto/.travis/travis.sh
+
+	# ------------------ visual code ------------------
+	export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 fi
