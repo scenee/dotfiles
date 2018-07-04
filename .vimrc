@@ -97,6 +97,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'vim-scripts/ag.vim'
 Plug 'vim-scripts/grep.vim'
 Plug 'w0rp/ale'
+Plug 'severin-lemaignan/vim-minimap'
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -239,6 +240,10 @@ noremap <C-j> :GtagsCursor<CR>
 noremap <C-n> :cn<CR>
 noremap <C-p> :cp<CR>
 endfunction
+
+" Minimap
+let g:minimap_highlight='Visual'
+let g:minimap_toggle='<leader>mt'
 
 
 " NERDTree
