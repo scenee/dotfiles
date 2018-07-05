@@ -181,6 +181,7 @@ call plug#end()
 let g:airline#extensions#ale#enabled = 1
 let g:ale_open_list = 1
 " let g:ale_lint_on_text_changed = 0
+autocmd QuitPre * if empty(&bt) | lclose | endif  " Auto-close the error list. Ref Issue#1306
 
 " ag.vim
 nnoremap <leader>a :Ag
