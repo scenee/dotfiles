@@ -96,7 +96,7 @@ Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
 Plug 'vim-scripts/ag.vim'
 Plug 'vim-scripts/grep.vim'
-Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -175,6 +175,12 @@ call plug#end()
 " }}}
 "===================== PLUGIN SETTINGS ======================
 " {{{
+
+" ale
+let g:airline#extensions#ale#enabled = 1
+let g:ale_open_list = 1
+" let g:ale_lint_on_text_changed = 0
+
 " ag.vim
 nnoremap <leader>a :Ag
 
@@ -299,25 +305,6 @@ function! s:SetSurroundMarkdown()
     let b:surround_{char2nr("*")} = "**\r**"
     let b:surround_{char2nr("_")} = "__\r__"
 endfunction
-
-
-" syntastic
-noremap <silent> ,s :SyntasticCheck<CR>
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ["flake8"]
-" let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225'
-let g:syntastic_go_checkers = ['go']
-let g:syntastic_javascript_checkers=['eslint']
-" See https://github.com/vim-syntastic/syntastic/issues/1736
-let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
 
 " tagbar
