@@ -324,10 +324,8 @@ let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
 nnoremap <silent> ,e  :<C-u>Unite file_rec/async:!<CR>
-nnoremap <silent> ,g :<C-u>Unite grep/git:/:--cached -buffer-name=search-buffer<CR><C-R><C-W>
-" nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-" nnoremap <silent> ,rg :<C-u>Unite grep/git:/:--cached -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> ,gg :<C-u>Unite grep/git:/:--cached -buffer-name=search-buffer<CR><C-R><C-W>
 nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR
 let s:unite_ignore_directory_patterns=
       \ ''
