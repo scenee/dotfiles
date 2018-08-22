@@ -79,7 +79,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'Townk/vim-autoclose'
-Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'cohama/lexima.vim'
 Plug 'corylanou/vim-present', {'for' : 'present'}
 Plug 'ctrlpvim/ctrlp.vim'
@@ -173,6 +173,24 @@ Plug 'aklt/plantuml-syntax'
 Plug 'vim-scripts/bats.vim'
 
 call plug#end()
+" }}}
+"===================== COLOR ======================
+" {{{
+
+set background=dark
+set t_Co=256
+" "If you prefer the scheme to match the original monokai background color,
+" let g:molokai_original = 1 
+let g:rehash256 = 1
+colorscheme molokai
+
+let &colorcolumn=join(range(81,1000),",")
+highlight ColorColumn ctermbg=235
+
+" vim-gitgutter color settings
+let g:gitgutter_override_sign_column_highlight = 0
+highlight clear SignColumn
+
 " }}}
 "===================== PLUGIN SETTINGS ======================
 " {{{
@@ -345,6 +363,14 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 
+
+" vim-indent-guides
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_enable_on_vim_startup = 1
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=235
+
+
 " vim-markdown
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_toc_autofit = 1
@@ -391,24 +417,6 @@ let g:easytags_include_members = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 
-
-" }}}
-"===================== COLOR ======================
-" {{{
-
-set background=dark
-set t_Co=256
-" "If you prefer the scheme to match the original monokai background color,
-" let g:molokai_original = 1 
-let g:rehash256 = 1
-colorscheme molokai
-
-let &colorcolumn=join(range(81,1000),",")
-highlight ColorColumn ctermbg=235
-
-" vim-gitgutter color settings
-let g:gitgutter_override_sign_column_highlight = 0
-highlight clear SignColumn
 
 " }}}
 "===================== FILE TYPE ======================
