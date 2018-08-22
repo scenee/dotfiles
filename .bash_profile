@@ -105,6 +105,12 @@ fi
 # ===================== fzf =========================
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+
+# ===================== ghq =========================
+if [ -f ~/.fzf.bash ] && >/dev/null which ghq; then
+	alias gl='pushd $(ghq root)/$(ghq list | fzf)'
+fi
+
 # ===================== macOS =======================
 if [ "$(uname)" = 'Darwin' ];
 then
