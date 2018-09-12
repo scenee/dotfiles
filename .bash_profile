@@ -108,7 +108,12 @@ fi
 
 # ===================== ghq =========================
 if [ -f ~/.fzf.bash ] && >/dev/null which ghq; then
-	alias gl='pushd $(ghq root)/$(ghq list | fzf)'
+	function _gl() {
+		local path=$(ghq list | fzf)
+		[[ -n $path ]] &&
+			pushd "$(ghq root)/$path"
+	}
+	alias gl=_gl
 fi
 
 # ===================== macOS =======================
