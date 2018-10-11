@@ -267,6 +267,8 @@ let g:minimap_toggle='<leader>mt'
 
 " NERDTree
 nnoremap <silent> <Leader>1 :NERDTree<CR>
+let g:NERDTreeNaturalSort = 1
+let g:NERDTreeSortHiddenFirst = 1
 
 
 " open-browser
