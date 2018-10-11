@@ -113,7 +113,12 @@ if [ -f ~/.fzf.bash ] && >/dev/null which ghq; then
 		[[ -n $path ]] &&
 			pushd "$(ghq root)/$path"
 	}
+	function _gget() {
+		local url="$1"
+		ghq get "$url"
+	}
 	alias gl=_gl
+	alias gget=_gget
 fi
 
 # ===================== macOS =======================
