@@ -71,8 +71,9 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
        && export PATH="$PYENV_ROOT/bin:$PATH" \
        && export VIRTUALENVWRAPPER_PYTHON="$PYENV_ROOT/shims/python" \
        && eval "$(pyenv init -)" \
-       && eval "$(pip completion --bash)" \
        && pyenv global system
+       # && eval "$(pip completion --bash)" \
+       # && pyenv global system
 
 # ===================== gvm ========================
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
