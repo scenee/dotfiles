@@ -390,9 +390,6 @@ command! YcmCompleter call plug#load('YouCompleteMe') | call youcompleteme#Enabl
 autocmd FileType * call s:SetYCM()
 function! s:SetYCM()
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_server_python_interpreter = 'python3'
-let g:ycm_python_binary_path = 'python3'
-let g:ycm_path_to_python_interpreter = 'python3'
 " See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango) {{{
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
 let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
