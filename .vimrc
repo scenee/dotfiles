@@ -464,6 +464,7 @@ autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " Ruby
 autocmd BufRead,BufNewFile *.podspec set filetype=ruby
+autocmd BufRead,BufNewFile Podfile set filetype=ruby
 autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 
