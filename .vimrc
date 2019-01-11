@@ -106,10 +106,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'tomasr/molokai'
 
 " Snippets
-if v:version > 700 && (has("python") || has("python3"))
-    Plug 'SirVer/ultisnips'
-endif
-Plug 'honza/vim-snippets'
+"" UltiSnips causes many bugs 
+" if v:version > 700 && (has("python") || has("python3"))
+"     Plug 'SirVer/ultisnips'
+" endif
+" Plug 'honza/vim-snippets'
 
 " Tags
 " Plug 'airblade/vim-rooter' " Must be before vim-easytags
@@ -293,17 +294,17 @@ let g:quickrun_config._ = {
 \   'outputter/buffer/close_on_empty' : 1,
 \}
 "
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<Leader>s"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-" For conceal markers.
-if has('conceal')
-    let g:tex_conceal=''
-"  set conceallevel=2 concealcursor=niv
-endif
+"" UltiSnips
+" let g:UltiSnipsExpandTrigger="<Leader>s"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" " If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
+" " For conceal markers.
+" if has('conceal')
+"     let g:tex_conceal=''
+" "  set conceallevel=2 concealcursor=niv
+" endif
 
 
 " surround.vim
