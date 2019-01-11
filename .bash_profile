@@ -54,7 +54,7 @@ export SVN_EDITOR=vim
 if [ ! -z $BASH_VERSION ] ; then
   source ~/.git-completion.bash
 fi
-gr() { cd "`git rev-parse --show-toplevel`"; }
+cg() { cd "`git rev-parse --show-toplevel`"; }
 
 # ===================== rbenv ======================
 >/dev/null which rbenv \
