@@ -160,6 +160,7 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color'
 Plug 'posva/vim-vue'
+Plug 'leafgarland/typescript-vim'
 
 " HashiVim
 Plug 'hashivim/vim-terraform'
