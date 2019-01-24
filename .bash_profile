@@ -72,8 +72,6 @@ cg() { cd "`git rev-parse --show-toplevel`"; }
        && export VIRTUALENVWRAPPER_PYTHON="$PYENV_ROOT/shims/python" \
        && eval "$(pyenv init -)" \
        && pyenv global system
-       # && eval "$(pip completion --bash)" \
-       # && pyenv global system
 
 # ===================== gvm ========================
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
@@ -155,9 +153,6 @@ then
 	function shutdown-applescript () {
 		osascript -e 'tell app "loginwindow" to «event aevtrsdn»'
 	}
-
-	# ------------------ YouCompleteMe.vim -------------------
-	export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
 
 	# ------------------ brew -------------------
 	if which brew > /dev/null;
