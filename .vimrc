@@ -75,6 +75,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " {{{
 call plug#begin('~/.vim/plugged')
 
+" Basic
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
@@ -98,12 +99,16 @@ Plug 'vim-scripts/ag.vim'
 Plug 'vim-scripts/grep.vim'
 Plug 'w0rp/ale'
 Plug 'severin-lemaignan/vim-minimap'
-
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
-" Color
-Plug 'tomasr/molokai'
+
+" Completion
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " Snippets
 "" UltiSnips causes many bugs 
@@ -111,6 +116,10 @@ Plug 'tomasr/molokai'
 "     Plug 'SirVer/ultisnips'
 " endif
 " Plug 'honza/vim-snippets'
+
+
+" Color
+Plug 'tomasr/molokai'
 
 " Tags
 " Plug 'airblade/vim-rooter' " Must be before vim-easytags
@@ -127,12 +136,6 @@ Plug 'airblade/vim-gitgutter'
 
 " C/C++
 Plug 'ericcurtin/CurtineIncSw.vim'
-if v:version > 704 || (v:version == 703 && has('patch143'))
-    \ && (has("python") || has("python3"))
-    " YouCompleteMe require Vim 7.3.885+ with Lua enabled.
-    " If you use it on 14.04, See https://github.com/Valloric/YouCompleteMe/issues/2335
-    Plug 'Valloric/YouCompleteMe'
-endif
 
 " Erlang
 Plug 'jimenezrick/vimerl'
@@ -384,24 +387,6 @@ function! s:SetMarkDown()
 nnoremap <silent> <Leader>0 :Toc<CR>
 endfunction
 
-" YCM
-" If you use pyenv, you have to reinstall a python. See also https://github.com/yyuu/pyenv/issues/99
-" ```
-" env PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang" pyenv install 3.6.0
-" ````
-command! YcmCompleter call plug#load('YouCompleteMe') | call youcompleteme#Enable() | YcmCompleter
-autocmd FileType * call s:SetYCM()
-function! s:SetYCM()
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-" See [Using Vim with Django](https://code.djangoproject.com/wiki/UsingVimWithDjango) {{{
-let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
-let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
-let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword{{{}}}
-let g:ycm_complete_in_comments = 1 " Completion in comments{{{}}}
-let g:ycm_complete_in_strings = 1 " Completion in string
-" }}}
-endfunction
-
 
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
@@ -413,6 +398,16 @@ let g:easytags_file = '~/.vim/tags'
 let g:easytags_async = 1
 let g:easytags_always_enabled = 0
 let g:easytags_include_members = 1
+
+
+" vim-lsp
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
 
 
 " vim-go
