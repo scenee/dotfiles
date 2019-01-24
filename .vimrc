@@ -111,7 +111,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " Snippets
-"" UltiSnips causes many bugs 
+"" <<< UltiSnips causes many bugs >>>
 " if v:version > 700 && (has("python") || has("python3"))
 "     Plug 'SirVer/ultisnips'
 " endif
@@ -195,6 +195,19 @@ highlight ColorColumn ctermbg=235
 " vim-gitgutter color settings
 let g:gitgutter_override_sign_column_highlight = 0
 highlight clear SignColumn
+
+
+" }}}
+"===================== REGISTRATIONS ======================
+" {{{
+
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
 
 " }}}
 "===================== PLUGIN SETTINGS ======================
@@ -398,16 +411,6 @@ let g:easytags_file = '~/.vim/tags'
 let g:easytags_async = 1
 let g:easytags_always_enabled = 0
 let g:easytags_include_members = 1
-
-
-" vim-lsp
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
 
 
 " vim-go
