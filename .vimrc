@@ -80,7 +80,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'Townk/vim-autoclose'
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 Plug 'cohama/lexima.vim'
 Plug 'corylanou/vim-present', {'for' : 'present'}
 Plug 'ctrlpvim/ctrlp.vim'
@@ -396,11 +396,8 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 
 
-" vim-indent-guides
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_enable_on_vim_startup = 1
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=235
+" indentLine
+let g:indentLine_color_term = 251
 
 
 " vim-markdown
