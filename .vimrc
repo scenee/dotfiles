@@ -299,9 +299,14 @@ let g:minimap_toggle='<leader>mt'
 
 " NERDTree
 nnoremap <silent> <Leader>1 :NERDTree<CR>
+let g:NERDTreeQuitOnOpen = 1  " Not working...
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeNaturalSort = 1
 let g:NERDTreeSortHiddenFirst = 1
-let g:NERDTreeSortOrder = ['README\.md$', '\.git.*$', '\/$', '[[-timestamp]]', '*']
+let g:NERDTreeSortOrder = ['README\.md$', '\.git.*$', '\/$', '*']
 
 
 " open-browser
@@ -369,6 +374,10 @@ endfunction
 " tagbar
 nnoremap <silent> <Leader>0 :Tagbar<CR>
 let g:tagbar_sort = 0
+
+
+" taglist
+let Tlist_Exit_OnlyWindow=1
 
 
 " unite.vim
