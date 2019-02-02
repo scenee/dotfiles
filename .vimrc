@@ -171,6 +171,9 @@ Plug 'hashivim/vim-terraform'
 " Go
 Plug 'fatih/vim-go'
 
+" Swift
+Plug 'keith/swift.vim'
+
 " PlantUML
 Plug 'aklt/plantuml-syntax'
 
