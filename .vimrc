@@ -410,6 +410,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " indentLine
 let g:indentLine_color_term = 251
+let g:indentLine_setConceal = 0
 
 
 " vim-markdown
