@@ -24,6 +24,7 @@ alias cp="cp -i"
 alias t="tmux"
 alias rm="rm -id"
 alias x="xargs"
+alias be='bundle exec'
 
 if [ "$(uname)" = 'Darwin' ];
 then
