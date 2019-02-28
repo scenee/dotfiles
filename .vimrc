@@ -95,7 +95,6 @@ Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
-Plug 'vim-scripts/ag.vim'
 Plug 'vim-scripts/grep.vim'
 Plug 'w0rp/ale'
 Plug 'severin-lemaignan/vim-minimap'
@@ -233,10 +232,6 @@ let g:ale_open_list = 1
 " let g:ale_lint_on_text_changed = 0
 autocmd QuitPre * if empty(&bt) | lclose | endif  " Auto-close the error list. Ref Issue#1306
 
-" ag.vim
-nnoremap <leader>a :Ag
-
-
 " CurtineIncSw.vim
 autocmd FileType c,cpp nnoremap <S-J> :call CurtineIncSw()<CR>
 
@@ -250,7 +245,7 @@ let g:ctrlp_max_height = 16
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
-let g:ctrlp_user_command = 'ag --hidden --ignore .git -f -g ""'
+let g:ctrlp_user_command = 'rg--hidden --ignore .git -f -g ""'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
@@ -388,8 +383,8 @@ let s:unite_ignore_directory_patterns=
       \ ''
       \ .'vendor/bundle\|.bundle/\|\.sass-cache/\|'
       \ .'node_modules/\|bower_components/'
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
+if executable('rg')
+  let g:unite_source_grep_command = 'rg'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif

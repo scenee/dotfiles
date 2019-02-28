@@ -35,7 +35,7 @@ alias getplain='pbpaste | pbcopy'
 else
 alias ll="ls -AlFh"
 alias ls="ls -F"
-alias ag='ag --hidden'
+alias rg='rg --hidden'
 fi
 
 alias v="vim"
