@@ -16,7 +16,7 @@
 	ps-head = push origin head --force-with-lease
 	pl-master = pull origin master
 	pl-develop = pull origin develop
-	toplevel = rev-parse --show-toplevel
+	root = rev-parse --show-toplevel
 [user]
 	name = Shin Yamamoto
 	email = shin@scenee.com
