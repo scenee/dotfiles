@@ -38,7 +38,6 @@ alias ls="ls -F"
 alias rg='rg --hidden'
 fi
 
-alias v="vim"
 alias vi="vim" # Use vim installed by brew
 
 # ===================== less ======================
