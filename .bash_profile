@@ -135,6 +135,8 @@ fi
 # ===================== macOS =======================
 if [ "$(uname)" = 'Darwin' ];
 then
+	[ -r ~/.bash_private ] && source ~/.bash_private || echo "Not found .bash_private"
+
 	# ------------------ functions-------------------
 	function empty-trash () {
 		if [ -z "$(ls -A ~/.Trash/)" ]; then
