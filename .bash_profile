@@ -25,6 +25,7 @@ alias t="tmux"
 alias rm="rm -id"
 alias x="xargs"
 alias be='bundle exec'
+alias mux='tmuxinator'
 
 if [ "$(uname)" = 'Darwin' ];
 then
