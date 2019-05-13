@@ -293,7 +293,7 @@ let g:minimap_toggle='<leader>mt'
 
 
 " NERDTree
-nnoremap <silent> <Leader>1 :NERDTree<CR>
+nnoremap <silent> <Leader>1 :NERDTreeToggle<CR>
 " let g:NERDTreeQuitOnOpen = 1  " Not working...
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
