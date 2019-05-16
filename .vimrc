@@ -163,6 +163,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color'
 Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim'
+Plug 'mustache/vim-mustache-handlebars'
 
 " HashiVim
 Plug 'hashivim/vim-terraform'
@@ -447,7 +448,7 @@ autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 
 " HTML
-autocmd FileType html,htmldjango,css,javascript,json,sass,scss,vue
+autocmd FileType html,htmldjango,css,javascript,json,sass,scss,vue,typescript,handlebars
     \ setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType html,htmldjango,css,sass,scss,vue
     \ setlocal foldmethod=indent
