@@ -532,5 +532,8 @@ nnoremap cQ :call SetupCR()<CR>#``qz
 vnoremap <expr> cq ":\<C-u>call SetupCR()\<CR>" . "gv" . g:mc . "``qz"
 vnoremap <expr> cQ ":\<C-u>call SetupCR()\<CR>" . "gv" . substitute(g:mc, '/', '?', 'g') . "``qz"
 
+vnoremap <c-a> <c-a>gv
+vnoremap <c-x> <c-x>gv
+
 " }}}
 "" vim:foldmethod=marker:foldlevel=0
