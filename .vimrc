@@ -345,6 +345,8 @@ let g:quickrun_config._ = {
 
 " surround.vim
 autocmd FileType html,htmldjango,css call s:SetSurroundHTML()
+nnoremap <Leader>q" ciw""<Esc>P
+nnoremap <Leader>q' ciw''<Esc>P
 function! s:SetSurroundHTML()
 let b:surround_{char2nr("v")} = "{{ \r }}"
 let b:surround_{char2nr("{")} = "{{ \r }}"
