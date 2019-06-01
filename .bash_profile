@@ -24,7 +24,7 @@ alias cp="cp -i"
 alias rm="rm -id"
 alias x="xargs"
 alias be='bundle exec'
-alias mxr='tmuxinator'
+alias mux='tmuxinator'
 
 if [ "$(uname)" = 'Darwin' ];
 then
