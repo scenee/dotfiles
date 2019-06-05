@@ -9,3 +9,5 @@ if [ "$(uname)" = 'Darwin' ]; then
 else
 	[ -r ~/.bash_profile ] && source ~/.bash_profile || echo "Not found ~/.bash_profile"
 fi
+
+export MANPATH=/usr/local/opt/erlang/lib/erlang/man:$MANPATH
