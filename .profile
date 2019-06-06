@@ -114,8 +114,14 @@ if >/dev/null which peco; then
 fi
 
 # ===================== fzf =========================
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
+case $SHELL in
+*bash)
+	[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+	;;
+*zsh)
+	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+	;;
+esac
 
 # ===================== ghq =========================
 if [ -f ~/.fzf.bash ] && >/dev/null which ghq; then
@@ -153,11 +159,13 @@ then
 	# ------------------ brew -------------------
 	if which brew > /dev/null;
 	then
-		if [ -f $(brew --prefix)/etc/bash_completion ]; then
+		if [[ $SHELL =~ bash && -f $(brew --prefix)/etc/bash_completion ]]; then
 			. $(brew --prefix)/etc/bash_completion
 		fi
 		# WARN:  Please set HOMEBREW_GITHUB_API_TOKEN in ~/.bashrc
-		alias ctags="`brew --prefix`/bin/ctags"
+		if [[  -f `brew --prefix`/bin/ctags ]]; then
+			alias ctags="`brew --prefix`/bin/ctags"
+		fi
 	fi
 
 	# ------------------ dropbox -----------------
