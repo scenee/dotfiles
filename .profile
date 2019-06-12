@@ -82,10 +82,6 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 > /dev/null which pipenv \
 	eval "$(pipenv --completion)"
 
-# ===================== swiftenv ====================
->/dev/null which swiftenv \
-	&& eval "$(swiftenv init -)"
-
 # ===================== postgres ====================
 >/dev/null which psql \
 	&& export PGDATA=/usr/local/var/postgres
