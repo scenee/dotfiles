@@ -46,59 +46,50 @@ export PAGER=less
 if which lesspipe.sh > /dev/null; then
 	export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
 fi
-
 # ===================== svn =======================
 export SVN_EDITOR=vim
-
 # ===================== git ======================-
 if [ ! -z $BASH_VERSION ] ; then
   source ~/.git-completion.bash
 fi
 gr() { cd "`git rev-parse --show-toplevel`"; }
-
 # ===================== rbenv ======================
 >/dev/null which rbenv \
 	&& export PATH=~/.rbenv/shims:$PATH \
 	&& eval "$(rbenv init -)" \
 	&& PATH="~/.rbenv/shims:$PATH"
-
 # ===================== pyenv ======================
 [ "$(uname)" = 'Darwin' ] \
        && export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
-
 > /dev/null which pyenv \
        && export PYENV_ROOT="$HOME/.pyenv" \
        && export PATH="$PYENV_ROOT/bin:$PATH" \
        && export VIRTUALENVWRAPPER_PYTHON="$PYENV_ROOT/shims/python" \
        && eval "$(pyenv init -)" \
        && pyenv global system
-
 # ===================== gvm ========================
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh" ]] \
 	&& source "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh"
-
 # ===================== pipenv ======================
 > /dev/null which pipenv \
 	eval "$(pipenv --completion)"
-
 # ===================== postgres ====================
 >/dev/null which psql \
 	&& export PGDATA=/usr/local/var/postgres
-
 # ===================== nodebrew ====================
 >/dev/null which nodebrew \
 	&& export PATH=$HOME/.nodebrew/current/bin:$PATH
-
 # ===================== go ==========================
 >/dev/null which go \
 	&& export GOPATH=$HOME/.go \
 	&& export PATH=$PATH:/usr/local/opt/go@1.10/libexec/bin:$GOPATH/bin
-
 # ===================== haskell =====================
 >/dev/null which stack \
 	&& export PATH="$HOME/.local/bin:$PATH"
-
+# ===================== rust =====================
+[ -d ~/.cargo ] \
+	&& export PATH="$HOME/.cargo/bin:$PATH"
 # ===================== peco ========================
 if >/dev/null which peco; then
 	peco-select-history() {
@@ -108,7 +99,6 @@ if >/dev/null which peco; then
 	}
 	bind -x '"\C-r": peco-select-history'
 fi
-
 # ===================== fzf =========================
 case $SHELL in
 *bash)
@@ -118,7 +108,6 @@ case $SHELL in
 	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 	;;
 esac
-
 # ===================== ghq =========================
 if [ -f ~/.fzf.bash ] && >/dev/null which ghq; then
 	function _gl() {
@@ -133,7 +122,6 @@ if [ -f ~/.fzf.bash ] && >/dev/null which ghq; then
 	alias gl=_gl
 	alias gget=_gget
 fi
-
 # ===================== macOS =======================
 if [ "$(uname)" = 'Darwin' ];
 then
