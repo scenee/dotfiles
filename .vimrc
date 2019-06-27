@@ -324,11 +324,21 @@ let g:quickrun_config._ = {
 \   'hook/time/enable': '1',
 \   'runner'    : 'vimproc',
 \   'runner/vimproc/updatetime' : 60,
+\   'runner/python' : 60,
 \   'outputter' : 'error',
 \   'outputter/error/success' : 'buffer',
 \   'outputter/error/error'   : 'quickfix',
 \   'outputter/buffer/close_on_empty' : 1,
 \}
+let g:quickrun_config.python = { 'command': 'python3' }
+
+au FileType qf nnoremap <silent><buffer>q :quit<CR>
+let g:quickrun_no_default_key_mappings = 1
+nnoremap \R :cclose<CR>:write<CR>:QuickRun -mode n<CR>
+xnoremap \R :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+
+
 "
 "" UltiSnips
 " let g:UltiSnipsExpandTrigger="<Leader>s"
