@@ -247,13 +247,13 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_depth = 10
 let g:ctrlp_max_height = 16
-let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
-let g:ctrlp_user_command = 'rg--hidden --ignore .git -f -g ""'
+let g:ctrlp_user_command = 'rg %s --files --hidden --color=never -g "!.git"'
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_use_caching = 0
+let g:ctrlp_clear_cache_on_exit = 1
 
 " emmet.vim
 let g:emmet_html5 = 0 " Self-closing tag is needed.
