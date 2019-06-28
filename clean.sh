@@ -9,6 +9,7 @@ pushd ~/ >/dev/null
 [[ -L .tigrc ]] && rm -f .tigrc
 [[ -L .gitconfig ]] && rm -f .gitconfig
 [[ -L .plantuml ]] && rm -rf .plantuml
+[[ -L .ripgreprc ]] && rm -rf .ripgreprc
 popd >/dev/null
 
 echo "Cleaning gems..."

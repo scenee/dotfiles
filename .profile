@@ -35,7 +35,6 @@ alias getplain='pbpaste | pbcopy'
 else
 alias ll="ls -AlFh"
 alias ls="ls -F"
-alias rg='rg --hidden'
 fi
 
 alias vi="vim" # Use vim installed by brew
@@ -122,6 +121,9 @@ if [ -f ~/.fzf.bash ] && >/dev/null which ghq; then
 	alias gl=_gl
 	alias gget=_gget
 fi
+# ===================== rg ==========================
+>/dev/null which rg \
+	&& export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 # ===================== macOS =======================
 if [ "$(uname)" = 'Darwin' ];
 then

@@ -12,4 +12,5 @@ ln -s ${DOTFILES}/.tigrc
 ln -s ${DOTFILES}/.gitconfig
 ln -s ${DOTFILES}/.tmux.conf
 ln -s ${DOTFILES}/.plantuml
+ln -s ${DOTFILES}/.ripgreprc
 popd >/dev/null
