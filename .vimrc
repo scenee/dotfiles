@@ -267,6 +267,9 @@ command! -bang -nargs=* Rg
 \ : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
 \ <bang>0)
 
+command! -bang -nargs=? -complete=dir Files
+\ call fzf#vim#files(<q-args>, {'source': 'rg --files --no-ignore-vcs'}, <bang>0)
+
 " HashiVim
 let g:terraform_align=1
 
