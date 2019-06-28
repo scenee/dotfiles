@@ -77,13 +77,11 @@ call plug#begin('~/.vim/plugged')
 
 " Basic
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'Townk/vim-autoclose'
 Plug 'Yggdroot/indentLine'
 Plug 'cohama/lexima.vim'
 Plug 'corylanou/vim-present', {'for' : 'present'}
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'ervandew/supertab'
@@ -240,21 +238,6 @@ autocmd QuitPre * if empty(&bt) | lclose | endif  " Auto-close the error list. R
 " CurtineIncSw.vim
 autocmd FileType c,cpp nnoremap <S-J> :call CurtineIncSw()<CR>
 
-
-" ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_max_depth = 10
-let g:ctrlp_max_height = 16
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_user_command = 'rg %s --files --hidden --color=never -g "!.git"'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_clear_cache_on_exit = 1
-
 " emmet.vim
 let g:emmet_html5 = 0 " Self-closing tag is needed.
 let g:user_emmet_install_global = 0
@@ -262,10 +245,30 @@ let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 let g:user_emmet_leader_key='<C-Y>'
 autocmd FileType html,htmldjango EmmetInstall
 
+" fzf
+fun! FzfOmniFiles()
+  let is_git = system('git status')
+  if v:shell_error
+    :Files
+  else
+    :GitFiles
+  endif
+endfun
+ 
+nnoremap <C-b> :Buffers<CR>
+nnoremap <C-g> :Rg<Space>
+nnoremap <leader><leader> :Commands<CR>
+nnoremap <C-p> :call FzfOmniFiles()<CR>
+
+command! -bang -nargs=* Rg
+\ call fzf#vim#grep(
+\ 'rg --column --line-number --hidden --ignore-case --no-heading --color=always --glob "!.git/*" --glob "!node_modules/*" '.shellescape(<q-args>), 1,
+\ <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+\ : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+\ <bang>0)
 
 " HashiVim
 let g:terraform_align=1
-
 
 " jedi-vim
 autocmd FileType python call s:SetJedi()
@@ -338,7 +341,6 @@ nnoremap \R :cclose<CR>:write<CR>:QuickRun -mode n<CR>
 xnoremap \R :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
-
 "
 "" UltiSnips
 " let g:UltiSnipsExpandTrigger="<Leader>s"
@@ -383,27 +385,6 @@ endfunction
 " tagbar
 nnoremap <silent> <Leader>0 :Tagbar<CR>
 let g:tagbar_sort = 0
-
-
-" unite.vim
-let g:unite_enable_start_insert = 1
-let g:unite_enable_ignore_case = 1
-let g:unite_enable_smart_case = 1
-
-nnoremap <silent> ,e  :<C-u>Unite file_rec/async:!<CR>
-nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-nnoremap <silent> ,gg :<C-u>Unite grep/git:/:--cached -buffer-name=search-buffer<CR><C-R><C-W>
-nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR
-let s:unite_ignore_directory_patterns=
-      \ ''
-      \ .'vendor/bundle\|.bundle/\|\.sass-cache/\|'
-      \ .'node_modules/\|bower_components/'
-if executable('rg')
-  let g:unite_source_grep_command = 'rg'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
-endif
-
 
 " vim-airline
 let g:airline_theme = "tomorrow"
