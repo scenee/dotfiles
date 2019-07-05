@@ -82,7 +82,7 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 # ===================== go ==========================
 >/dev/null which go \
 	&& export GOPATH=$HOME/.go \
-	&& export PATH=$PATH:/usr/local/opt/go@1.10/libexec/bin:$GOPATH/bin
+	&& export PATH=$PATH:$GOPATH/bin
 # ===================== haskell =====================
 >/dev/null which stack \
 	&& export PATH="$HOME/.local/bin:$PATH"
