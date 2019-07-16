@@ -22,10 +22,6 @@
 	email = shin@scenee.com
 [rebase]
 	autosquash = true
-[alias]
-	pbcopy = !printf "$1" | cut -c-7 | pbcopy
-[tig "bind"]
-	main = c ?@git pbcopy %(commit)
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

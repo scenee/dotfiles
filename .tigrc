@@ -1,5 +1,6 @@
 bind main B !?git rebase -i %(commit)
 bind main V !?git revert %(commit)
+bind main c ?@sh -c "printf %s $(cut -c-7 <<< %(commit)) | pbcopy"
 bind status A !git commit -v --amend
 bind status c !git commit -v
 bind ref B ?git checkout -b "%(prompt Enter new branch name: )"
