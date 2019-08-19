@@ -188,6 +188,10 @@ Plug 'aklt/plantuml-syntax'
 " bats
 Plug 'vim-scripts/bats.vim'
 
+
+" protobuf
+Plug 'uber/prototool', { 'rtp':'vim/prototool' }
+
 call plug#end()
 " }}}
 "===================== COLOR ======================
@@ -238,8 +242,16 @@ endif
 " ale
 let g:airline#extensions#ale#enabled = 1
 let g:ale_open_list = 1
-" let g:ale_lint_on_text_changed = 0
-autocmd QuitPre * if empty(&bt) | lclose | endif  " Auto-close the error list. Ref Issue#1306
+let g:ale_linters = {
+\   'javascript': ['prettier', 'eslint'],
+\   'go': ['golint'],
+\   'proto': ['prototool-lint'],
+\}
+let g:ale_lint_on_text_changed = 'never'
+augroup CloseLoclistWindowGroup
+    autocmd!
+    autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
 
 " CurtineIncSw.vim
 autocmd FileType c,cpp nnoremap <S-J> :call CurtineIncSw()<CR>
