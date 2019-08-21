@@ -519,6 +519,9 @@ autocmd FileType terraform setlocal commentstring=#%s
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.report set filetype=markdown
 autocmd FileType markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+
+" ProtoBuffer
+autocmd FileType proto setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " }}}
 "===================== Custom vimscript ======================
 " {{{
