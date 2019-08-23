@@ -127,10 +127,7 @@ Plug 'tomasr/molokai'
 " Tags
 " Plug 'airblade/vim-rooter' " Must be before vim-easytags
 Plug 'vim-scripts/taglist.vim' " Required Eexuberant-ctags.
-Plug 'xolox/vim-easytags'
-Plug 'xolox/vim-misc'
-Plug 'vim-scripts/gtags.vim'
-"
+
 " Status/Tabline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -138,7 +135,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " C/C++
-Plug 'ericcurtin/CurtineIncSw.vim'
+Plug 'justmao945/vim-clang'
 
 " Erlang
 Plug 'jimenezrick/vimerl'
@@ -452,8 +449,19 @@ let g:go_highlight_methods = 1
 
 " C
 autocmd FileType c,cpp setlocal tabstop=8 softtabstop=8 shiftwidth=8
-autocmd FileType c,cpp let easytags_always_enabled = 1
+function! s:clang_format()
+  let now_line = line(".")
+  exec ":%! clang-format -style=WebKit"
+  exec ":" . now_line
+endfunction
 
+if executable('clang-format')
+  augroup cpp_clang_format
+    autocmd!
+    autocmd BufWrite,FileWritePre,FileAppendPre *.[ch]pp call s:clang_format()
+    autocmd BufWrite,FileWritePre,FileAppendPre *.[ch] call s:clang_format()
+  augroup END
+endif
 
 " vim
 autocmd FileType vim setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
