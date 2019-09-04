@@ -34,3 +34,5 @@
 	path = ~/.gitconfig.local
 [pager]
 	branch = false
+[log]
+	follow = true
