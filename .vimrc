@@ -32,7 +32,7 @@ set title
 set virtualedit+=block
 set wildmenu wildmode=list:full
 set wrapscan
-"set nowrap 
+"set nowrap
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
 " }}} 
@@ -199,6 +199,10 @@ set t_Co=256
 " "If you prefer the scheme to match the original monokai background color,
 " let g:molokai_original = 1 
 let g:rehash256 = 1
+if (has("termguicolors"))
+ set termguicolors
+endif
+
 colorscheme molokai
 
 let &colorcolumn=join(range(81,1000),",")
@@ -405,7 +409,7 @@ nnoremap <silent> <Leader>0 :Tagbar<CR>
 let g:tagbar_sort = 0
 
 " vim-airline
-let g:airline_theme = "tomorrow"
+let g:airline_theme = "luna"
 let g:airline_powerline_fonts = 1 " Install https://github.com/powerline/fonts
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
