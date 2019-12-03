@@ -217,6 +217,7 @@ highlight clear SignColumn
 "===================== REGISTRATIONS ======================
 " {{{
 
+" https://github.com/prabirshrestha/vim-lsp/wiki/Servers
 
 "" Use directory with package.json as root
 if executable('typescript-language-server')
@@ -234,6 +235,15 @@ if executable('pyls')
         \ 'cmd': {server_info->['pyls']},
         \ 'whitelist': ['python'],
         \ })
+endif
+
+if executable('gopls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'gopls',
+        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+        \ 'whitelist': ['go'],
+        \ })
+    autocmd BufWritePre *.go "LspDocumentFormatSync<CR>"
 endif
 
 " }}}
