@@ -541,8 +541,15 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.report set filetype=markdown
 autocmd FileType markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
+
 " ProtoBuffer
 autocmd FileType proto setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+
+" go
+autocmd FileType go setlocal tabstop=8 softtabstop=8 shiftwidth=8 expandtab
+
+
 " }}}
 "===================== Custom vimscript ======================
 " {{{
