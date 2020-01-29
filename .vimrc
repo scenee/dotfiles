@@ -84,9 +84,7 @@ call plug#begin('~/.vim/plugged')
 " Basic
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Shougo/vimproc.vim'
-Plug 'Townk/vim-autoclose'
 Plug 'Yggdroot/indentLine'
-Plug 'cohama/lexima.vim'
 Plug 'corylanou/vim-present', {'for' : 'present'}
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
