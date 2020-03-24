@@ -547,6 +547,8 @@ autocmd FileType proto setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " go
 autocmd FileType go setlocal tabstop=8 softtabstop=8 shiftwidth=8 expandtab
 
+" swift
+autocmd FileType swift setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " }}}
 "===================== Custom vimscript ======================
