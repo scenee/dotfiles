@@ -58,15 +58,6 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 	&& export PATH=~/.rbenv/shims:$PATH \
 	&& eval "$(rbenv init -)" \
 	&& PATH="~/.rbenv/shims:$PATH"
-# ===================== pyenv ======================
-[ "$(uname)" = 'Darwin' ] \
-       && export PYTHON_CONFIGURE_OPTS="--enable-framework CC=clang"
-> /dev/null which pyenv \
-       && export PYENV_ROOT="$HOME/.pyenv" \
-       && export PATH="$PYENV_ROOT/bin:$PATH" \
-       && export VIRTUALENVWRAPPER_PYTHON="$PYENV_ROOT/shims/python" \
-       && eval "$(pyenv init -)" \
-       && pyenv global system
 # ===================== gvm ========================
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh" ]] \
