@@ -190,13 +190,6 @@ then
 		echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
 	}
 
-	# ------------------ openssl --------------------
-	if [ -d /usr/local/opt/openssl ]; then
-		export PATH=/usr/local/opt/openssl/bin:$PATH
-		export LD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$LD_LIBRARY_PATH
-		export CPATH=/usr/local/opt/openssl/include:$LD_LIBRARY_PATH
-	fi
-
 	# ------------------ gettext --------------------
 	export PATH="/usr/local/opt/gettext/bin:$PATH"
 
