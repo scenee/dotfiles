@@ -149,19 +149,6 @@ if [ "$(uname)" = 'Darwin' ];
 then
 	[ -r ~/.bash_private ] && source ~/.bash_private || echo "Not found .bash_private"
 
-	# ------------------ functions-------------------
-	function empty-trash () {
-		if [ -z "$(ls -A ~/.Trash/)" ]; then
-			echo "Trash is empty"
-		else
-			osascript -e 'tell app "Finder" to empty'
-		fi
-	}
-
-	function shutdown-applescript () {
-		osascript -e 'tell app "loginwindow" to «event aevtrsdn»'
-	}
-
 	# ------------------ brew -------------------
 	if which brew > /dev/null;
 	then
