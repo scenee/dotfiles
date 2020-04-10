@@ -24,7 +24,6 @@ alias cp="cp -i"
 alias rm="rm -id"
 alias x="xargs"
 alias be='bundle exec'
-alias mux='tmuxinator'
 alias py="python3"
 
 if [ "$(uname)" = 'Darwin' ];
@@ -46,31 +45,39 @@ export PAGER=less
 if which lesspipe.sh > /dev/null; then
 	export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
 fi
+
 # ===================== svn =======================
 export SVN_EDITOR=vim
+
 # ===================== git ======================-
 if [ ! -z $BASH_VERSION ] ; then
   source ~/.git-completion.bash
 fi
 gr() { cd "`git rev-parse --show-toplevel`"; }
+
 # ===================== rbenv ======================
 >/dev/null which rbenv \
 	&& export PATH=~/.rbenv/shims:$PATH \
 	&& eval "$(rbenv init -)" \
 	&& PATH="~/.rbenv/shims:$PATH"
+
 # ===================== gvm ========================
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh" ]] \
 	&& source "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh"
+
 # ===================== pipenv ======================
 > /dev/null which pipenv \
 	eval "$(pipenv --completion)"
+
 # ===================== postgres ====================
 >/dev/null which psql \
 	&& export PGDATA=/usr/local/var/postgres
+
 # ===================== nodebrew ====================
 >/dev/null which nodebrew \
 	&& export PATH=$HOME/.nodebrew/current/bin:$PATH
+
 # ===================== go ==========================
 >/dev/null which go \
 	&& export GOPATH=$HOME/.go \
@@ -78,9 +85,11 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 # ===================== haskell =====================
 >/dev/null which stack \
 	&& export PATH="$HOME/.local/bin:$PATH"
+
 # ===================== rust =====================
 [ -d ~/.cargo ] \
 	&& export PATH="$HOME/.cargo/bin:$PATH"
+
 # ===================== peco ========================
 if >/dev/null which peco; then
 	peco-select-history() {
@@ -90,6 +99,7 @@ if >/dev/null which peco; then
 	}
 	bind -x '"\C-r": peco-select-history'
 fi
+
 # ===================== fzf =========================
 case $SHELL in
 *bash)
@@ -99,6 +109,7 @@ case $SHELL in
 	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 	;;
 esac
+
 # ===================== ghq =========================
 if [ -f ~/.fzf.bash ] && >/dev/null which ghq; then
 	function _gl() {
@@ -113,9 +124,26 @@ if [ -f ~/.fzf.bash ] && >/dev/null which ghq; then
 	alias gl=_gl
 	alias gget=_gget
 fi
+
 # ===================== rg ==========================
 >/dev/null which rg \
 	&& export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
+# ==================== tmux =========================
+alias txr='tmuxinator'
+
+function _tmux_new_init() {
+	tmux new-session -c ~/Workspace -s 'init' -n 'workspace' \; \
+		new-window -a -c ~/Workspace/scenee/sandbox -n 'sandbox' \; \
+		new-window -a -c ~/Workspace/scenee/notebooks -n 'note' \; \
+		select-window -t:-2 \; \
+		attach
+}
+
+function tmux-init() {
+	tmux attach -t init || _tmux_new_init
+}
+
 # ===================== macOS =======================
 if [ "$(uname)" = 'Darwin' ];
 then
