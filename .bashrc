@@ -6,8 +6,7 @@
 # Ref https://apple.stackexchange.com/questions/12993/why-doesnt-bashrc-run-automatically
 
 if [ "$(uname)" == 'Darwin' ]; then
-	export MANPATH="/usr/local/opt/erlang/lib/erlang/man:$MANPATH"
-	export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
+	:
 else
 	[ -r ~/.profile ] && source ~/.profile || echo "Not found ~/.profile"
 fi
