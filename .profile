@@ -130,8 +130,6 @@ fi
 	&& export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # ==================== tmux =========================
-alias txr='tmuxinator'
-
 function _tmux_new_init() {
 	tmux new-session -c ~/Workspace -s 'init' -n 'workspace' \; \
 		new-window -a -c ~/Workspace/scenee/sandbox -n 'sandbox' \; \
