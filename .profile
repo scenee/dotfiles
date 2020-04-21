@@ -211,4 +211,7 @@ then
 
 	# ------------------ visual code ------------------
 	export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+	# ------------------ android studio -------------
+	alias studio="open -a /Applications/Android\ Studio.app"
 fi
