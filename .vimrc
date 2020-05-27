@@ -133,9 +133,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" C/C++
-Plug 'justmao945/vim-clang'
-
 " Erlang
 Plug 'jimenezrick/vimerl'
 Plug 'vim-erlang/vim-erlang-tags'
@@ -217,6 +214,17 @@ highlight clear SignColumn
 " {{{
 
 " https://github.com/prabirshrestha/vim-lsp/wiki/Servers
+
+"" Register ccls C++ lanuage server.
+if executable('ccls')
+   au User lsp_setup call lsp#register_server({
+      \ 'name': 'ccls',
+      \ 'cmd': {server_info->['ccls']},
+      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+      \ 'initialization_options': {'cache': {'directory': '/tmp/ccls/cache' }},
+      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+      \ })
+endif
 
 "" Use directory with package.json as root
 if executable('typescript-language-server')
@@ -554,6 +562,13 @@ vnoremap <expr> cQ ":\<C-u>call SetupCR()\<CR>" . "gv" . substitute(g:mc, '/', '
 
 vnoremap <c-a> <c-a>gv
 vnoremap <c-x> <c-x>gv
+
+" Key bindings for vim-lsp.
+nn <silent> <M-d> :LspDefinition<cr>
+nn <silent> <M-r> :LspReferences<cr>
+nn <f2> :LspRename<cr>
+nn <silent> <M-a> :LspWorkspaceSymbol<cr>
+nn <silent> <M-l> :LspDocumentSymbol<cr>
 
 " }}}
 "" vim:foldmethod=marker:foldlevel=0
