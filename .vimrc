@@ -185,6 +185,9 @@ Plug 'vim-scripts/bats.vim'
 " protobuf
 Plug 'uber/prototool', { 'rtp':'vim/prototool' }
 
+" graphql
+Plug 'jparise/vim-graphql'
+
 call plug#end()
 " }}}
 "===================== COLOR ======================
