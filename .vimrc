@@ -7,6 +7,7 @@ set autochdir
 set autoindent
 set backspace=indent,eol,start
 set enc=utf-8
+set expandtab
 set fenc=utf-8
 set hlsearch
 set incsearch
@@ -474,75 +475,47 @@ if executable('clang-format')
   augroup END
 endif
 
-" vim
-autocmd FileType vim setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-
-
 " bats
 autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 
-" HTML
+" html
 autocmd FileType html,htmldjango,css,javascript,json,sass,scss,vue,typescript,handlebars
     \ setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType html,htmldjango,css,sass,scss,vue
     \ setlocal foldmethod=indent
 
 
-" Vuejs
+" vue
 autocmd FileType vue syntax sync fromstart
 autocmd FileType vue setlocal nocursorline " Disable cursorline to make vim-vue fast
 
 " shell
 autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
 
-
-" Erlang
+" erlang
 autocmd BufRead,BufNewFile *.erl setlocal filetype=erlang
 autocmd FileType erlang setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd BufWritePost *.erl call 
     \ vimproc#system_bg('~/.vim/bundle/vim-erlang-tags/bin/vim-erlang-tags.erl --otp')
 
-
-" Python
-autocmd BufRead,BufNewFile *.kv set filetype=python
-autocmd BufRead,BufNewFile *.py set filetype=python
-autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-
-
-" Ruby
+" ruby
 autocmd BufRead,BufNewFile *.podspec set filetype=ruby
 autocmd BufRead,BufNewFile Podfile set filetype=ruby
 autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
-
-" YAML
+" yaml
 autocmd BufRead,BufNewFile *.yml set filetype=yaml
 autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-
-
-" conf
-autocmd BufRead,BufNewFile *.conf set filetype=conf
-autocmd FileType conf setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-
 
 " HCL
 autocmd FileType terraform setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
-
-" Terraform
+" terraform
 autocmd FileType terraform setlocal commentstring=#%s
 
-
-" Markdown
-autocmd BufRead,BufNewFile *.md set filetype=markdown
-autocmd BufRead,BufNewFile *.report set filetype=markdown
-autocmd FileType markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-
-
-" ProtoBuffer
+" protobuf
 autocmd FileType proto setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-
 
 " go
 autocmd FileType go setlocal tabstop=8 softtabstop=8 shiftwidth=8 expandtab
