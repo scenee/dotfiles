@@ -452,6 +452,7 @@ endfunction
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+let g:easy_align_ignore_groups = ['String']
 
 
 " vim-easytag
