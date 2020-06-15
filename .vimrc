@@ -14,6 +14,7 @@ set incsearch
 set laststatus=2
 set list
 set listchars=trail:_,eol:¬,tab:▸\ 
+set modeline
 set nocursorline  " cursorline make vim slow with highlighting
 set nofoldenable
 set number
