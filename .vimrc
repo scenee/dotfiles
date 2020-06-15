@@ -170,7 +170,7 @@ Plug 'prettier/vim-prettier', {
 Plug 'hashivim/vim-terraform'
 
 " Go
-Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go'
 
 " Swift
 Plug 'keith/swift.vim'
@@ -250,10 +250,10 @@ endif
 if executable('gopls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'gopls',
-        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+        \ 'cmd': {server_info->['gopls']},
         \ 'whitelist': ['go'],
         \ })
-    autocmd BufWritePre *.go "LspDocumentFormatSync<CR>"
+    autocmd BufWritePre *.go LspDocumentFormatSync
 endif
 
 " }}}
@@ -567,7 +567,7 @@ vnoremap <c-a> <c-a>gv
 vnoremap <c-x> <c-x>gv
 
 " Key bindings for vim-lsp.
-nn <silent> <M-d> :LspDefinition<cr>
+nn <silent> <c-j> :LspDefinition<cr>
 nn <silent> <M-r> :LspReferences<cr>
 nn <f2> :LspRename<cr>
 nn <silent> <M-a> :LspWorkspaceSymbol<cr>
