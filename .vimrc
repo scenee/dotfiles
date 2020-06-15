@@ -472,7 +472,7 @@ let g:go_highlight_methods = 1
 " {{{
 
 " C
-autocmd FileType c,cpp setlocal tabstop=8 softtabstop=8 shiftwidth=8
+autocmd FileType c,cpp setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 function! s:clang_format()
   let now_line = line(".")
   exec ":%! clang-format -style=WebKit"
@@ -503,11 +503,11 @@ autocmd FileType vue syntax sync fromstart
 autocmd FileType vue setlocal nocursorline " Disable cursorline to make vim-vue fast
 
 " shell
-autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8
+autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
 " erlang
 autocmd BufRead,BufNewFile *.erl setlocal filetype=erlang
-autocmd FileType erlang setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType erlang setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 autocmd BufWritePost *.erl call 
     \ vimproc#system_bg('~/.vim/bundle/vim-erlang-tags/bin/vim-erlang-tags.erl --otp')
 
@@ -530,7 +530,7 @@ autocmd FileType terraform setlocal commentstring=#%s
 autocmd FileType proto setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " go
-autocmd FileType go setlocal tabstop=8 softtabstop=8 shiftwidth=8 expandtab
+autocmd FileType go setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
 " swift
 autocmd FileType swift setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
