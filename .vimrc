@@ -443,6 +443,7 @@ let g:indentLine_setConceal = 0
 " vim-markdown
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_new_list_item_indent = 2
 autocmd FileType markdown call s:SetMarkDown()
 function! s:SetMarkDown()
 nnoremap <silent> <Leader>0 :Toc<CR>
@@ -534,6 +535,9 @@ autocmd FileType go setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
 " swift
 autocmd FileType swift setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+" markdown
+autocmd FileType markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " }}}
 "===================== Custom vimscript ======================
