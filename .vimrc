@@ -535,10 +535,12 @@ autocmd FileType go setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
 " swift
 autocmd FileType swift setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-
+	
 " markdown
 autocmd FileType markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
+" vim
+autocmd FileType vim setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " }}}
 "===================== Custom vimscript ======================
 " {{{
@@ -579,4 +581,3 @@ nn <silent> <M-a> :LspWorkspaceSymbol<cr>
 nn <silent> <M-l> :LspDocumentSymbol<cr>
 
 " }}}
-"" vim:foldmethod=marker:foldlevel=0
