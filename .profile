@@ -24,7 +24,7 @@ alias cp="cp -i"
 alias rm="rm -id"
 alias x="xargs"
 alias be='bundle exec'
-alias py="python3"
+alias python=python3
 
 if [ "$(uname)" = 'Darwin' ];
 then
