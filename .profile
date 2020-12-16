@@ -26,6 +26,7 @@ alias x="xargs"
 alias be='bundle exec'
 alias python=python3
 alias pip=pip3
+alias mux="tmuxinator"
 
 if [ "$(uname)" = 'Darwin' ];
 then
