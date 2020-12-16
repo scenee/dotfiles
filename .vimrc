@@ -188,6 +188,9 @@ Plug 'uber/prototool', { 'rtp':'vim/prototool' }
 " graphql
 Plug 'jparise/vim-graphql'
 
+" kotlin
+Plug 'udalov/kotlin-vim'
+
 call plug#end()
 " }}}
 "===================== COLOR ======================
