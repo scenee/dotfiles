@@ -51,9 +51,11 @@ fi
 export SVN_EDITOR=vim
 
 # ===================== git ======================-
-if [ ! -z $BASH_VERSION ] ; then
-  source ~/.git-completion.bash
-fi
+case $SHELL in
+*bash)
+	[ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
+	;;
+esac
 gr() { cd "`git rev-parse --show-toplevel`"; }
 
 # ===================== rbenv ======================
@@ -90,16 +92,6 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 # ===================== rust =====================
 [ -d ~/.cargo ] \
 	&& export PATH="$HOME/.cargo/bin:$PATH"
-
-# ===================== peco ========================
-if >/dev/null which peco; then
-	peco-select-history() {
-		declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$READLINE_LINE")
-		READLINE_LINE="$l"
-		READLINE_POINT=${#l}
-	}
-	bind -x '"\C-r": peco-select-history'
-fi
 
 # ===================== fzf =========================
 case $SHELL in
@@ -146,7 +138,7 @@ function tmux-init() {
 # ===================== macOS =======================
 if [ "$(uname)" = 'Darwin' ];
 then
-	[ -r ~/.bash_private ] && source ~/.bash_private || echo "Not found .bash_private"
+	[ -r ~/.private ] && source ~/.private || echo "Not found .private"
 
 	# ------------------ brew -------------------
 	if which brew > /dev/null;
@@ -174,7 +166,7 @@ then
 	fi
 
 	# ------------------ relax --------------------
-	which relax > /dev/null && source "$(relax init completion)"
+	which relax > /dev/null && [ $SHELL =~ bash ] && source "$(relax init completion)"
 
 	# ------------------ anaconda -----------------
 	if test -d  ~/anaconda*;
