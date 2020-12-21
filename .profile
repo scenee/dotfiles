@@ -130,9 +130,10 @@ then
 	if [ -f ~/.fzf.bash ] && >/dev/null which ghq;
 	then
 		function _gl() {
-			local path=$(ghq list | fzf)
+			local root="$(ghq root)"
+			local subpath="$(ghq list | fzf)"
 			[[ -n $path ]] &&
-				pushd "$(ghq root)/$path"
+				pushd "$root/$subpath"
 		}
 		function _gget() {
 			local url="$1"
