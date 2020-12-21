@@ -104,21 +104,6 @@ case $SHELL in
 	;;
 esac
 
-# ===================== ghq =========================
-if [ -f ~/.fzf.bash ] && >/dev/null which ghq; then
-	function _gl() {
-		local path=$(ghq list | fzf)
-		[[ -n $path ]] &&
-			pushd "$(ghq root)/$path"
-	}
-	function _gget() {
-		local url="$1"
-		ghq get "$url"
-	}
-	alias gl=_gl
-	alias gget=_gget
-fi
-
 # ===================== rg ==========================
 >/dev/null which rg \
 	&& export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
@@ -140,6 +125,23 @@ function tmux-init() {
 if [ "$(uname)" = 'Darwin' ];
 then
 	[ -r ~/.private ] && source ~/.private || echo "Not found .private"
+
+	# --------------------- ghq -------------------------
+	if [ -f ~/.fzf.bash ] && >/dev/null which ghq;
+	then
+		function _gl() {
+			local path=$(ghq list | fzf)
+			[[ -n $path ]] &&
+				pushd "$(ghq root)/$path"
+		}
+		function _gget() {
+			local url="$1"
+			ghq get "$url"
+		}
+		alias glist=_gl
+		alias gget=_gget
+	fi
+
 
 	# ------------------ brew -------------------
 	if which brew > /dev/null;
