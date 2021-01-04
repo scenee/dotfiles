@@ -95,14 +95,8 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 	&& export PATH="$HOME/.cargo/bin:$PATH"
 
 # ===================== fzf =========================
-case $SHELL in
-*bash)
+[[ $SHELL =~ bash ]] && 
 	[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-	;;
-*zsh)
-	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-	;;
-esac
 
 # ===================== rg ==========================
 >/dev/null which rg \

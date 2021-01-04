@@ -4,6 +4,7 @@ DOTFILES=${PWD}
 
 pushd ~/ >/dev/null
 ln -s ${DOTFILES}/.bashrc
+ln -s ${DOTFILES}/.zshrc
 ln -s ${DOTFILES}/.zprofile
 ln -s ${DOTFILES}/.profile
 ln -s ${DOTFILES}/.vimrc
