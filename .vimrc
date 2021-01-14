@@ -340,6 +340,10 @@ noremap <C-n> :cn<CR>
 noremap <C-p> :cp<CR>
 endfunction
 
+" lsp
+" let g:lsp_log_verbose = 1
+" let g:lsp_log_file = expand('~/.cache/vim-lsp/vim-lsp.log')
+
 " Minimap
 let g:minimap_highlight='Visual'
 let g:minimap_toggle='<leader>mt'
