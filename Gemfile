@@ -25,4 +25,5 @@ end
 
 group :xevo do
   gem 'atlassian-stash'
+  gem 'cocoapods-art'
 end
