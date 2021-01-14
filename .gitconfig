@@ -16,6 +16,7 @@
 	rb = rebase
 	co = commit
 	d = diff
+	br-current = rev-parse --abbrev-ref HEAD
 	branch-root = merge-base master HEAD
 	ps-head = push origin head --force-with-lease
 	pl-master = pull origin master
