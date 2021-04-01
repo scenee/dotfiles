@@ -4,6 +4,7 @@ echo "Removing symbolic links to dotfiles..."
 
 pushd ~/ >/dev/null
 [[ -L .bashrc ]] && rm -f .bashrc
+[[ -L .zshrc ]] && rm -f .zshrc
 [[ -L .zprofile ]] && rm -f .zprofile
 [[ -L .profile ]] && rm -f .profile
 [[ -L .vimrc ]] && rm -f .vimrc
