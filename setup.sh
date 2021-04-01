@@ -3,7 +3,6 @@
 DOTFILES=${PWD}
 
 pushd ~/ >/dev/null
-[[ -d .zsh ]] || mmdir .zsh
 ln -s ${DOTFILES}/.bashrc
 ln -s ${DOTFILES}/.zshrc
 ln -s ${DOTFILES}/.zprofile
@@ -16,4 +15,7 @@ ln -s ${DOTFILES}/.tigrc
 ln -s ${DOTFILES}/.tmux.conf
 ln -s ${DOTFILES}/.plantuml
 ln -s ${DOTFILES}/.ripgreprc
+
+[[ -d .zsh ]] || mmdir .zsh
+>/dev/null command -v swift && swift package completion-tool generate-zsh-script > .zsh/_swift
 popd >/dev/null

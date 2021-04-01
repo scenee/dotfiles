@@ -1,7 +1,6 @@
 zstyle ':completion:*:*:git:*' script $HOME/.git-completion.bash
 
-# `compinit` scans $fpath, so do this before calling it.
-fpath=($HOME/.zsh/functions $fpath)
+fpath=($HOME/.zsh $fpath)
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh

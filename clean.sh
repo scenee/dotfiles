@@ -17,6 +17,12 @@ pushd ~/ >/dev/null
 [[ -L .ripgreprc ]] && rm -rf .ripgreprc
 popd >/dev/null
 
+echo "Removing $HOME/.zsh..."
+
+pushd ~/ >/dev/null
+[[ -d .zsh ]] && rm -f .zsh
+popd >/dev/null
+
 echo "Cleaning gems..."
 
 gem uninstall -I -a -x --user-install
