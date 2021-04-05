@@ -14,7 +14,6 @@ end
 
 group :utils do
   gem 'asciidoctor'
-  gem 'ronn'
   gem 'rouge'
   gem 'tmuxinator'
 end
