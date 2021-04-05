@@ -17,7 +17,7 @@ install_plug:
 .PHONEY: gems
 gems:
 	gem install bundler
-	bundle install --system
+	bundle install
 
 .PHONY: clean
 clean:
