@@ -7,7 +7,7 @@ test:
 	echo ${PWD}
 
 .PHONY: setup
-setup: clean
+setup: clean gems
 	./setup.sh
 
 .PHONY: install_plug
