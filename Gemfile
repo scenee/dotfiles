@@ -18,10 +18,6 @@ group :utils do
   gem 'tmuxinator'
 end
 
-group :web do
-  gem 'sass'
-end
-
 group :xevo do
   gem 'atlassian-stash'
   gem 'cocoapods-art'
