@@ -40,3 +40,5 @@
 	branch = false
 [log]
 	follow = true
+[pull]
+	ff = only
