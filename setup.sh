@@ -15,6 +15,7 @@ ln -s ${DOTFILES}/.tigrc
 ln -s ${DOTFILES}/.tmux.conf
 ln -s ${DOTFILES}/.plantuml
 ln -s ${DOTFILES}/.ripgreprc
+ln -s ${DOTFILES}/fish .config/fish
 
 [[ -d .zsh ]] || mmdir .zsh
 >/dev/null command -v swift && swift package completion-tool generate-zsh-script > .zsh/_swift
