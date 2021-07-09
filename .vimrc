@@ -582,7 +582,8 @@ vnoremap <c-x> <c-x>gv
 " Key bindings for vim-lsp.
 nn <silent> <c-j> :LspDefinition<cr>
 nn <silent> <M-r> :LspReferences<cr>
-nn <f2> :LspRename<cr>
+nn <silent> <c-h> :LspHover<cr>
+nn <silent> <c-R> :LspRename<cr>
 nn <silent> <M-a> :LspWorkspaceSymbol<cr>
 nn <silent> <M-l> :LspDocumentSymbol<cr>
 
