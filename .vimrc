@@ -18,14 +18,13 @@ set modeline
 set nocursorline  " cursorline make vim slow with highlighting
 set nofoldenable
 set number
-set shell=bash
+set shell=fish
 set shiftwidth=4
 set showcmd
 set showmatch
 set smartcase
 set smartindent
 set softtabstop=4
-set shell=bash
 set spell
 set spelllang=en,cjk
 set splitright
