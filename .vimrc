@@ -41,8 +41,8 @@ set wrapscan
 " {{{
 
 " General
-noremap ; :
-noremap : ;
+" noremap ; :
+" noremap : ;
 noremap Q gq
 noremap <Space>h  ^
 noremap <Space>l  $
