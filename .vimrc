@@ -385,8 +385,8 @@ let g:quickrun_config.python = { 'command': 'python3' }
 
 au FileType qf nnoremap <silent><buffer>q :quit<CR>
 let g:quickrun_no_default_key_mappings = 1
-nnoremap \R :cclose<CR>:write<CR>:QuickRun -mode n<CR>
-xnoremap \R :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
+nnoremap <Leader>Q :cclose<CR>:write<CR>:QuickRun -mode n<CR>
+xnoremap <Leader>Q :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 "
