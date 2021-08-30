@@ -194,6 +194,9 @@ Plug 'jparise/vim-graphql'
 " kotlin
 Plug 'udalov/kotlin-vim'
 
+" ruby
+Plug 'vim-ruby/vim-ruby'
+
 call plug#end()
 " }}}
 "===================== COLOR ======================
