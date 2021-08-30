@@ -111,6 +111,10 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
+" Lint
+
+Plug 'dense-analysis/ale'
+
 " Snippets
 "" <<< UltiSnips causes many bugs >>>
 " if v:version > 700 && (has("python") || has("python3"))
