@@ -5,7 +5,7 @@ group :ci do
 end
 
 group :ios do
-  gem 'cocoapods', '= 1.10.1'
+  gem 'cocoapods', '~> 1.11'
   gem 'fastlane'
   gem 'jazzy'
   gem 'simctl'
