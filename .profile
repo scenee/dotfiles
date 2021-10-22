@@ -92,8 +92,7 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 
 # ===================== rust =====================
 [ -d ~/.cargo ] \
-	&& export PATH="$HOME/.cargo/bin:$PATH"
-
+	&& . "$HOME/.cargo/env"
 # ===================== fzf =========================
 [[ $SHELL =~ bash ]] && 
 	[ -f ~/.fzf.bash ] && source ~/.fzf.bash

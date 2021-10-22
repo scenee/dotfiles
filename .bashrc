@@ -10,4 +10,3 @@ if [ "$(uname)" == 'Darwin' ]; then
 else
 	[ -r ~/.profile ] && source ~/.profile || echo "Not found ~/.profile"
 fi
-
