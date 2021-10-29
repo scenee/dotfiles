@@ -197,6 +197,9 @@ Plug 'udalov/kotlin-vim'
 " ruby
 Plug 'vim-ruby/vim-ruby'
 
+" TOML
+Plug 'cespare/vim-toml', { 'branch': 'main' }
+
 call plug#end()
 " }}}
 "===================== COLOR ======================
