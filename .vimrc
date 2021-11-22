@@ -133,7 +133,6 @@ Plug 'vim-scripts/taglist.vim' " Required Eexuberant-ctags.
 " Status/Tabline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " Erlang
