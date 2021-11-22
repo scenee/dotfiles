@@ -101,6 +101,10 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 >/dev/null which rg \
 	&& export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
+# ===================== demo ==========================
+>/dev/null which demo \
+       && export PATH="$HOME/.deno/bin:$PATH"
+
 # ==================== tmux =========================
 function _tmux_new_init() {
 	tmux new-session -c ~/Workspace -s 'init' -n 'workspace' \; \
