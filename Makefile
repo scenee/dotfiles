@@ -7,7 +7,7 @@ test:
 	echo ${PWD}
 
 .PHONY: setup
-setup: clean gems
+setup: clean
 	./setup.sh
 
 .PHONY: install_plug
@@ -16,8 +16,8 @@ install_plug:
 
 .PHONEY: gems
 gems:
-	gem install bundler
-	bundle install
+	sudo gem install bundler
+	sudo bundle install
 
 .PHONY: clean
 clean:
