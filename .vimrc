@@ -124,7 +124,7 @@ Plug 'dense-analysis/ale'
 
 
 " Color
-Plug 'tomasr/molokai'
+Plug 'w0ng/vim-hybrid'
 
 " Tags
 " Plug 'airblade/vim-rooter' " Must be before vim-easytags
@@ -206,14 +206,13 @@ call plug#end()
 
 set background=dark
 set t_Co=256
-" "If you prefer the scheme to match the original monokai background color,
-" let g:molokai_original = 1 
 let g:rehash256 = 1
 if (has("termguicolors"))
  set termguicolors
 endif
 
-colorscheme molokai
+let g:hybrid_use_iTerm_colors = 1
+colorscheme hybrid
 
 let &colorcolumn=join(range(81,1000),",")
 highlight ColorColumn ctermbg=235
