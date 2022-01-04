@@ -91,9 +91,9 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'ervandew/supertab'
 Plug 'junegunn/vim-easy-align'
+Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-hijack.vim'
 Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
@@ -315,6 +315,10 @@ let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 let g:user_emmet_leader_key='<C-Y>'
 autocmd FileType html,htmldjango EmmetInstall
 
+" Fern
+
+nnoremap <silent> <Leader>1 :Fern . -drawer<CR>
+
 " fzf
 fun! FzfOmniFiles()
   let is_git = system('git status')
@@ -378,7 +382,7 @@ let g:minimap_toggle='<leader>mt'
 
 
 " NERDTree
-nnoremap <silent> <Leader>1 :NERDTreeToggle<CR>
+" nnoremap <silent> <Leader>1 :NERDTreeToggle<CR>
 " let g:NERDTreeQuitOnOpen = 1  " Not working...
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
