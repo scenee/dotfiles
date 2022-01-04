@@ -2,7 +2,7 @@
 
 echo "Removing symbolic links to dotfiles..."
 
-pushd ~/ >/dev/null
+pushd "$HOME" >/dev/null
 [[ -L .bashrc ]] && rm -f .bashrc
 [[ -L .zshrc ]] && rm -f .zshrc
 [[ -L .zprofile ]] && rm -f .zprofile
@@ -19,10 +19,9 @@ popd >/dev/null
 
 echo "Removing $HOME/.zsh..."
 
-pushd ~/ >/dev/null
+pushd "$HOME" >/dev/null
 [[ -d .zsh ]] && rm -f .zsh
 popd >/dev/null
 
-echo "Cleaning gems..."
-
-gem uninstall -I -a -x --user-install
+# echo "Cleaning gems..."
+# gem uninstall -I -a -x --user-install
