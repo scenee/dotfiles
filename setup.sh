@@ -17,6 +17,6 @@ ln -shf ${DOTFILES}/.plantuml
 ln -shf ${DOTFILES}/.ripgreprc
 ln -shf ${DOTFILES}/fish .config/fish
 
-[[ -d .zsh ]] || mmdir .zsh
+[[ -d .zsh ]] || mkdir .zsh
 >/dev/null command -v swift && swift package completion-tool generate-zsh-script > .zsh/_swift
 popd >/dev/null
