@@ -18,7 +18,7 @@
 	d = diff
 	br-current = rev-parse --abbrev-ref HEAD
 	branch-root = merge-base master HEAD
-	ps-head = push origin head --force-with-lease
+	ps-head = push -u origin head --force-with-lease
 	pl-master = pull origin master
 	pl-develop = pull origin develop
 	root = rev-parse --show-toplevel
