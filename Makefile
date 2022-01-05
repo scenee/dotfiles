@@ -7,12 +7,13 @@ test:
 	echo ${PWD}
 
 .PHONY: setup
-setup: clean install_plug
+setup: clean setup-vim
 	./setup.sh
 
-.PHONY: install_plug
-install_plug:
-	./install_vim-plug.sh
+.PHONY: setup-vim
+setup-vim:
+	./vim/install_vim-plug.sh
+	./vim/install_plugins.sh
 
 .PHONY: clean
 clean:
