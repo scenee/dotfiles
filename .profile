@@ -140,6 +140,12 @@ then
 		alias gget=_gget
 	fi
 
+	# ------------------ macport -------------------
+
+	if command -v port > /dev/null;
+	then
+		export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+	fi
 
 	# ------------------ brew -------------------
 	if which brew > /dev/null;
