@@ -1,4 +1,3 @@
-# ===================== Env ========================
 export EDITOR=vim
 export TERM="xterm-256color"
 
@@ -19,6 +18,7 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 stty stop undef
 
 # ===================== Alias ======================
+
 alias ..='cd ..'
 alias cp="cp -i"
 alias rm="rm -id"
@@ -42,16 +42,15 @@ fi
 alias vi="vim" # Use vim installed by brew
 
 # ===================== less ======================
+
 export LESS='-g -i -R -z-4 -x4'
 export PAGER=less
 if which lesspipe.sh > /dev/null; then
 	export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
 fi
 
-# ===================== svn =======================
-export SVN_EDITOR=vim
-
 # ===================== git ======================-
+
 case $SHELL in
 *bash)
 	[ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
@@ -59,53 +58,44 @@ case $SHELL in
 esac
 gr() { cd "`git rev-parse --show-toplevel`"; }
 
-# ===================== rbenv ======================
->/dev/null which rbenv \
-	&& export PATH=~/.rbenv/shims:$PATH \
-	&& eval "$(rbenv init -)" \
-	&& PATH="~/.rbenv/shims:$PATH"
-
-# ===================== gvm ========================
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh" ]] \
-	&& source "/Users/shin.yamamoto/.gvm/bin/gvm-init.sh"
-
-# ===================== pipenv ======================
-> /dev/null which pipenv \
-	eval "$(pipenv --completion)"
-
 # ===================== postgres ====================
+
 >/dev/null which psql \
 	&& export PGDATA=/usr/local/var/postgres
 
-# ===================== nodebrew ====================
->/dev/null which nodebrew \
-	&& export PATH=$HOME/.nodebrew/current/bin:$PATH
-
 # ===================== go ==========================
+
 >/dev/null which go \
 	&& export GOPATH=$HOME/.go \
 	&& export PATH=$PATH:$GOPATH/bin
+
 # ===================== haskell =====================
+
 >/dev/null which stack \
 	&& export PATH="$HOME/.local/bin:$PATH"
 
 # ===================== rust =====================
+
 [ -d ~/.cargo ] \
 	&& . "$HOME/.cargo/env"
+
 # ===================== fzf =========================
+
 [[ $SHELL =~ bash ]] && 
 	[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # ===================== rg ==========================
+
 >/dev/null which rg \
 	&& export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
-# ===================== demo ==========================
->/dev/null which demo \
+# ===================== deno ==========================
+
+>/dev/null which deno \
        && export PATH="$HOME/.deno/bin:$PATH"
 
 # ==================== tmux =========================
+
 function _tmux_new_init() {
 	tmux new-session -c ~/Workspace -s 'init' -n 'workspace' \; \
 		new-window -a -c ~/Workspace/scenee/sandbox -n 'sandbox' \; \
@@ -118,7 +108,6 @@ function tmux-init() {
 	tmux attach -t init || _tmux_new_init
 }
 
-# ===================== macOS =======================
 if [ "$(uname)" = 'Darwin' ];
 then
 	[ -r ~/.private ] && source ~/.private || echo "Not found .private"
@@ -142,7 +131,7 @@ then
 
 	# ------------------ macport -------------------
 
-	if command -v port > /dev/null;
+	if test -f /opt/local/bin/port;
 	then
 		export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 	fi
@@ -173,6 +162,7 @@ then
 	fi
 
 	# ------------------ relax --------------------
+
 	which relax > /dev/null && [ $SHELL =~ bash ] && source "$(relax init completion)"
 
 	# ------------------ anaconda -----------------
@@ -198,20 +188,15 @@ then
 		export GNUTERM=x11
 	fi
 
-	# ------------------ iterm ---------------------
-	tt ()  { 
-		echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
-	}
-
 	# ------------------ gettext --------------------
+
 	export PATH="/usr/local/opt/gettext/bin:$PATH"
 
-	# ------------------ travis ci ------------------
-	[ -f /Users/syamamoto/.travis/travis.sh ] && source /Users/syamamoto/.travis/travis.sh
-
 	# ------------------ visual code ------------------
+
 	export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 	# ------------------ android studio -------------
+
 	alias studio="open -a /Applications/Android\ Studio.app"
 fi
