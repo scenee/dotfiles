@@ -22,6 +22,3 @@ echo "Removing $HOME/.zsh..."
 pushd "$HOME" >/dev/null
 [[ -d .zsh ]] && rm -f .zsh
 popd >/dev/null
-
-# echo "Cleaning gems..."
-# gem uninstall -I -a -x --user-install
