@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if test ~/.vim/autoload/plug.vim
+if test -f ~/.vim/autoload/plug.vim
 then
 	echo "Already installed: ~/.vim/autoload/plug.vim"
 else
