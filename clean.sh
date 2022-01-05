@@ -20,5 +20,5 @@ popd >/dev/null
 echo "Removing $HOME/.zsh..."
 
 pushd "$HOME" >/dev/null
-[[ -d .zsh ]] && rm -f .zsh
+[[ -d .zsh ]] && rm -rf .zsh
 popd >/dev/null
