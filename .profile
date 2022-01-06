@@ -134,6 +134,7 @@ then
 	if test -f /opt/local/bin/port;
 	then
 		export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+		export MANPATH="/opt/local/share/man:$MANPATH"
 	fi
 
 	# ------------------ brew -------------------
