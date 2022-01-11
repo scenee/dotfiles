@@ -58,42 +58,16 @@ case $SHELL in
 esac
 gr() { cd "`git rev-parse --show-toplevel`"; }
 
-# ===================== postgres ====================
-
->/dev/null which psql \
-	&& export PGDATA=/usr/local/var/postgres
-
-# ===================== go ==========================
-
->/dev/null which go \
-	&& mkdir -p "$HOME/.local/share/go" \
-	&& export GOPATH=$HOME/.local/share/go \
-	&& export PATH=$PATH:$GOPATH/bin
-
-# ===================== haskell =====================
-
->/dev/null which stack \
-	&& export PATH="$HOME/.local/bin:$PATH"
-
-# ===================== rust =====================
-
-[ -d ~/.cargo ] \
-	&& . "$HOME/.cargo/env"
-
 # ===================== fzf =========================
 
-[[ $SHELL =~ bash ]] && 
-	[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[[ $SHELL =~ bash ]] \
+	&& [ -f "$HOME/.config/fzf/config.bash" ] \
+	&& source "$HOME/.config/fzf/config.bash"
 
 # ===================== rg ==========================
 
 >/dev/null which rg \
 	&& export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
-
-# ===================== deno ==========================
-
->/dev/null which deno \
-       && export PATH="$HOME/.deno/bin:$PATH"
 
 # ==================== tmux =========================
 
@@ -108,6 +82,30 @@ function _tmux_new_init() {
 function tmux-init() {
 	tmux attach -t init || _tmux_new_init
 }
+
+
+# ===================== deno ==========================
+
+>/dev/null which deno \
+       && export PATH="$HOME/.deno/bin:$PATH"
+
+# ===================== go ==========================
+
+[ -d "$HOME/.local/share/go" ] \
+	&& export GOPATH=$HOME/.local/share/go \
+	&& export PATH=$PATH:$GOPATH/bin
+
+# ===================== haskell =====================
+
+>/dev/null which stack \
+	&& export PATH="$HOME/.local/bin:$PATH"
+
+# ===================== rust =====================
+
+[ -d "$HOME/.local/share/cargo" ] \
+	&& export CARGO_HOME="$HOME/.local/share/cargo" \
+	&& export PATH="$CARGO_HOME/bin:$PATH"
+
 
 if [ "$(uname)" = 'Darwin' ];
 then
