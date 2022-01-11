@@ -66,7 +66,8 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 # ===================== go ==========================
 
 >/dev/null which go \
-	&& export GOPATH=$HOME/.go \
+	&& mkdir -p "$HOME/.local/share/go" \
+	&& export GOPATH=$HOME/.local/share/go \
 	&& export PATH=$PATH:$GOPATH/bin
 
 # ===================== haskell =====================
