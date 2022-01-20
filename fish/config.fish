@@ -1,6 +1,5 @@
 # Aliases
 
-alias pmux="tmuxp"
 alias studio="open -a /Applications/Android\ Studio.app"
 alias getplain="pbpaste | pbcopy"
 
