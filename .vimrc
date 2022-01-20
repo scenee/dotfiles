@@ -314,9 +314,16 @@ let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 let g:user_emmet_leader_key='<C-Y>'
 autocmd FileType html,htmldjango EmmetInstall
 
-" Fern
-
+" fern
 nnoremap <silent> <Leader>1 :Fern . -drawer<CR>
+function! s:init_fern() abort
+  " Define NERDTree like mappings
+  nmap <buffer> o <Plug>(fern-action-open:system)
+endfunction
+augroup fern-custom
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
+augroup END
 
 " fzf
 fun! FzfOmniFiles()
