@@ -69,21 +69,6 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 >/dev/null which rg \
 	&& export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
-# ==================== tmux =========================
-
-function _tmux_new_init() {
-	tmux new-session -c ~/Workspace -s 'init' -n 'workspace' \; \
-		new-window -a -c ~/Workspace/scenee/sandbox -n 'sandbox' \; \
-		new-window -a -c ~/Workspace/scenee/notebooks -n 'note' \; \
-		select-window -t:-2 \; \
-		attach
-}
-
-function tmux-init() {
-	tmux attach -t init || _tmux_new_init
-}
-
-
 # ===================== deno ==========================
 
 >/dev/null which deno \
@@ -110,6 +95,21 @@ function tmux-init() {
 if [ "$(uname)" = 'Darwin' ];
 then
 	[ -r ~/.private ] && source ~/.private || echo "Not found .private"
+
+	# ==================== tmux =========================
+
+	function _tmux_new_init() {
+		tmux new-session -c ~/Workspace -s 'init' -n 'workspace' \; \
+			new-window -a -c ~/Workspace/scenee/sandbox -n 'sandbox' \; \
+			new-window -a -c ~/Workspace/scenee/notebooks -n 'note' \; \
+			new-window -a -c ~/Workspace/scenee/tmp -n 'tmp' \; \
+			select-window -t:-2 \; \
+			attach
+	}
+
+	function tmux-init() {
+		tmux attach -t init || _tmux_new_init
+	}
 
 	# --------------------- ghq -------------------------
 	if [ -f ~/.fzf.bash ] && >/dev/null which ghq;
