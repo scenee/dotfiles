@@ -13,7 +13,7 @@ export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
 ## undefine Ctrl-S for i-search
-stty stop undef
+[ -t 0 ] && stty stop undef
 
 # ===================== Alias ======================
 
@@ -92,6 +92,7 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 
 if [ "$(uname)" = 'Darwin' ];
 then
+
 	[ -r ~/.private ] && source ~/.private || echo "Not found .private"
 
 	# ==================== tmux =========================
