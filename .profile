@@ -102,7 +102,7 @@ then
 		tmux new-session -c ~/Workspace -s 'init' -n 'workspace' \; \
 			new-window -a -c ~/Workspace/scenee/sandbox -n 'sandbox' \; \
 			new-window -a -c ~/Workspace/scenee/notebooks -n 'note' \; \
-			new-window -a -c ~/Workspace/scenee/tmp -n 'tmp' \; \
+			new-window -a -c ~/Workspace/tmp -n 'tmp' \; \
 			select-window -t:-2 \; \
 			attach
 	}
