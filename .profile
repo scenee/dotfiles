@@ -45,7 +45,7 @@ alias vi="vim" # Use vim installed by brew
 
 export LESS='-g -i -R -z-4 -x4'
 export PAGER=less
-if which lesspipe.sh > /dev/null; then
+if command -v lesspipe.sh > /dev/null; then
 	export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
 fi
 
@@ -66,12 +66,12 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 
 # ===================== rg ==========================
 
->/dev/null which rg \
+>/dev/null command -v rg \
 	&& export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # ===================== deno ==========================
 
->/dev/null which deno \
+>/dev/null command -v deno \
        && export PATH="$HOME/.deno/bin:$PATH"
 
 # ===================== go ==========================
@@ -82,7 +82,7 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 
 # ===================== haskell =====================
 
->/dev/null which stack \
+>/dev/null command -v stack \
 	&& export PATH="$HOME/.local/bin:$PATH"
 
 # ===================== rust =====================
@@ -112,7 +112,7 @@ then
 	}
 
 	# --------------------- ghq -------------------------
-	if [ -f ~/.fzf.bash ] && >/dev/null which ghq;
+	if [ -f ~/.fzf.bash ] && >/dev/null command -v ghq;
 	then
 		function _gl() {
 			local root="$(ghq root)"
@@ -137,7 +137,7 @@ then
 	fi
 
 	# ------------------ brew -------------------
-	if which brew > /dev/null;
+	if command -v brew > /dev/null;
 	then
 		if [[ $SHELL =~ bash && -f $(brew --prefix)/etc/bash_completion ]]; then
 			. $(brew --prefix)/etc/bash_completion
@@ -163,7 +163,7 @@ then
 
 	# ------------------ relax --------------------
 
-	which relax > /dev/null && [ $SHELL =~ bash ] && source "$(relax init completion)"
+	command -v relax > /dev/null && [ $SHELL =~ bash ] && source "$(relax init completion)"
 
 	# ------------------ anaconda -----------------
 	if test -d  ~/anaconda*;
@@ -182,7 +182,7 @@ then
 	fi
 
 	# ------------------ octave -------------------
-	if which octave > /dev/null;
+	if command -v octave > /dev/null;
 	then
 		## To define a plot application
 		export GNUTERM=x11
