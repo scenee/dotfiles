@@ -74,8 +74,8 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 
 # ===================== go ==========================
 
-[ -d "$HOME/.local/share/go" ] \
-	&& export GOPATH=$HOME/.local/share/go \
+[ -d "$HOME/.local/go" ] \
+	&& export GOPATH=$HOME/.local/go \
 	&& export PATH=$PATH:$GOPATH/bin
 
 # ===================== haskell =====================
@@ -85,10 +85,15 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 
 # ===================== rust =====================
 
-[ -d "$HOME/.local/share/cargo" ] \
-	&& export CARGO_HOME="$HOME/.local/share/cargo" \
+[ -d "$HOME/.local/cargo" ] \
+	&& export CARGO_HOME="$HOME/.local/cargo" \
 	&& export PATH="$CARGO_HOME/bin:$PATH"
 
+# ===================== swift ====================
+
+[ -d "$HOME/.local/swift" ] \
+	&& export SWIFT_HOME="$HOME/.local/swift" \
+	&& export PATH="$SWIFT_HOME/bin:$PATH"
 
 if [ "$(uname)" = 'Darwin' ];
 then
