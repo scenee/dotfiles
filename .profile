@@ -97,8 +97,9 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 
 if [ "$(uname)" = 'Darwin' ];
 then
-
 	[ -r ~/.private ] && source ~/.private || echo "Not found .private"
+
+	export PATH="$HOME/.local/bin:$PATH"
 
 	# ==================== tmux =========================
 
