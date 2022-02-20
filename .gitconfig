@@ -15,9 +15,7 @@
 	pl = pull
 	rb = rebase
 	co = commit
-	d = diff
-	br-current = rev-parse --abbrev-ref HEAD
-	branch-root = merge-base master HEAD
+	df = diff
 	ps-head = push origin HEAD --force-with-lease
 	root = rev-parse --show-toplevel
 [user]
