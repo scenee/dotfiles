@@ -7,15 +7,6 @@ if [ ! -z $ZSH_VERSION ]; then
 	export PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 fi
 
-# ===================== asdf ==========================
-
-if [ -d "$HOME/.local/share/asdf" ];
-then
-	export ASDF_DIR="$HOME/.local/share/asdf"
-	export ASDF_DATA_DIR="$HOME/.local/share/asdf"
-	export ASDF_CONFIG_FILE="$HOME/.config/asdf"
-fi
-
 # ===================== rg ==========================
 
 >/dev/null command -v rg \
