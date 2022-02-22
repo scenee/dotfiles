@@ -7,21 +7,6 @@ if [ ! -z $ZSH_VERSION ]; then
 	export PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 fi
 
-# ===================== git =========================
-
-case $SHELL in
-*bash)
-	[ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
-	;;
-esac
-gr() { cd "`git rev-parse --show-toplevel`"; }
-
-# ===================== fzf =========================
-
-[ ! -z "$BASH" ] \
-	&& [ -f "$HOME/.config/fzf/config.bash" ] \
-	&& source "$HOME/.config/fzf/config.bash"
-
 # ===================== rg ==========================
 
 >/dev/null command -v rg \
