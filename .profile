@@ -1,53 +1,13 @@
-export EDITOR=vim
-export TERM="xterm-256color"
+source "$HOME/.shinit"
+export ENV="$HOME/.shinit"
 
-export LANG=en_US.UTF-8
-export IGNOREEOF=3
+# ===================== Prompt ======================
 
-if [ ! -z $BASH_VERSION ]; then
-	export PS1="[\u@\h \W]\$ "
-elif [ ! -z $ZSH_VERSION ]; then
+if [ ! -z $ZSH_VERSION ]; then
 	export PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 fi
-export CLICOLOR=1
-export LSCOLORS=DxGxcxdxCxegedabagacad
 
-## undefine Ctrl-S for i-search
-[ -t 0 ] && stty stop undef
-
-# ===================== Alias ======================
-
-alias ..='cd ..'
-alias cp="cp -i"
-alias rm="rm -id"
-alias x="xargs"
-alias be='bundle exec'
-alias python=python3
-alias pip=pip3
-alias mux="tmuxinator"
-
-if [ "$(uname)" = 'Darwin' ];
-then
-alias ls='ls -GpF' # Mac OSX specific
-alias ll='ls -alGpF' # Mac OSX specific
-alias o="open "
-alias getplain='pbpaste | pbcopy'
-else
-alias ll="ls -AlFh"
-alias ls="ls -F"
-fi
-
-alias vi="vim" # Use vim installed by brew
-
-# ===================== less ======================
-
-export LESS='-g -i -R -z-4 -x4'
-export PAGER=less
-if command -v lesspipe.sh > /dev/null; then
-	export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
-fi
-
-# ===================== git ======================-
+# ===================== git =========================
 
 case $SHELL in
 *bash)
