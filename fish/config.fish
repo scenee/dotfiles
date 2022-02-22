@@ -17,3 +17,9 @@ set -x PATH /usr/local/opt/python@3.9/libexec/bin $PATH
 set -x PATH /usr/local/opt/opencv@3/bin $PATH
 set -x PATH $HOME/.slack/bin $PATH
 set -x PATH $HOME/.deno/bin $PATH
+
+# asdf
+
+if test -d ~/.asdf
+    source ~/.asdf/asdf.fish
+end
