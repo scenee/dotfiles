@@ -18,7 +18,7 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 
 # ===================== fzf =========================
 
-[[ $SHELL =~ bash ]] \
+[ ! -z "$BASH" ] \
 	&& [ -f "$HOME/.config/fzf/config.bash" ] \
 	&& source "$HOME/.config/fzf/config.bash"
 
@@ -27,7 +27,7 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 >/dev/null command -v rg \
 	&& export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
-# ===================== deno ==========================
+# ===================== deno ========================
 
 >/dev/null command -v deno \
        && export PATH="$HOME/.deno/bin:$PATH"
@@ -43,13 +43,13 @@ gr() { cd "`git rev-parse --show-toplevel`"; }
 >/dev/null command -v stack \
 	&& export PATH="$HOME/.local/bin:$PATH"
 
-# ===================== rust =====================
+# ===================== rust ========================
 
 [ -d "$HOME/.local/cargo" ] \
 	&& export CARGO_HOME="$HOME/.local/cargo" \
 	&& export PATH="$CARGO_HOME/bin:$PATH"
 
-# ===================== swift ====================
+# ===================== swift =======================
 
 [ -d "$HOME/.local/swift" ] \
 	&& export SWIFT_HOME="$HOME/.local/swift" \
@@ -104,7 +104,7 @@ then
 	# ------------------ brew -------------------
 	if command -v brew > /dev/null;
 	then
-		if [[ $SHELL =~ bash && -f $(brew --prefix)/etc/bash_completion ]]; then
+		if [[ ! -z "$BASH" && -f $(brew --prefix)/etc/bash_completion ]]; then
 			. $(brew --prefix)/etc/bash_completion
 		fi
 		# WARN:  Please set HOMEBREW_GITHUB_API_TOKEN in ~/.bashrc
@@ -125,10 +125,6 @@ then
 			$DROPBOX_PATH/EncryptedData/umnt_keyvault
 		}
 	fi
-
-	# ------------------ relax --------------------
-
-	command -v relax > /dev/null && [ $SHELL =~ bash ] && source "$(relax init completion)"
 
 	# ------------------ anaconda -----------------
 	if test -d  ~/anaconda*;
