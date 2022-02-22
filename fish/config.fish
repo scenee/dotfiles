@@ -20,6 +20,6 @@ set -x PATH $HOME/.deno/bin $PATH
 
 # asdf
 
-if test -d ~/.asdf
-    source ~/.asdf/asdf.fish
+if test -d $HOME/.local/share/asdf
+    source $HOME/.local/share/asdf/asdf.fish
 end
