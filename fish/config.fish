@@ -12,8 +12,3 @@ bind \cd delete-char # Stop an unexpected exit
 if test -n $TMUX
 set -x PATH /opt/local/bin /opt/local/sbin $PATH
 end
-
-set -x PATH /usr/local/opt/python@3.9/libexec/bin $PATH
-set -x PATH /usr/local/opt/opencv@3/bin $PATH
-set -x PATH $HOME/.slack/bin $PATH
-set -x PATH $HOME/.deno/bin $PATH
