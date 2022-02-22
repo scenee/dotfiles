@@ -1,12 +1,6 @@
 source "$HOME/.shinit"
 export ENV="$HOME/.shinit"
 
-# ===================== Prompt ======================
-
-if [ ! -z $ZSH_VERSION ]; then
-	export PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
-fi
-
 # ===================== rg ==========================
 
 >/dev/null command -v rg \
@@ -39,6 +33,12 @@ fi
 [ -d "$HOME/.local/swift" ] \
 	&& export SWIFT_HOME="$HOME/.local/swift" \
 	&& export PATH="$SWIFT_HOME/bin:$PATH"
+
+# ===================== zsh ======================
+
+if [ ! -z $ZSH_VERSION ]; then
+	export PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
+fi
 
 if [ "$(uname)" = 'Darwin' ];
 then
