@@ -46,15 +46,30 @@ then
 
 	export PATH="$HOME/.local/bin:$PATH"
 
-	# ==================== tmux =========================
+	# ------------------ macport -------------------
+
+	if test -f /opt/local/bin/port;
+	then
+		export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+		export MANPATH="/opt/local/share/man:$MANPATH"
+	fi
+
+	# ------------------ brew -------------------
+	if command -v brew > /dev/null;
+	then
+		if [[ ! -z "$BASH" && -f $(brew --prefix)/etc/bash_completion ]]; then
+			. $(brew --prefix)/etc/bash_completion
+		fi
+		# WARN:  Please set HOMEBREW_GITHUB_API_TOKEN in ~/.bashrc
+		if [[  -f `brew --prefix`/bin/ctags ]]; then
+			alias ctags="`brew --prefix`/bin/ctags"
+		fi
+	fi
+
+	# -------------------- tmux -------------------------
 
 	function _tmux_new_init() {
-		tmux new-session -c ~/Workspace -s 'init' -n 'workspace' \; \
-			new-window -a -c ~/Workspace/scenee/sandbox -n 'sandbox' \; \
-			new-window -a -c ~/Workspace/scenee/notebooks -n 'note' \; \
-			new-window -a -c ~/Workspace/tmp -n 'tmp' \; \
-			select-window -t:-3 \; \
-			attach
+		tmuxp load init
 	}
 
 	function tmux-init() {
@@ -78,25 +93,9 @@ then
 		alias gget=_gget
 	fi
 
-	# ------------------ macport -------------------
+	# ------------------ gettext --------------------
 
-	if test -f /opt/local/bin/port;
-	then
-		export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-		export MANPATH="/opt/local/share/man:$MANPATH"
-	fi
-
-	# ------------------ brew -------------------
-	if command -v brew > /dev/null;
-	then
-		if [[ ! -z "$BASH" && -f $(brew --prefix)/etc/bash_completion ]]; then
-			. $(brew --prefix)/etc/bash_completion
-		fi
-		# WARN:  Please set HOMEBREW_GITHUB_API_TOKEN in ~/.bashrc
-		if [[  -f `brew --prefix`/bin/ctags ]]; then
-			alias ctags="`brew --prefix`/bin/ctags"
-		fi
-	fi
+	export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 	# ------------------ dropbox -----------------
 	if test -d /Applications/Dropbox.app;
@@ -133,10 +132,6 @@ then
 		## To define a plot application
 		export GNUTERM=x11
 	fi
-
-	# ------------------ gettext --------------------
-
-	export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 	# ------------------ visual code ------------------
 
