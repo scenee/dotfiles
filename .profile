@@ -69,7 +69,12 @@ then
 	# -------------------- tmux -------------------------
 
 	function _tmux_new_init() {
-		tmuxp load init
+		tmux new-session -c "${HOME}/Workspace" -s 'init' -n 'workspace' \; \
+			new-window -a -c "${HOME}/Workspace/scenee/github/sandbox" -n 'sandbox' \; \
+			new-window -a -c "${HOME}/Workspace/scenee/github/notebooks" -n 'note' \; \
+			new-window -a -c "${HOME}/Workspace/tmp" -n 'tmp' \; \
+			select-window -t:-3 \; \
+			attach
 	}
 
 	function tmux-init() {
