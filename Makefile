@@ -7,7 +7,7 @@ test:
 	echo ${PWD}
 
 .PHONY: setup
-setup: clean setup-vim
+setup: clean
 	./setup.sh
 
 .PHONY: setup-vim
