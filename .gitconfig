@@ -2,9 +2,9 @@
 	editor = vim
 	ignorecase = false
 	excludesfile = ~/.gitignore_global
-    pager = delta --color-only --plus-color="#013600" --plus-emph-color="#039900"
+    pager = delta --color-only --plus-style="#013600" --plus-emph-style="#039900"
 [interactive]
-    diffFilter = delta --color-only --plus-color="#013600" --plus-emph-color="#039900"
+    diffFilter = delta --color-only --plus-style="#013600" --plus-emph-style="#039900"
 [color]
 	ui = auto
 [alias]
