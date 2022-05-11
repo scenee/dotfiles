@@ -20,9 +20,10 @@ install() {
 }
 
 os_name=$(uname)
-if test $os_name = Darwin; then
+if test $os_name = Darwin;
+then
 
-	print "$ARROW Check xcode-select"
+	print "$ARROW Checking xcode-select"
 
 	xcode-select -p > /dev/null
 
@@ -30,29 +31,26 @@ if test $os_name = Darwin; then
 		print "==> Run: xcode-select --install"
 		xcode-select --install
 	fi
+	print "$ARROW Checking Xcode license"
+	sudo xcodebuild -license
 
-elif test $os_name = Linux; then
+elif test $os_name = Linux;
+then
 
 	dist="$(lsb_release -i | awk '{ print $3 }')"
 
-	print "$ARROW Detect distribution: $dist"
-	print "$ARROW Check git"
+	print "$ARROW Detected distribution: $dist"
+	print "$ARROW Checking git"
 	if ! which git > /dev/null; then
 		print "==> Install git"
 		install git
 	fi
 fi
 
-print "$ARROW Fetch dotfiles"
+print "$ARROW Fetching dotfiles"
 
 git clone https://github.com/SCENEE/dotfiles.git ~/.dotfiles
 
 pushd ~/.dotfiles > /dev/null
 
-print "$ARROW Set up dotfiles"
-
-make all
-
-popd > /dev/null
-
-print "${BOLD}Done!${NC}"
+print "${BOLD}Installed dotfiles!${NC}"
