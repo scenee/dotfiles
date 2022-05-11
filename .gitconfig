@@ -15,6 +15,7 @@
 	pl = pull
 	rb = rebase
 	co = commit
+	ch = checkout
 	df = diff
 	ps-head = push origin HEAD --force-with-lease
 	root = rev-parse --show-toplevel
