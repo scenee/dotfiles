@@ -560,6 +560,7 @@ autocmd BufWritePost *.erl call
 " ruby
 autocmd BufRead,BufNewFile *.podspec set filetype=ruby
 autocmd BufRead,BufNewFile Podfile set filetype=ruby
+autocmd BufRead,BufNewFile *Fastfile set filetype=ruby
 autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " yaml
