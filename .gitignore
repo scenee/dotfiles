@@ -5,3 +5,5 @@
 *.bk
 Thumbs.db
  
+# fish
+fish/completions
