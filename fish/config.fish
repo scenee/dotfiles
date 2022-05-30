@@ -13,6 +13,13 @@ if test -n $TMUX
     set -x PATH /opt/local/bin /opt/local/sbin $PATH
 end
 
+# Variables
+
+if status --is-login
+    set -U fish_color_cwd normal
+    set -U fish_color_user normal
+end
+
 # asdf
 
 if test -d ~/.local/asdf
