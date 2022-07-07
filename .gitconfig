@@ -18,7 +18,6 @@
 	ch = checkout
 	df = diff
 	wt = worktree
-	ps-head = push origin HEAD --force-with-lease
 	root = rev-parse --show-toplevel
 [user]
 	name = Shin Yamamoto
