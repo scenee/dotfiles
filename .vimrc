@@ -110,6 +110,7 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'mattn/vim-lsp-settings'
 
 " Lint
 
@@ -148,8 +149,6 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 " Python plugins
-Plug 'davidhalter/jedi-vim'
-" Plug 'jmcantrell/vim-virtualenv'
 
 " HTML/JS plugins
 Plug 'mattn/emmet-vim'
@@ -352,19 +351,6 @@ command! -bang -nargs=? -complete=dir Files
 
 " HashiVim
 let g:terraform_align=1
-
-" jedi-vim
-autocmd FileType python call s:SetJedi()
-autocmd FileType python setlocal completeopt-=preview
-
-function! s:SetJedi()
-let g:jedi#completions_enabled = 0
-" let g:jedi#completions_command = "<Tab>"  " Prevent conflict with my Spotlight shutcut key on Mac
-let g:jedi#usages_command = "<leader>u" " Prevent conflict NERDTreeOpen map 
-let g:jedi#goto_command = "<C-j>"
-let g:jedi#force_py_version = 3
-endfunction
-
 
 " gtags
 let g:Gtags_OpenQuickfixWindow = 0
