@@ -93,7 +93,6 @@ Plug 'ervandew/supertab'
 Plug 'junegunn/vim-easy-align'
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-hijack.vim'
-Plug 'majutsushi/tagbar'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -125,11 +124,12 @@ Plug 'dense-analysis/ale'
 
 
 " Color
+
 Plug 'w0ng/vim-hybrid'
 
 " Tags
-" Plug 'airblade/vim-rooter' " Must be before vim-easytags
-Plug 'vim-scripts/taglist.vim' " Required Eexuberant-ctags.
+
+Plug 'preservim/tagbar'
 
 " Status/Tabline
 Plug 'vim-airline/vim-airline'
@@ -465,8 +465,9 @@ endfunction
 
 
 " tagbar
-nnoremap <silent> <Leader>0 :Tagbar<CR>
+nnoremap <silent> <Leader>0 :TagbarToggle<CR>
 let g:tagbar_sort = 0
+let g:tagbar_ctags_bin = '/opt/local/bin/uctags'
 
 " vim-airline
 let g:airline_theme = "luna"
