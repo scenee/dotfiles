@@ -320,7 +320,7 @@ let g:user_emmet_leader_key='<C-Y>'
 autocmd FileType html,htmldjango EmmetInstall
 
 " fern
-nnoremap <silent> <Leader>1 :Fern . -drawer<CR>
+nnoremap <silent> <Leader>1 :Fern . -drawer -toggle<CR>
 function! s:init_fern() abort
   " Define NERDTree like mappings
   nmap <buffer> o <Plug>(fern-action-open:system)
