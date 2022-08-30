@@ -402,21 +402,21 @@ let g:plantuml_executable_script = "~/.plantuml/plantuml""
 " quickrun.vim
 let g:quickrun_config = get(g:, 'quickrun_config', {})
 let g:quickrun_config._ = {
-\   'split': ':botright 16sp',
-\   'hook/time/enable': '1',
-\   'runner'    : 'vimproc',
-\   'runner/vimproc/updatetime' : 60,
-\   'runner/python' : 60,
-\   'outputter' : 'error',
-\   'outputter/error/success' : 'buffer',
-\   'outputter/error/error'   : 'quickfix',
-\   'outputter/buffer/close_on_empty' : 1,
-\}
+  \   'split': ':botright 16sp',
+  \   'hook/time/enable': '1',
+  \   'runner'    : 'vimproc',
+  \   'runner/vimproc/updatetime' : 60,
+  \   'runner/python' : 60,
+  \   'outputter' : 'error',
+  \   'outputter/error/success' : 'buffer',
+  \   'outputter/error/error'   : 'quickfix',
+  \   'outputter/buffer/close_on_empty' : 1,
+  \}
 let g:quickrun_config.python = { 'command': 'python3' }
 let g:quickrun_config.cpp = {
-\   'command': 'clang',
-\   'cmdopt': '-std=c++11'
-\ }
+  \ 'command': 'clang++',
+  \ 'cmdopt': '-std=c++17 -Wall'
+  \ }
 au FileType qf nnoremap <silent><buffer>q :quit<CR>
 let g:quickrun_no_default_key_mappings = 1
 nnoremap <Leader>Q :cclose<CR>:write<CR>:QuickRun -mode n<CR>
