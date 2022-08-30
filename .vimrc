@@ -96,9 +96,9 @@ Plug 'lambdalisue/fern-hijack.vim'
 Plug 'majutsushi/tagbar'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'tyru/open-browser.vim'
 Plug 'vim-scripts/grep.vim'
-Plug 'w0rp/ale'
 Plug 'severin-lemaignan/vim-minimap'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -110,7 +110,7 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'mattn/vim-lsp-settings'
+"Plug 'mattn/vim-lsp-settings'
 
 " Lint
 
@@ -150,6 +150,7 @@ Plug 'plasticboy/vim-markdown'
 
 " Python plugins
 
+
 " HTML/JS plugins
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
@@ -166,7 +167,6 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
-
 " HashiVim
 Plug 'hashivim/vim-terraform'
 
@@ -182,7 +182,6 @@ Plug 'aklt/plantuml-syntax'
 " bats
 Plug 'vim-scripts/bats.vim'
 
-
 " protobuf
 Plug 'uber/prototool', { 'rtp':'vim/prototool' }
 
@@ -197,6 +196,9 @@ Plug 'vim-ruby/vim-ruby'
 
 " TOML
 Plug 'cespare/vim-toml', { 'branch': 'main' }
+
+" zig
+Plug 'ziglang/zig.vim'
 
 call plug#end()
 " }}}
@@ -239,14 +241,12 @@ if executable('bash-language-server')
 endif
 
 "" Register ccls C++ lanuage server.
-if executable('ccls')
-   au User lsp_setup call lsp#register_server({
-      \ 'name': 'ccls',
-      \ 'cmd': {server_info->['ccls']},
-      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-      \ 'initialization_options': {'cache': {'directory': '/tmp/ccls/cache' }},
-      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-      \ })
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd', '-background-index']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+        \ })
 endif
 
 if executable('gopls')
@@ -297,11 +297,17 @@ let g:ale_linters = {
 \   'go': ['golint'],
 \   'proto': ['prototool-lint'],
 \}
+
 let g:ale_lint_on_text_changed = 'never'
 augroup CloseLoclistWindowGroup
     autocmd!
     autocmd QuitPre * if empty(&buftype) | lclose | endif
 augroup END
+
+" commentary.vim
+
+autocmd FileType c,cpp,go,swift setlocal commentstring=//\ %s
+"
 
 " CurtineIncSw.vim
 autocmd FileType c,cpp nnoremap <S-J> :call CurtineIncSw()<CR>
@@ -407,7 +413,10 @@ let g:quickrun_config._ = {
 \   'outputter/buffer/close_on_empty' : 1,
 \}
 let g:quickrun_config.python = { 'command': 'python3' }
-
+let g:quickrun_config.cpp = {
+\   'command': 'clang',
+\   'cmdopt': '-std=c++11'
+\ }
 au FileType qf nnoremap <silent><buffer>q :quit<CR>
 let g:quickrun_no_default_key_mappings = 1
 nnoremap <Leader>Q :cclose<CR>:write<CR>:QuickRun -mode n<CR>
@@ -577,11 +586,11 @@ autocmd FileType vim setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 "===================== Custom vimscript ======================
 " {{{
 
-" http://blog.erw.dk/2016/04/19/entering-dates-and-times-in-vim/
-noremap! <expr> ,t strftime("%H:%M:%S")
-noremap! <expr> ,d strftime("%Y-%m-%d")
-noremap! <expr> ,l strftime("%Y-%m-%d %H:%M")
-noremap! ,, ,
+" Based http://blog.erw.dk/2016/04/19/entering-dates-and-times-in-vim/
+noremap! <expr> <leader>t strftime("%H:%M:%S")
+noremap! <expr> <leader>d strftime("%Y-%m-%d")
+noremap! <expr> <leader>l strftime("%Y-%m-%d %H:%M")
+
 
 " [Multiple Cursors](http://www.kevinli.co/posts/2017-01-19-multiple-cursors-in-500-bytes-of-vimscript/)
 let g:mc = "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>"
