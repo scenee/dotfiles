@@ -299,6 +299,7 @@ let g:ale_linters = {
 \}
 
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_cpp_cc_options = '-std=c++20 -Wall'
 augroup CloseLoclistWindowGroup
     autocmd!
     autocmd QuitPre * if empty(&buftype) | lclose | endif
@@ -415,7 +416,7 @@ let g:quickrun_config._ = {
 let g:quickrun_config.python = { 'command': 'python3' }
 let g:quickrun_config.cpp = {
   \ 'command': 'clang++',
-  \ 'cmdopt': '-std=c++17 -Wall'
+  \ 'cmdopt': '-std=c++20 -Wall'
   \ }
 au FileType qf nnoremap <silent><buffer>q :quit<CR>
 let g:quickrun_no_default_key_mappings = 1
