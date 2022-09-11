@@ -240,7 +240,7 @@ if executable('bash-language-server')
   augroup END
 endif
 
-"" Register ccls C++ lanuage server.
+"" Register clangd C++ lanuage server.
 if executable('clangd')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
