@@ -593,6 +593,8 @@ noremap! <expr> <leader>t strftime("%H:%M:%S")
 noremap! <expr> <leader>d strftime("%Y-%m-%d")
 noremap! <expr> <leader>l strftime("%Y-%m-%d %H:%M")
 
+" Automatically removing all trailing whitespace
+autocmd FileType c,cpp,js,ts,go,swift autocmd BufWritePre <buffer> %s/\s\+$//e
 
 " [Multiple Cursors](http://www.kevinli.co/posts/2017-01-19-multiple-cursors-in-500-bytes-of-vimscript/)
 let g:mc = "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>"
