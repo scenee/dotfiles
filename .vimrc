@@ -115,14 +115,6 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'dense-analysis/ale'
 
-" Snippets
-"" <<< UltiSnips causes many bugs >>>
-" if v:version > 700 && (has("python") || has("python3"))
-"     Plug 'SirVer/ultisnips'
-" endif
-" Plug 'honza/vim-snippets'
-
-
 " Color
 
 Plug 'w0ng/vim-hybrid'
