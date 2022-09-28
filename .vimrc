@@ -258,12 +258,13 @@ if executable('gopls')
     autocmd BufWritePre *.go LspDocumentFormatSync
 endif
 
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
-        \ 'whitelist': ['rust'],
+" RLS is no longer supported. https://blog.rust-lang.org/2022/07/01/RLS-deprecation.html
+" Need to install 'rust-analyzer'. https://rust-analyzer.github.io/manual.html#rust-analyzer-language-server-binary
+if executable('rust-analyzer')
+  au User lsp_setup call lsp#register_server({
+        \   'name': 'Rust Language Server',
+        \   'cmd': {server_info->['rust-analyzer']},
+        \   'whitelist': ['rust'],
         \ })
 endif
 
@@ -296,6 +297,7 @@ let g:ale_linters = {
 \   'javascript': ['prettier', 'eslint'],
 \   'go': ['golint'],
 \   'proto': ['prototool-lint'],
+\   'rust': ['analyzer'],
 \}
 
 let g:ale_lint_on_text_changed = 'never'
