@@ -115,6 +115,10 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'dense-analysis/ale'
 
+" Test
+"
+Plug 'vim-test/vim-test'
+
 " Color
 
 Plug 'w0ng/vim-hybrid'
@@ -503,6 +507,9 @@ let g:easytags_include_members = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 
+" vim-test
+let test#strategy = "vimterminal"
+
 
 " }}}
 "===================== FILE TYPE ======================
@@ -586,6 +593,13 @@ autocmd FileType vim setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 noremap! <expr> <leader>t strftime("%H:%M:%S")
 noremap! <expr> <leader>d strftime("%Y-%m-%d")
 noremap! <expr> <leader>l strftime("%Y-%m-%d %H:%M")
+
+" Fro vim-test
+nmap <silent> <leader>u :TestNearest<CR>
+nmap <silent> <leader>U :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 
 " Automatically removing all trailing whitespace
 autocmd FileType c,cpp,js,ts,go,swift autocmd BufWritePre <buffer> %s/\s\+$//e
