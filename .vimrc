@@ -577,7 +577,7 @@ autocmd FileType proto setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType go setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
 " swift
-autocmd FileType swift setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType swift setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 	
 " markdown
 autocmd FileType markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
