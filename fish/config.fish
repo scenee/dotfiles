@@ -29,3 +29,9 @@ if test -d ~/.local/asdf
     set -x ASDF_DATA_DIR ~/.local/asdf
     source ~/.local/asdf/asdf.fish
 end
+
+# pnpm
+
+set -gx PNPM_HOME "/Users/shin/Library/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+alias pn=pnpm
