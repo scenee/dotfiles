@@ -41,3 +41,5 @@
 [init]
 	defaultBranch = main
 
+[push]
+	useForceIfIncludes = true
