@@ -3,10 +3,12 @@
 	ignorecase = false
 	excludesfile = ~/.gitignore_global
     pager = delta --color-only
-[interactive]
-    diffFilter = delta --color-only
 [color]
 	ui = auto
+[interactive]
+    diffFilter = delta --color-only
+[pager]
+	branch = false
 [alias]
 	br = branch
 	st = status
@@ -20,26 +22,31 @@
 	wt = worktree
 	root = rev-parse --show-toplevel
 	files = "!git diff --name-status \"$1\"^ \"$1\" #"
+
+
 [user]
 	name = Shin Yamamoto
 	email = shin@scenee.com
+
+
+[include]
+	path = ~/.gitconfig.local
+
+
+[init]
+	defaultBranch = main
+[log]
+	follow = true
+[pull]
+	ff = only
+[push]
+	useForceIfIncludes = true
 [rebase]
 	autosquash = true
+
+
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-[include]
-	path = ~/.gitconfig.local
-[pager]
-	branch = false
-[log]
-	follow = true
-[pull]
-	ff = only
-[init]
-	defaultBranch = main
-
-[push]
-	useForceIfIncludes = true
