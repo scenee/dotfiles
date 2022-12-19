@@ -19,6 +19,7 @@
 	df = diff
 	wt = worktree
 	root = rev-parse --show-toplevel
+	files = "!git diff --name-status \"$1\"^ \"$1\" #"
 [user]
 	name = Shin Yamamoto
 	email = shin@scenee.com
