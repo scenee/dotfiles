@@ -66,6 +66,14 @@ then
 		fi
 	fi
 
+	# -------------------- pnpm -------------------------
+	export PNPM_HOME="/Users/shin/Library/pnpm"
+	if test -d $PNPM_HOME;
+	then
+		export PATH="$PNPM_HOME:$PATH"
+		alias pn=pnpm
+	fi
+
 	# -------------------- tmux -------------------------
 
 	function _tmux_new_init() {
