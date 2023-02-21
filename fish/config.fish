@@ -2,7 +2,6 @@
 
 alias studio="open -a /Applications/Android\ Studio.app"
 alias getplain="pbpaste | pbcopy"
-alias xcresulttool="xcrun xcresulttool"
 
 # Binds
 
@@ -31,6 +30,17 @@ if test -d ~/.local/asdf
     source ~/.local/asdf/asdf.fish
 end
 
+# tmuxp
+
+alias mux='tmuxp'
+alias fux='tmuxp ls | fzf --layout=reverse --info=inline --height=40% | xargs stmuxp load'
+alias kix='tmux list-sessions | cut -d" " -f1 | cut -d":" -f1 | fzf --layout reverse --info=inline --height=40% | xargs tmux kill-session -t'
+
 # pnpm
 
 alias pn=pnpm
+
+# pnpm
+set -gx PNPM_HOME "/Users/shin/Library/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+# pnpm end
