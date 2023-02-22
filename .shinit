@@ -10,7 +10,9 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 ## undefine Ctrl-S for i-search
 [ -t 0 ] && stty stop undef
 
+if [ ! -f /etc/bashrc ]; then
 export PS1="[\u@\h \s(\v) \w]$ "
+fi
 
 # ===================== Alias ======================
 
@@ -30,8 +32,8 @@ alias ll='ls -alGpF' # Mac OSX specific
 alias o="open "
 alias getplain='pbpaste | pbcopy'
 else
-alias ll="ls -AlFh"
-alias ls="ls -F"
+alias ls="ls --color=tty -F"
+alias ll="ls -Alh"
 fi
 
 alias vi="vim" # Use vim installed by brew
