@@ -71,7 +71,7 @@ then
 	if test -d $PNPM_HOME;
 	then
 		export PATH="$PNPM_HOME:$PATH"
-		alias pn=pnpm
+		# 'pn' alias will be set later
 	fi
 
 	# -------------------- tmux -------------------------
@@ -154,3 +154,6 @@ then
 
 	alias studio="open -a /Applications/Android\ Studio.app"
 fi
+
+>/dev/null command -v pnpm \
+	&& alias pn=pnpm
