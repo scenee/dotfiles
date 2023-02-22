@@ -33,7 +33,7 @@ end
 # tmuxp
 
 alias mux='tmuxp'
-alias fux='tmuxp ls | fzf --layout=reverse --info=inline --height=40% | xargs stmuxp load'
+alias fux='tmuxp ls | fzf --layout=reverse --info=inline --height=40% --print0 | xargs -0 -o tmuxp load'
 alias kix='tmux list-sessions | cut -d" " -f1 | cut -d":" -f1 | fzf --layout reverse --info=inline --height=40% | xargs tmux kill-session -t'
 
 # pnpm
