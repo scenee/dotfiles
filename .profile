@@ -1,6 +1,9 @@
 source "$HOME/.shinit"
 export ENV="$HOME/.shinit"
 
+>/dev/null command -v ip \
+	&& alias ip="ip --color"
+
 # ===================== rg ==========================
 
 >/dev/null command -v rg \
