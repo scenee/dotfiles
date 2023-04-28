@@ -40,7 +40,10 @@ alias kmux='tmux list-sessions | cut -d" " -f1 | cut -d":" -f1 | fzf --layout re
 
 alias pn=pnpm
 
-# pnpm
 set -gx PNPM_HOME "/Users/shin/Library/pnpm"
 set -gx PATH "$PNPM_HOME" $PATH
-# pnpm end
+
+# dart
+
+set -gx PATH "$HOME/.pub-cache/bin" $PATH
+
