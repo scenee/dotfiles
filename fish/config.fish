@@ -1,3 +1,5 @@
+source $__fish_config_dir/private.fish
+
 # Aliases
 
 alias studio="open -a /Applications/Android\ Studio.app"
