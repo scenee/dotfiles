@@ -16,7 +16,7 @@
 	ps = push
 	pl = pull
 	rb = rebase
-	co = commit
+	co = commit -v
 	ch = checkout
 	df = diff
 	wt = worktree
