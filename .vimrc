@@ -611,21 +611,14 @@ autocmd FileType c,cpp,js,ts,go,swift autocmd BufWritePre <buffer> %s/\s\+$//e
 " [Multiple Cursors](http://www.kevinli.co/posts/2017-01-19-multiple-cursors-in-500-bytes-of-vimscript/)
 let g:mc = "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>"
 
+
+" From http://www.kevinli.co/posts/2017-01-19-multiple-cursors-in-500-bytes-of-vimscript/#changing-a-visual-selection
+" Replace a selection: selector<C-v>, type cn, do your change, then n to go next occurence, and . to replay the change
 nnoremap cn *``cgn
 nnoremap cN *``cgN
 
 vnoremap <expr> cn g:mc . "``cgn"
 vnoremap <expr> cN g:mc . "``cgN"
-
-function! SetupCR()
-  nnoremap <Enter> :nnoremap <lt>Enter> n@z<CR>q:<C-u>let @z=strpart(@z,0,strlen(@z)-1)<CR>n@z
-endfunction
-
-nnoremap cq :call SetupCR()<CR>*``qz
-nnoremap cQ :call SetupCR()<CR>#``qz
-
-vnoremap <expr> cq ":\<C-u>call SetupCR()\<CR>" . "gv" . g:mc . "``qz"
-vnoremap <expr> cQ ":\<C-u>call SetupCR()\<CR>" . "gv" . substitute(g:mc, '/', '?', 'g') . "``qz"
 
 vnoremap <c-a> <c-a>gv
 vnoremap <c-x> <c-x>gv
