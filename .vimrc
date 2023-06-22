@@ -593,9 +593,10 @@ autocmd FileType vim setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " {{{
 
 " Based http://blog.erw.dk/2016/04/19/entering-dates-and-times-in-vim/
-noremap! <expr> <leader>t strftime("%H:%M:%S")
-noremap! <expr> <leader>d strftime("%Y-%m-%d")
-noremap! <expr> <leader>l strftime("%Y-%m-%d %H:%M")
+nnoremap <leader>t a<C-R>=strftime("%H:%M")<CR><Esc>
+nnoremap <leader>d a<C-R>=strftime("%Y-%m-%d")<CR><Esc>
+nnoremap <leader>l a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>
+
 
 " Fro vim-test
 nmap <silent> <leader>u :TestNearest<CR>
