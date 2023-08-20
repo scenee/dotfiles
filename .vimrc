@@ -30,6 +30,7 @@ set spelllang=en,cjk
 set splitright
 set tabstop=4
 set title
+set textwidth=80
 set virtualedit+=block
 set wildmenu wildmode=list:full
 set wrapscan
