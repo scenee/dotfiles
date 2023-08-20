@@ -100,7 +100,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tyru/open-browser.vim'
 Plug 'vim-scripts/grep.vim'
 Plug 'severin-lemaignan/vim-minimap'
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 
@@ -339,8 +339,7 @@ fun! FzfOmniFiles()
     :GitFiles
   endif
 endfun
- 
-nnoremap <C-b> :Buffers<CR>
+
 nnoremap <C-g> :Rg<Space>
 nnoremap <leader>: :Commands<CR>
 nnoremap <C-p> :call FzfOmniFiles()<CR>
