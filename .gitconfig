@@ -10,15 +10,17 @@
 [pager]
 	branch = false
 [alias]
+	ad = add
 	br = branch
-	st = status
-	rs = reset
+	ch = checkout
+	co = commit
+	cv = commit -v
+	df = diff
 	ps = push
 	pl = pull
+	rs = reset
 	rb = rebase
-	co = commit -v
-	ch = checkout
-	df = diff
+	st = status
 	wt = worktree
 	root = rev-parse --show-toplevel
 	files = "!git diff --name-status \"$1\"^ \"$1\" #"
