@@ -7,12 +7,6 @@ alias getplain="pbpaste | pbcopy"
 
 bind \cd delete-char # Stop an unexpected exit
 
-# Paths
-
-if test -n $TMUX
-    set -x PATH /opt/local/bin /opt/local/sbin $PATH
-end
-
 # Variables
 
 if status --is-login
@@ -41,7 +35,6 @@ alias kmx='tmux list-sessions | cut -d" " -f1 | cut -d":" -f1 | fzf --layout rev
 alias pn=pnpm
 
 set -gx PNPM_HOME "/Users/shin/Library/pnpm"
-set -gx PATH "$PNPM_HOME" $PATH
 
 # dart
 
