@@ -21,4 +21,5 @@ ln -snf ${DOTFILES}/.tmux.conf
 ln -snf ${DOTFILES}/.plantuml
 ln -snf ${DOTFILES}/.ripgreprc
 ln -snf ${DOTFILES}/fish .config/fish
+ln -snf ${DOTFILES}/asdf .config/asdf
 

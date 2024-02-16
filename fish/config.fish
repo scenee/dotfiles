@@ -15,15 +15,6 @@ if status --is-login
     set -U fish_color_comment 6272A4
 end
 
-# asdf
-
-if test -d ~/.local/asdf
-    set -x ASDF_CONFIG_FILE ~/.config/asdf
-    set -x ASDF_DIR ~/.local/asdf
-    set -x ASDF_DATA_DIR ~/.local/asdf
-    source ~/.local/asdf/asdf.fish
-end
-
 # tmuxp
 
 alias mx='tmuxp'
@@ -32,11 +23,9 @@ alias kmx='tmux list-sessions | cut -d" " -f1 | cut -d":" -f1 | fzf --layout rev
 
 # pnpm
 
-alias pn=pnpm
-
-set -gx PNPM_HOME "/Users/shin/Library/pnpm"
+alias pn='pnpm'
 
 # dart
 
-set -gx PATH "$HOME/.pub-cache/bin" $PATH
+fish_add_path "$HOME/.pub-cache/bin"
 

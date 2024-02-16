@@ -1,6 +1,17 @@
 source "$HOME/.shinit"
 export ENV="$HOME/.shinit"
 
+# ===================== asdf ==========================
+
+if [ -d "$HOME/.local/asdf" ]; then
+    export ASDF_DIR="$HOME/.local/asdf"
+    export ASDF_DATA_DIR="${ASDF_DIR}"
+    export ASDF_CONFIG_FILE=~/.config/asdf/asdfrc
+    source "${ASDF_DIR}/asdf.sh"
+fi
+
+# ===================== ip ==========================
+
 >/dev/null command -v ip \
 	&& alias ip="ip --color"
 
@@ -69,14 +80,6 @@ then
 		fi
 	fi
 
-	# -------------------- pnpm -------------------------
-	export PNPM_HOME="/Users/shin/Library/pnpm"
-	if test -d $PNPM_HOME;
-	then
-		export PATH="$PNPM_HOME:$PATH"
-		# 'pn' alias will be set later
-	fi
-
 	# -------------------- tmux -------------------------
 
 	function _tmux_new_init() {
@@ -108,10 +111,6 @@ then
 		alias glist=_gl
 		alias gget=_gget
 	fi
-
-	# ------------------ gettext --------------------
-
-	export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 	# ------------------ dropbox -----------------
 	if test -d /Applications/Dropbox.app;
@@ -157,6 +156,3 @@ then
 
 	alias studio="open -a /Applications/Android\ Studio.app"
 fi
-
->/dev/null command -v pnpm \
-	&& alias pn=pnpm
