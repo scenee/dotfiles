@@ -85,7 +85,6 @@ call plug#begin('~/.vim/plugged')
 
 " Basic
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'Shougo/vimproc.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'corylanou/vim-present', {'for' : 'present'}
 Plug 'dhruvasagar/vim-table-mode'
@@ -97,9 +96,7 @@ Plug 'lambdalisue/fern-hijack.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tyru/open-browser.vim'
 Plug 'vim-scripts/grep.vim'
-Plug 'severin-lemaignan/vim-minimap'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
