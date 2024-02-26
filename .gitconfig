@@ -3,6 +3,7 @@
 	ignorecase = false
 	excludesfile = ~/.gitignore_global
     pager = delta --color-only
+	quotepath = off
 [color]
 	ui = auto
 [interactive]
