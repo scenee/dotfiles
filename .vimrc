@@ -328,18 +328,7 @@ augroup fern-custom
 augroup END
 
 " fzf
-fun! FzfOmniFiles()
-  let is_git = system('git status')
-  if v:shell_error
-    :Files
-  else
-    :GitFiles
-  endif
-endfun
-
-nnoremap <C-g> :Rg<Space>
 nnoremap <leader>: :Commands<CR>
-nnoremap <C-p> :call FzfOmniFiles()<CR>
 
 command! -bang -nargs=* Rg
 \ call fzf#vim#grep(
