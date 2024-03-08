@@ -343,18 +343,6 @@ command! -bang -nargs=? -complete=dir Files
 " HashiVim
 let g:terraform_align=1
 
-" gtags
-let g:Gtags_OpenQuickfixWindow = 0
-autocmd FileType c,cpp call s:SetGTAG()
-
-function! s:SetGTAG()
-noremap <C-g> :Gtags 
-noremap <C-h> :Gtags -f %<CR>
-noremap <C-j> :GtagsCursor<CR>
-noremap <C-n> :cn<CR>
-noremap <C-p> :cp<CR>
-endfunction
-
 " lsp
 " let g:lsp_log_verbose = 1
 " let g:lsp_log_file = expand('~/.cache/vim-lsp/vim-lsp.log')
