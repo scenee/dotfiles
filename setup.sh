@@ -20,6 +20,8 @@ ln -snf ${DOTFILES}/.tigrc
 ln -snf ${DOTFILES}/.tmux.conf
 ln -snf ${DOTFILES}/.plantuml
 ln -snf ${DOTFILES}/.ripgreprc
+if [ -d .config ]; then
 ln -snf ${DOTFILES}/fish .config/fish
 ln -snf ${DOTFILES}/asdf .config/asdf
+fi
 
