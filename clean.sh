@@ -10,6 +10,7 @@ pushd "$HOME" >/dev/null
 [[ -L .vimrc ]] && rm -f .vimrc
 [[ -L .tigrc ]] && rm -f .tigrc
 [[ -L .gitconfig ]] && rm -f .gitconfig
+[[ -L .gitconfig.* ]] && rm -f .gitconfig.*
 [[ -L .gitignore_global ]] && rm -f .gitignore_global
 [[ -L .git-completion.bash ]] && rm -f .git-completion.bash
 [[ -L .tmux.conf ]] && rm -f .tmux.conf
