@@ -54,6 +54,9 @@ if [ ! -z $ZSH_VERSION ]; then
 	export PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 fi
 
+[ -d "$HOME/.rye" ] \
+	&& source "$HOME/.rye/env"
+
 if [ "$(uname)" = 'Darwin' ];
 then
 	[ -r ~/.private ] && source ~/.private || echo "Not found .private"
