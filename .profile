@@ -158,4 +158,6 @@ then
 	# ------------------ android studio -------------
 
 	alias studio="open -a /Applications/Android\ Studio.app"
+	alias studio-preview="open -a /Applications/Android\ Studio\ Preview.app"
 fi
+. "/Users/shin/.local/cargo/env"
