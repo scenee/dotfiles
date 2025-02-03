@@ -1,0 +1,12 @@
+# hidden/temp files
+.DS_Store
+*.swp
+*~
+*~.nib
+*.bk
+Thumbs.db
+ 
+# fish
+fish/completions
+fish/fish_variables
+fish/private.fish
