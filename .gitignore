@@ -8,4 +8,5 @@ Thumbs.db
 # fish
 fish/completions
 fish/fish_variables
-fish/private.fish
+fish/conf.d/private.fish
+fish/conf.d/local.fish
