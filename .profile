@@ -41,7 +41,7 @@ fi
 [ -d "$HOME/.local/cargo" ] \
 	&& export CARGO_HOME="$HOME/.local/cargo" \
 	&& export PATH="$CARGO_HOME/bin:$PATH" \
-	&& source "$HOME/.local/cargo/env"
+	&& test -f "$HOME/.local/cargo/env" && source "$HOME/.local/cargo/env"
 
 # ===================== swift =======================
 
