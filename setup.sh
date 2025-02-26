@@ -27,8 +27,8 @@ elif [ "$(uname)" = 'Darwin' ]; then
 fi
 
 if [ -d .config ]; then
-ln -snf ${DOTFILES}/fish .config/fish
-ln -snf ${DOTFILES}/asdf .config/asdf
-ln -snf ${DOTFILES}/git .config/git
+	ln -snf ${DOTFILES}/fish .config/fish
+	ln -snf ${DOTFILES}/asdf .config/asdf
+	ln -snf ${DOTFILES}/git .config/git
 fi
 
