@@ -14,14 +14,16 @@ ln -snf ${DOTFILES}/.zprofile
 ln -snf ${DOTFILES}/.profile
 ln -snf ${DOTFILES}/.vimrc
 ln -snf ${DOTFILES}/.tigrc
-ln -snf ${DOTFILES}/.tmux.conf
 ln -snf ${DOTFILES}/.plantuml
 ln -snf ${DOTFILES}/.ripgreprc
 ln -snf ${DOTFILES}/.gitconfig
 ln -snf ${DOTFILES}/.git-completion.bash
+ln -snf ${DOTFILES}/.tmux.conf .tmux.conf
 
-if [ "$(uname)" = 'Darwin' ]; then
-	ln -snf ${DOTFILES}/macos/git/config .gitconfig.macos
+if [ "$(uname)" = 'Linux' ]; then
+	ln -snf ${DOTFILES}/.tmux.linux.conf .tmux.linux.conf
+elif [ "$(uname)" = 'Darwin' ]; then
+	ln -snf ${DOTFILES}/.tmux.mac.conf .tmux.mac.conf
 fi
 
 if [ -d .config ]; then

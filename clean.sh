@@ -9,11 +9,16 @@ pushd "$HOME" >/dev/null
 [[ -L .profile ]] && rm -f .profile
 [[ -L .vimrc ]] && rm -f .vimrc
 [[ -L .tigrc ]] && rm -f .tigrc
+
 [[ -L .gitconfig ]] && rm -f .gitconfig
 [[ -L .gitconfig.* ]] && rm -f .gitconfig.*
 [[ -L .gitignore_global ]] && rm -f .gitignore_global
 [[ -L .git-completion.bash ]] && rm -f .git-completion.bash
+
 [[ -L .tmux.conf ]] && rm -f .tmux.conf
+[[ -L .tmux.mac.conf ]] && rm -f .tmux.mac.conf
+[[ -L .tmux.linux.conf ]] && rm -f .tmux.linux.conf
+
 [[ -L .plantuml ]] && rm -rf .plantuml
 [[ -L .ripgreprc ]] && rm -rf .ripgreprc
 popd >/dev/null
