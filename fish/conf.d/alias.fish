@@ -7,8 +7,6 @@ alias getplain="pbpaste | pbcopy"
 
 alias xcode="open -a Xcode.app"
 alias studio="open -a /Applications/Android\ Studio.app"
-alias studio="open -a /Applications/Android\ Studio.app"
-alias studio-preview="open -a /Applications/Android\ Studio\ Preview.app"
 
 
 # tmuxp
