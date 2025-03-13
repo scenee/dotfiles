@@ -521,7 +521,7 @@ autocmd FileType vue syntax sync fromstart
 autocmd FileType vue setlocal nocursorline " Disable cursorline to make vim-vue fast
 
 " shell
-autocmd FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType sh setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " erlang
 autocmd BufRead,BufNewFile *.erl setlocal filetype=erlang
