@@ -15,9 +15,10 @@ set laststatus=2
 set list
 set listchars=trail:_,eol:¬,tab:▸\ 
 set modeline
-set nocursorline  " cursorline make vim slow with highlighting
+set cursorline
 set nofoldenable
 set number
+set relativenumber
 set shell=fish
 set shiftwidth=4
 set showcmd
@@ -206,8 +207,10 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
+highlight LineNr ctermfg=250 guifg=#bcbcbc
+highlight CursorLineNr ctermfg=220 guifg=#ffd700
+highlight CursorLine ctermbg=236 guibg=#303030
 
 let &colorcolumn=join(range(81,1000),",")
 highlight ColorColumn ctermbg=235
