@@ -366,11 +366,6 @@ let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeSortOrder = ['README\.md$', '\.git.*$', '\/$', '*']
 
 
-" open-browser
-nmap <Leader>w <Plug>(openbrowser-smart-search)
-" let g:netrw_nogx = 1 " disable netrw's gw mapping.
-
-
 " plantuml-syntax
 let g:plantuml_executable_script = "~/.plantuml/plantuml""
 
