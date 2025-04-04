@@ -86,17 +86,13 @@ then
 
 	# -------------------- tmux -------------------------
 
-	function _tmux_new_init() {
-		tmux new-session -c "${HOME}/Workspace" -s 'init' -n 'workspace' \; \
-			new-window -a -c "${HOME}/Workspace/scenee/github/sandbox" -n 'sandbox' \; \
-			new-window -a -c "${HOME}/Workspace/scenee/github/notebooks" -n 'note' \; \
-			new-window -a -c "${HOME}/Workspace/tmp" -n 'tmp' \; \
-			select-window -t:-3 \; \
-			attach
-	}
-
 	function tmux-init() {
-		tmux attach -t init || _tmux_new_init
+        if >/dev/null command -v tmux && >/dev/null command -v tmuxp; 
+        then
+            tmux attach -t init || tmuxp load -y init
+        else
+            echo "tmux and tmuxp not found"
+        fi
 	}
 
 	# --------------------- ghq -------------------------
