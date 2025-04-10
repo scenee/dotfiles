@@ -1,5 +1,5 @@
 [core]
-	editor = vim
+	editor = vi
 	ignorecase = false
     pager = delta --color-only
 	quotepath = off
