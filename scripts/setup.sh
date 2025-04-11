@@ -24,7 +24,6 @@ setup() {
 
 setup .vimrc
 setup .tigrc
-setup .plantuml
 setup .ripgreprc
 setup .git-completion.bash
 setup .tmux.conf
