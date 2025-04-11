@@ -7,7 +7,6 @@ pushd ~/ >/dev/null
 mkdir -p .local/go
 mkdir -p .local/cargo
 
-# バックアップ用の関数を定義
 backup() {
     local target=$1
     if [ -e "$target" ] && [ ! -L "$target" ]; then
@@ -16,35 +15,29 @@ backup() {
     fi
 }
 
-backup .shinit
-backup .bashrc
-backup .zshrc
-backup .zprofile
-backup .profile
-backup .vimrc
-backup .tigrc
-backup .plantuml
-backup .ripgreprc
-backup .gitconfig
-backup .git-completion.bash
-backup .tmux.conf
+setup() {
+    local target=$1
+    backup $1
+    ln -snf ${DOTFILES}/$1
+}
 
-ln -snf ${DOTFILES}/.shinit
-ln -snf ${DOTFILES}/.bashrc
-ln -snf ${DOTFILES}/.zshrc
-ln -snf ${DOTFILES}/.zprofile
-ln -snf ${DOTFILES}/.profile
-ln -snf ${DOTFILES}/.vimrc
-ln -snf ${DOTFILES}/.tigrc
-ln -snf ${DOTFILES}/.plantuml
-ln -snf ${DOTFILES}/.ripgreprc
-ln -snf ${DOTFILES}/.gitconfig
-ln -snf ${DOTFILES}/.git-completion.bash
-ln -snf ${DOTFILES}/.tmux.conf .tmux.conf
+setup .vimrc
+setup .tigrc
+setup .plantuml
+setup .ripgreprc
+setup .gitconfig
+setup .git-completion.bash
+setup .tmux.conf
 
 if [ "$(uname)" = 'Linux' ]; then
     ln -snf ${DOTFILES}/.tmux.linux.conf .tmux.linux.conf
 elif [ "$(uname)" = 'Darwin' ]; then
+    setup .shinit
+    setup .bashrc
+    setup .zshrc
+    setup .zprofile
+    setup .profile
+
     ln -snf ${DOTFILES}/.tmux.mac.conf .tmux.mac.conf
 fi
 
