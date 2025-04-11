@@ -14,8 +14,6 @@ set incsearch
 set laststatus=2
 set list
 set listchars=trail:_,eol:¬,tab:▸\ 
-set modeline
-set cursorline
 set nofoldenable
 set number
 set relativenumber
@@ -84,6 +82,8 @@ endif
 " {{{
 call plug#begin('~/.vim/plugged')
 
+set modeline
+set cursorline
 " Basic
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Yggdroot/indentLine'
@@ -318,6 +318,12 @@ let g:user_emmet_install_global = 0
 let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 let g:user_emmet_leader_key='<C-Y>'
 autocmd FileType html,htmldjango EmmetInstall
+
+" git
+augroup filetypedetect
+  autocmd!
+  autocmd BufRead,BufNewFile */git/config* set filetype=gitconfig
+augroup END
 
 " fern
 nnoremap <silent> <Leader>1 :Fern . -drawer -toggle<CR>
@@ -604,3 +610,4 @@ nn <silent> <M-a> :LspWorkspaceSymbol<cr>
 nn <silent> <M-l> :LspDocumentSymbol<cr>
 
 " }}}
+

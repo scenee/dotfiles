@@ -25,7 +25,6 @@ setup .vimrc
 setup .tigrc
 setup .plantuml
 setup .ripgreprc
-setup .gitconfig
 setup .git-completion.bash
 setup .tmux.conf
 

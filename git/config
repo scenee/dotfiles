@@ -1,0 +1,52 @@
+[core]
+	editor = vi
+	ignorecase = false
+	pager = delta --color-only
+	quotepath = off
+[color]
+	ui = auto
+[interactive]
+    diffFilter = delta --color-only
+[pager]
+	branch = false
+[alias]
+	ad = add
+	br = branch
+	ch = checkout
+	co = commit
+	cv = commit -v
+	df = diff
+	ps = push
+	pl = pull
+	rs = reset
+	rb = rebase
+	st = status
+	wt = worktree
+	root = rev-parse --show-toplevel
+	files = "!git diff --name-status \"$1\"^ \"$1\" #"
+
+[user]
+	name = Shin Yamamoto
+	email = shin@scenee.com
+
+
+[include]
+	path = ~/.config/git/config.local
+
+[init]
+	defaultBranch = main
+[log]
+	follow = true
+[pull]
+	ff = only
+[push]
+	useForceIfIncludes = true
+	autoSetupRemote = true
+[rebase]
+	autosquash = true
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

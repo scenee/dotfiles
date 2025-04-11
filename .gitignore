@@ -4,9 +4,13 @@
 *~.nib
 *.bk
 Thumbs.db
+
+# git
+git/config.local
  
 # fish
 fish/completions
 fish/fish_variables
 fish/conf.d/private.fish
 fish/conf.d/local.fish
+
