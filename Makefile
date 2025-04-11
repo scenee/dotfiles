@@ -8,14 +8,14 @@ test:
 
 .PHONY: setup
 setup: clean
-	./setup.sh
+	./scripts/setup.sh
 
 .PHONY: setup-vim
 setup-vim:
-	./vim/install_vim-plug.sh
-	./vim/install_plugins.sh
+	./scripts/vim/install_vim-plug.sh
+	./scripts/vim/install_plugins.sh
 
 .PHONY: clean
 clean:
-	./clean.sh
+	./scripts/clean.sh
 

@@ -49,7 +49,7 @@ fi
 
 print "$ARROW Fetching dotfiles"
 
-git clone https://github.com/SCENEE/dotfiles.git ~/.dotfiles
+git clone https://github.com/scenee/dotfiles.git ~/.dotfiles
 
 pushd ~/.dotfiles > /dev/null
 
