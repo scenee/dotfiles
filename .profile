@@ -60,6 +60,8 @@ fi
 
 if [ "$(uname)" = 'Darwin' ];
 then
+    #export XDG_CONFIG_HOME=~/.config
+
 	[ -r ~/.private ] && source ~/.private || echo "Not found .private"
 
 	export PATH="$HOME/.local/bin:$PATH"

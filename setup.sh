@@ -16,9 +16,10 @@ backup() {
 }
 
 setup() {
-    local target=$1
-    backup $1
-    ln -snf ${DOTFILES}/$1
+    local target="$1"
+    backup "$target"
+    ln -snf "${DOTFILES}/$target" "$target"
+    echo "Setting up $target"
 }
 
 setup .vimrc
@@ -29,23 +30,19 @@ setup .git-completion.bash
 setup .tmux.conf
 
 if [ "$(uname)" = 'Linux' ]; then
-    ln -snf ${DOTFILES}/.tmux.linux.conf .tmux.linux.conf
+    :
 elif [ "$(uname)" = 'Darwin' ]; then
     setup .shinit
     setup .bashrc
     setup .zshrc
     setup .zprofile
     setup .profile
-
-    ln -snf ${DOTFILES}/.tmux.mac.conf .tmux.mac.conf
 fi
 
 if [ -d .config ]; then
-    backup .config/fish
-    backup .config/asdf
-    backup .config/git
-    ln -snf ${DOTFILES}/fish .config/fish
-    ln -snf ${DOTFILES}/asdf .config/asdf
-    ln -snf ${DOTFILES}/git .config/git
+    setup .config/asdf
+    setup .config/fish
+    setup .config/git
+    setup .config/tmux
 fi
 

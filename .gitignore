@@ -1,16 +1,5 @@
-# hidden/temp files
-.DS_Store
-*.swp
-*~.nib
-*.bk
-Thumbs.db
+.config/git/config.local
 
-# git
-git/config.local
- 
-# fish
-fish/completions
-fish/fish_variables
-fish/conf.d/private.fish
-fish/conf.d/local.fish
-
+.config/fish/completions
+.config/fish/fish_variables
+.config/fish/conf.d/private.fish
