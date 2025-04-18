@@ -1,0 +1,9 @@
+[cargo-new]
+vcs = "git"  
+
+[alias]
+b = "build"
+i = "init"
+t = "test"
+r = "run"
+rr = "run --release"
