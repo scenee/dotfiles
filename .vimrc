@@ -195,6 +195,9 @@ Plug 'cespare/vim-toml', { 'branch': 'main' }
 " zig
 Plug 'ziglang/zig.vim'
 
+" rust
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 " }}}
 "===================== COLOR ======================
@@ -569,6 +572,9 @@ autocmd FileType vim setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " }}}
 "===================== Custom vimscript ======================
 " {{{
+
+" rust
+let g:rustfmt_autosave = 1
 
 " Based http://blog.erw.dk/2016/04/19/entering-dates-and-times-in-vim/
 nnoremap <leader>t a<C-R>=strftime("%H:%M")<CR><Esc>
