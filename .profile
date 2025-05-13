@@ -126,36 +126,4 @@ then
 			$DROPBOX_PATH/EncryptedData/umnt_keyvault
 		}
 	fi
-
-	# ------------------ anaconda -----------------
-	if test -d  ~/anaconda*;
-	then
-		function activate_anaconda() {
-			# added by Anaconda3 4.0.0 installer
-			PATH0="$PATH"
-			export PATH="/Users/syamamoto/anaconda3/bin:$PATH"
-		} 
-
-		function deactivate_anaconda() {
-			if test ${PATH0:-undefined} != undefined; then
-				export PATH="$PATH0"
-			fi
-		}
-	fi
-
-	# ------------------ octave -------------------
-	if command -v octave > /dev/null;
-	then
-		## To define a plot application
-		export GNUTERM=x11
-	fi
-
-	# ------------------ visual code ------------------
-
-	export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
-	# ------------------ android studio -------------
-
-	alias studio="open -a /Applications/Android\ Studio.app"
-	alias studio-preview="open -a /Applications/Android\ Studio\ Preview.app"
 fi
