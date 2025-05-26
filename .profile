@@ -8,7 +8,6 @@ if [ -d "$HOME/.local/asdf" ]; then
     export ASDF_DIR="$HOME/.local/asdf"
     export ASDF_DATA_DIR="${ASDF_DIR}"
     export ASDF_CONFIG_FILE=~/.config/asdf/asdfrc
-    . <(asdf completion bash)
 fi
 
 # ===================== ip ==========================
