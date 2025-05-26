@@ -1,5 +1,6 @@
 source "$HOME/.shinit"
 export ENV="$HOME/.shinit"
+export PATH="$HOME/.local/bin:$PATH"
 
 # ===================== asdf ==========================
 
@@ -63,8 +64,6 @@ then
     #export XDG_CONFIG_HOME=~/.config
 
 	[ -r ~/.private ] && source ~/.private || echo "Not found .private"
-
-	export PATH="$HOME/.local/bin:$PATH"
 
 	# ------------------ macport -------------------
 
