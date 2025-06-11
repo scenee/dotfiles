@@ -94,7 +94,6 @@ Plug 'ervandew/supertab'
 Plug 'junegunn/vim-easy-align'
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-hijack.vim'
-Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/grep.vim'
@@ -378,32 +377,6 @@ let g:NERDTreeSortOrder = ['README\.md$', '\.git.*$', '\/$', '*']
 " plantuml-syntax
 let g:plantuml_executable_script = "~/.plantuml/plantuml""
 
-
-" quickrun.vim
-let g:quickrun_config = get(g:, 'quickrun_config', {})
-let g:quickrun_config._ = {
-  \   'split': ':botright 16sp',
-  \   'hook/time/enable': '1',
-  \   'runner'    : 'vimproc',
-  \   'runner/vimproc/updatetime' : 60,
-  \   'runner/python' : 60,
-  \   'outputter' : 'error',
-  \   'outputter/error/success' : 'buffer',
-  \   'outputter/error/error'   : 'quickfix',
-  \   'outputter/buffer/close_on_empty' : 1,
-  \}
-let g:quickrun_config.python = { 'command': 'python3' }
-let g:quickrun_config.cpp = {
-  \ 'command': 'clang++',
-  \ 'cmdopt': '-std=c++20 -Wall'
-  \ }
-au FileType qf nnoremap <silent><buffer>q :quit<CR>
-let g:quickrun_no_default_key_mappings = 1
-nnoremap <Leader>Q :cclose<CR>:write<CR>:QuickRun -mode n<CR>
-xnoremap <Leader>Q :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
-nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
-
-"
 "" UltiSnips
 " let g:UltiSnipsExpandTrigger="<Leader>s"
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
