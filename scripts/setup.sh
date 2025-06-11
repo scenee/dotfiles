@@ -38,11 +38,10 @@ elif [ "$(uname)" = 'Darwin' ]; then
     setup .profile
 fi
 
-if [ -d .config ]; then
-    setup .config/asdf
-    setup .config/cargo
-    setup .config/fish
-    setup .config/git
-    setup .config/tmux
-fi
+mkdir -p .config
+setup .config/asdf
+setup .config/cargo
+setup .config/fish
+setup .config/git
+setup .config/tmux
 
