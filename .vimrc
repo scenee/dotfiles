@@ -506,8 +506,6 @@ autocmd FileType sh setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 " erlang
 autocmd BufRead,BufNewFile *.erl setlocal filetype=erlang
 autocmd FileType erlang setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
-autocmd BufWritePost *.erl call 
-    \ vimproc#system_bg('~/.vim/bundle/vim-erlang-tags/bin/vim-erlang-tags.erl --otp')
 
 " ruby
 autocmd BufRead,BufNewFile *.podspec set filetype=ruby
