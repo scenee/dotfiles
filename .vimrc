@@ -209,10 +209,13 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-colorscheme hybrid
+set rtp+=~/.vim/colorschemes/tokyonight.nvim/extras/vim
+colorscheme tokyonight-night
+"colorscheme hybrid
 highlight LineNr ctermfg=250 guifg=#bcbcbc
 highlight CursorLineNr ctermfg=220 guifg=#ffd700
 highlight CursorLine ctermbg=236 guibg=#303030
+highlight SpellBad cterm=underline ctermfg=NONE ctermbg=NONE
 
 let &colorcolumn=join(range(81,1000),",")
 highlight ColorColumn ctermbg=235
