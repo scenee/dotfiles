@@ -1,5 +1,9 @@
 # Alias
 
+## lazygit
+
+alias lg="lazygit"
+
 ## util
 
 alias getplain="pbpaste | pbcopy"
