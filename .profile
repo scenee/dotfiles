@@ -15,11 +15,6 @@ fi
 >/dev/null command -v ip \
 	&& alias ip="ip --color"
 
-# ===================== rg ==========================
-
->/dev/null command -v rg \
-	&& export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
-
 # ===================== deno ========================
 
 >/dev/null command -v deno \
@@ -35,6 +30,11 @@ fi
 
 >/dev/null command -v stack \
 	&& export PATH="$HOME/.local/bin:$PATH"
+
+# ===================== rg ==========================
+
+>/dev/null command -v rg \
+	&& export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # ===================== rust ========================
 
@@ -65,7 +65,6 @@ then
 	[ -r ~/.private ] && source ~/.private || echo "Not found .private"
 
 	# ------------------ macport -------------------
-
 	if test -f /opt/local/bin/port;
 	then
 		export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
@@ -85,7 +84,6 @@ then
 	fi
 
 	# -------------------- tmux -------------------------
-
 	function tmux-init() {
         if >/dev/null command -v tmux && >/dev/null command -v tmuxp; 
         then
