@@ -12,3 +12,7 @@ fish_add_path "$HOME/.local/asdf/shims"
 
 fish_add_path $HOME/Library/Android/sdk/platform-tools
 
+
+# google-cloud-sdk
+
+if [ -f "$HOME/.local/google-cloud-sdk/path.fish.inc" ]; .  "$HOME/.local/google-cloud-sdk/path.fish.inc"; end
