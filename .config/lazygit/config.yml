@@ -1,0 +1,32 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+gui:
+  sidePanelWidth: 0.15
+  theme:
+    selectedLineBgColor:
+      - underline
+    selectedRangeBgColor:
+      - underline
+refresher:
+  refreshInterval: 3
+keybinding:
+  universal:
+    # 'Files' appended for legacy reasons
+    pushFiles: <disabled>
+    pullFiles: <disabled>
+customCommands:
+  - key: 'P'
+    command: "git push --force-with-lease"
+    context: 'global'
+    loadingText: 'pushing(force-with-lease)'
+  - key: 'p'
+    command: "git pull --rebase"
+    context: 'global'
+    loadingText: 'pulling(rebase)'
+  - key: <c-p>
+    command: 'git push {{.SelectedRemote.Name}} {{.SelectedCommit.Hash}}:{{.SelectedLocalBranch.Name}}'
+    context: "commits"
+    description: "Push selected commit"
+    output: log

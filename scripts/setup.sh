@@ -41,6 +41,7 @@ fi
 mkdir -p .config
 setup .config/asdf
 setup .config/cargo
+setup .config/lazygit
 setup .config/fish
 setup .config/git
 setup .config/tmux
