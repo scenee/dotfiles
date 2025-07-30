@@ -30,3 +30,7 @@ customCommands:
     context: "commits"
     description: "Push selected commit"
     output: log
+  - key: '<c-y>'
+    command: "git rev-parse --short=7 {{.SelectedCommit.Sha}} | pbcopy"
+    context: 'commits'
+    description: 'copy short commit hash'
