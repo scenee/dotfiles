@@ -13,8 +13,6 @@ refresher:
   refreshInterval: 3
 keybinding:
   universal:
-    quit: <esc>
-    return: q
     # 'Files' appended for legacy reasons
     pushFiles: <disabled>
     pullFiles: <disabled>
