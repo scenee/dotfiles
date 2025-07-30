@@ -10,3 +10,5 @@ Thumbs.db
 fish/completions
 fish/fish_variables
 fish/private.fish
+
+**/.claude/settings.local.json
