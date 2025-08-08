@@ -2,7 +2,22 @@
 
 ## lazygit
 
-alias lg="lazygit"
+# See also https://github.com/jesseduffield/lazygit?tab=readme-ov-file#changing-directory-on-exit
+function lg
+    set -x LAZYGIT_NEW_DIR_FILE ~/.local/lazygit/new_dir
+
+    lazygit $argv
+
+    if test -f "$LAZYGIT_NEW_DIR_FILE"
+        set new_dir (cat "$LAZYGIT_NEW_DIR_FILE")
+
+        rm -f "$LAZYGIT_NEW_DIR_FILE"
+
+        if test -d "$new_dir"
+            pushd "$new_dir"
+        end
+    end
+end
 
 ## util
 
