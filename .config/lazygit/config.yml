@@ -17,13 +17,14 @@ keybinding:
     pushFiles: <disabled>
 customCommands:
   - key: '<c-/>'
-    command: "git push --force-with-lease"
+    command: "git push"
     context: 'global'
-    loadingText: 'pushing(force-with-lease)'
+    loadingText: 'Pushing...'
   - key: '<c-/>'
-    command: 'git push {{.SelectedRemote.Name}} {{.SelectedCommit.Hash}}:{{.SelectedLocalBranch.Name}} --force-with-lease'
+    command: 'git push {{.SelectedRemote.Name}} {{.SelectedCommit.Hash}}:{{.SelectedLocalBranch.Name}}'
     context: "commits"
-    description: "Push selected commit"
+    loadingText: 'Pushing selected commit...'
+    description: "Pushing selected commit"
     output: log
   - key: '<c-y>'
     command: "git rev-parse --short=7 {{.SelectedCommit.Sha}} | pbcopy"
