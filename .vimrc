@@ -80,6 +80,11 @@ endif
 " }}}
 "===================== PLUGINS ======================
 " {{{
+packadd! editorconfig
+packadd! matchit
+packadd comment
+packadd nohlsearch
+
 call plug#begin('~/.vim/plugged')
 
 set modeline
