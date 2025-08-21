@@ -16,11 +16,7 @@ keybinding:
     # 'Files' appended for legacy reasons
     pushFiles: <disabled>
 customCommands:
-  - key: '<c-/>'
-    command: "git push"
-    context: 'global'
-    loadingText: 'Pushing...'
-  - key: '<c-/>'
+  - key: '<c-p>'
     command: 'git push {{.SelectedRemote.Name}} {{.SelectedCommit.Hash}}:{{.SelectedLocalBranch.Name}}'
     context: "commits"
     loadingText: 'Pushing selected commit...'
