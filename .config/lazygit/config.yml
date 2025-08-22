@@ -15,6 +15,9 @@ keybinding:
   universal:
     # 'Files' appended for legacy reasons
     pushFiles: <disabled>
+  commits:
+    markCommitAsFixup: <disabled>
+    createFixupCommit: f
 customCommands:
   - key: '<c-p>'
     command: 'git push {{.SelectedRemote.Name}} {{.SelectedCommit.Hash}}:{{.SelectedLocalBranch.Name}}'
