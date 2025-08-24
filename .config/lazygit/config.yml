@@ -16,6 +16,7 @@ keybinding:
     # 'Files' appended for legacy reasons
     pushFiles: <disabled>
   commits:
+    squashDown: <disabled>
     markCommitAsFixup: <disabled>
     createFixupCommit: f
 customCommands:
