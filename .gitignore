@@ -1,5 +1,7 @@
 .config/git/config.local
-
 .config/fish/completions
 .config/fish/fish_variables
 .config/fish/conf.d/private.fish
+
+.tool-versions
+.claude
