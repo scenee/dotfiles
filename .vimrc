@@ -131,8 +131,8 @@ Plug 'w0ng/vim-hybrid'
 Plug 'preservim/tagbar'
 
 " Status/Tabline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 Plug 'airblade/vim-gitgutter'
 
 " Erlang
@@ -434,6 +434,17 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+" vim-lightline
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified', 'gitbranch' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 
 " indentLine
 let g:indentLine_color_term = 251
