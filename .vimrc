@@ -342,6 +342,7 @@ augroup fern-custom
   autocmd! *
   autocmd FileType fern call s:init_fern()
 augroup END
+autocmd FileType fern-replacer let g:airline_disable_statusline = 1
 
 " fzf
 nnoremap <leader>: :Commands<CR>
