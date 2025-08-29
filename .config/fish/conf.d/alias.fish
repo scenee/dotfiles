@@ -14,7 +14,12 @@ function lg
         rm -f "$LAZYGIT_NEW_DIR_FILE"
 
         if test -d "$new_dir"
-            pushd "$new_dir"
+            set current_repo_root (git -C (pwd) rev-parse --show-toplevel 2>/dev/null)
+            set new_repo_root (git -C "$new_dir" rev-parse --show-toplevel 2>/dev/null)
+
+            if test "$current_repo_root" != "$new_repo_root"
+                pushd "$new_dir"
+            end
         end
     end
 end
