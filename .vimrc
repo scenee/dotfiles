@@ -151,7 +151,6 @@ Plug 'plasticboy/vim-markdown'
 
 
 " HTML/JS plugins
-Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'pangloss/vim-javascript'
@@ -318,13 +317,6 @@ autocmd FileType c,cpp,go,swift setlocal commentstring=//\ %s
 
 " CurtineIncSw.vim
 autocmd FileType c,cpp nnoremap <S-J> :call CurtineIncSw()<CR>
-
-" emmet.vim
-let g:emmet_html5 = 0 " Self-closing tag is needed.
-let g:user_emmet_install_global = 0
-let g:user_emmet_mode='inv'  "enable all functions, which is equal to
-let g:user_emmet_leader_key='<C-Y>'
-autocmd FileType html,htmldjango EmmetInstall
 
 " git
 augroup filetypedetect
