@@ -46,3 +46,7 @@ setup .config/fish
 setup .config/git
 setup .config/tmux
 
+if >/dev/null command -v lazygit; then
+    rm ~/Library/Application\ Support/lazygit/config.yml
+    ln -s "${PWD}/.config/lazygit/config.yml" ~/Library/Application\ Support/lazygit/config.yml
+fi
