@@ -72,7 +72,7 @@ then
 	fi
 
 	# ------------------ brew -------------------
-	if command -v brew > /dev/null;
+    if test -f /opt/homebrew/bin/brew; 
 	then
 		if [[ ! -z "$BASH" && -f $(brew --prefix)/etc/bash_completion ]]; then
 			. $(brew --prefix)/etc/bash_completion
@@ -81,6 +81,7 @@ then
 		if [[  -f `brew --prefix`/bin/ctags ]]; then
 			alias ctags="`brew --prefix`/bin/ctags"
 		fi
+		eval "$(/opt/homebrew/bin/brew shellenv)"
 	fi
 
 	# -------------------- tmux -------------------------
