@@ -2,6 +2,7 @@
 .config/fish/completions
 .config/fish/fish_variables
 .config/fish/conf.d/private.fish
+.config/fish/conf.d/local.fish
 
 .tool-versions
 .claude
