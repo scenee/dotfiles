@@ -3,10 +3,10 @@
 fish_add_path "$HOME/.pub-cache/bin"
 
 
-# asdf: This is a workaround for PATH in tmux
+# asdf
 
-fish_add_path "$HOME/.local/asdf/shims"
-
+# fish_add_path can't add this path before /usr/local/bin
+set -gx PATH "$HOME/.local/asdf/shims" $PATH
 
 # android
 
