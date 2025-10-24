@@ -1,1 +1,2 @@
 always_keep_download = no
+legacy_version_file = yes  # To read an existing .nvmrc or .node-version file
