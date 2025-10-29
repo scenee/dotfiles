@@ -123,4 +123,12 @@ then
 			$DROPBOX_PATH/EncryptedData/umnt_keyvault
 		}
 	fi
+
+	# ------------------ Android -----------------
+    JBR_PATH=/Applications/"Android Studio.app"/Contents/jbr/Contents/Home/bin
+    if test -d "$JBR_PATH";
+    then
+        export JAVA_HOME="$JBR_PATH/Contents/Home"
+        export PATH="$JAVA_HOME/bin:$PATH"
+    fi
 fi
