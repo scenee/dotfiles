@@ -13,9 +13,16 @@ set -gx PATH "$HOME/.local/asdf/shims" $PATH
 fish_add_path $HOME/Library/Android/sdk/platform-tools
 fish_add_path $HOME/Library/Android/sdk/cmdline-tools/latest/bin
 
-set -gx PATH $PATH $HOME/Library/Android/sdk/build-tools/36.0.0
-set -gx ANDROID_NDK_HOME $HOME/Library/Android/sdk/ndk/27.0.12077973
-
+set android_build_tools_dirs $HOME/Library/Android/sdk/build-tools/*
+set android_ndk_dirs $HOME/Library/Android/sdk/ndk/*
+if test -n "$android_build_tools_dirs"
+    set -gx PATH "$PATH" "$android_build_tools_dirs[-1]"
+end
+if test -n "$android_ndk_dirs"
+    set -gx ANDROID_NDK_HOME $android_ndk_dirs[-1]
+end
+set -e android_build_tools_dirs
+set -e android_ndk_dirs 
 
 # google-cloud-sdk
 
