@@ -12,6 +12,7 @@ set -gx PATH "$HOME/.local/asdf/shims" $PATH
 
 fish_add_path $HOME/Library/Android/sdk/platform-tools
 fish_add_path $HOME/Library/Android/sdk/cmdline-tools/latest/bin
+fish_add_path /Applications/"Android Studio.app"/Contents/jbr/Contents/Home/bin
 
 set android_build_tools_dirs $HOME/Library/Android/sdk/build-tools/*
 set android_ndk_dirs $HOME/Library/Android/sdk/ndk/*
@@ -23,6 +24,10 @@ if test -n "$android_ndk_dirs"
 end
 set -e android_build_tools_dirs
 set -e android_ndk_dirs 
+
+# aws
+
+set -gx PATH "$HOME/.local/aws-cli" $PATH
 
 # google-cloud-sdk
 
