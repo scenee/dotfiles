@@ -4,7 +4,7 @@
 
 # See also https://github.com/jesseduffield/lazygit?tab=readme-ov-file#changing-directory-on-exit
 function lg
-    set -x LAZYGIT_NEW_DIR_FILE ~/.local/lazygit/new_dir
+    set -x LAZYGIT_NEW_DIR_FILE ~/.local/state/lazygit/new_dir
 
     lazygit $argv
 

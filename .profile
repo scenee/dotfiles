@@ -4,8 +4,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # ===================== asdf ==========================
 
-if [ -d "$HOME/.local/asdf" ]; then
-    export ASDF_DIR="$HOME/.local/asdf"
+if [ -d "$HOME/.local/share/asdf" ]; then
+    export ASDF_DIR="$HOME/.local/share/asdf"
     export ASDF_DATA_DIR="${ASDF_DIR}"
     export ASDF_CONFIG_FILE=~/.config/asdf/asdfrc
 fi
@@ -22,8 +22,8 @@ fi
 
 # ===================== go ==========================
 
-[ -d "$HOME/.local/go" ] \
-	&& export GOPATH=$HOME/.local/go \
+[ -d "$HOME/.local/share/go" ] \
+	&& export GOPATH=$HOME/.local/share/go \
 	&& export PATH=$PATH:$GOPATH/bin
 
 # ===================== haskell =====================
@@ -38,10 +38,10 @@ fi
 
 # ===================== rust ========================
 
-[ -d "$HOME/.local/cargo" ] \
-	&& export CARGO_HOME="$HOME/.local/cargo" \
-	&& export PATH="$CARGO_HOME/bin:$PATH" \
-	&& test -f "$HOME/.local/cargo/env" && source "$HOME/.local/cargo/env"
+[ -d "$HOME/.local/share/cargo" ] \
+	&& export CARGO_HOME="$HOME/.local/share/cargo" \
+	&& test -f "$HOME/.local/share/cargo/env" \
+    && source "$HOME/.local/share/cargo/env"
 
 # ===================== swift =======================
 
@@ -54,9 +54,6 @@ fi
 if [ ! -z $ZSH_VERSION ]; then
 	export PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 fi
-
-[ -d "$HOME/.rye" ] \
-	&& source "$HOME/.rye/env"
 
 if [ "$(uname)" = 'Darwin' ];
 then
@@ -125,7 +122,7 @@ then
 	fi
 
 	# ------------------ Android -----------------
-    JBR_PATH=/Applications/"Android Studio.app"/Contents/jbr/Contents/Home/bin
+    JBR_PATH=/Applications/"Android Studio.app"/Contents/jbr
     if test -d "$JBR_PATH";
     then
         export JAVA_HOME="$JBR_PATH/Contents/Home"

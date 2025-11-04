@@ -10,7 +10,7 @@ autoload -Uz compinit && compinit
 # lazygit
 lg()
 {
-    export LAZYGIT_NEW_DIR_FILE=~/.config/lazygit/newdir
+    export LAZYGIT_NEW_DIR_FILE=~/.local/state//lazygit/newdir
 
     lazygit "$@"
 
