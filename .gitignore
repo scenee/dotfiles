@@ -1,8 +1,7 @@
 .config/git/config.local
-.config/fish/completions
-.config/fish/fish_variables
-.config/fish/conf.d/private.fish
-.config/fish/conf.d/local.fish
+.config/fish/
+!.config/fish/conf.d/add_path.fish
+!.config/fish/conf.d/alias.fish
 
 .tool-versions
 .claude
