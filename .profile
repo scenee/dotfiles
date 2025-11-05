@@ -45,9 +45,7 @@ fi
 
 # ===================== swift =======================
 
-[ -d "$HOME/.local/swift" ] \
-	&& export SWIFT_HOME="$HOME/.local/swift" \
-	&& export PATH="$SWIFT_HOME/bin:$PATH"
+export SWIFTLY_HOME_DIR="$HOME/.local/share/swiftly"
 
 # ===================== zsh ======================
 
