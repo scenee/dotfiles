@@ -77,6 +77,12 @@ else
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
+" Always insert newline at EOF
+augroup ensure_blankline_at_eof
+  autocmd!
+  autocmd BufWritePre * if getline('$') != '' | call append(line('$'), '') | endif
+augroup END
+
 " }}}
 "===================== PLUGINS ======================
 " {{{
@@ -478,7 +484,7 @@ let test#strategy = "vimterminal"
 "===================== FILE TYPE ======================
 " {{{
 
-" C
+" c
 autocmd FileType c,cpp setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 function! s:clang_format()
   let now_line = line(".")
@@ -497,13 +503,17 @@ endif
 " bats
 autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
+" csv
+augroup csv_no_autoformat
+  autocmd!
+  autocmd BufRead,BufNewFile *.csv setlocal textwidth=0 formatoptions-=t formatoptions-=a formatoptions-=o
+augroup END
 
 " html
 autocmd FileType html,htmldjango,css,javascript,json,sass,scss,vue,typescript,handlebars
     \ setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType html,htmldjango,css,sass,scss,vue
     \ setlocal foldmethod=indent
-
 
 " vue
 autocmd FileType vue syntax sync fromstart
