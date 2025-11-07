@@ -56,6 +56,7 @@ fi
 if [ "$(uname)" = 'Darwin' ];
 then
     export CLAUDE_CONFIG_DIR="$HOME/.config/claude"
+    export CODEX_HOME="$HOME/.config/codex"
 
 	[ -r ~/.private ] && source ~/.private || echo "Not found .private"
 
