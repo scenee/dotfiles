@@ -7,7 +7,8 @@ export PATH="$HOME/.local/bin:$PATH"
 if [ -d "$HOME/.local/share/asdf" ]; then
     export ASDF_DIR="$HOME/.local/share/asdf"
     export ASDF_DATA_DIR="${ASDF_DIR}"
-    export ASDF_CONFIG_FILE=~/.config/asdf/asdfrc
+    export ASDF_CONFIG_FILE="$HOME/.config/asdf/asdfrc"
+    export ASDF_NPM_DEFAULT_PACKAGES_FILE="$HOME/.config/asdf/default-npm-packages"
 fi
 
 # ===================== ip ==========================
