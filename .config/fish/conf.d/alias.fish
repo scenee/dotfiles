@@ -45,3 +45,7 @@ alias kmx='tmux list-sessions | cut -d" " -f1 | cut -d":" -f1 | fzf --layout rev
 alias pn='corepack pnpm'
 alias yarn='corepack yarn'
 
+## eza
+
+alias eza='eza --git-ignore --hyperlink'
+
