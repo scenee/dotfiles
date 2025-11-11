@@ -6,7 +6,7 @@ fish_add_path "$HOME/.pub-cache/bin"
 # asdf
 
 # fish_add_path can't add this path before /usr/local/bin
-set -gx PATH "$HOME/.local/asdf/shims" $PATH
+set -gx PATH "$HOME/.local/share/asdf/shims" $PATH
 
 # android
 
