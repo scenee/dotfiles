@@ -25,12 +25,9 @@ end
 set -e android_build_tools_dirs
 set -e android_ndk_dirs 
 
-# aws
-
-set -gx PATH "$HOME/.local/share/aws-cli" $PATH
-
 # google-cloud-sdk
 
 if [ -f "$HOME/.local/share/google-cloud-sdk/path.fish.inc" ]
     source  "$HOME/.local/share/google-cloud-sdk/path.fish.inc"
 end
+
