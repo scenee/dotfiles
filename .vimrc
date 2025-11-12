@@ -9,6 +9,9 @@ set backspace=indent,eol,start
 set enc=utf-8
 set expandtab
 set fenc=utf-8
+set formatoptions-=t
+set formatoptions-=a
+set formatoptions-=o
 set hlsearch
 set incsearch
 set laststatus=2
@@ -329,6 +332,10 @@ augroup filetypedetect
   autocmd!
   autocmd BufRead,BufNewFile */git/config* set filetype=gitconfig
 augroup END
+augroup GitCommitFormat
+  autocmd!
+  autocmd FileType gitcommit setlocal formatoptions+=t formatoptions-=a textwidth=72
+augroup END
 
 " fern
 nnoremap <silent> <Leader>1 :Fern . -drawer -toggle<CR>
@@ -502,12 +509,6 @@ endif
 
 " bats
 autocmd FileType bats setlocal tabstop=2 softtabstop=2 shiftwidth=2
-
-" csv
-augroup csv_no_autoformat
-  autocmd!
-  autocmd BufRead,BufNewFile *.csv setlocal textwidth=0 formatoptions-=t formatoptions-=a formatoptions-=o
-augroup END
 
 " html
 autocmd FileType html,htmldjango,css,javascript,json,sass,scss,vue,typescript,handlebars
