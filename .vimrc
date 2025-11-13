@@ -83,7 +83,7 @@ endif
 " Always insert newline at EOF
 augroup ensure_blankline_at_eof
   autocmd!
-  autocmd BufWritePre * if getline('$') != '' | call append(line('$'), '') | endif
+  autocmd BufWritePre * if expand('%:t') !~# '\.lock$' && getline('$') != '' | call append(line('$'), '') | endif
 augroup END
 
 " }}}
@@ -607,4 +607,3 @@ nn <silent> <M-a> :LspWorkspaceSymbol<cr>
 nn <silent> <M-l> :LspDocumentSymbol<cr>
 
 " }}}
-
