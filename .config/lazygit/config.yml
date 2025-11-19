@@ -17,12 +17,17 @@ keybinding:
     pushFiles: <disabled>
 customCommands:
   - key: '<c-p>'
-    command: 'git push {{.SelectedRemote.Name}} {{.SelectedCommit.Hash}}:{{.SelectedLocalBranch.Name}}'
+    command: 'git push --force-with-lease {{.SelectedRemote.Name}} {{.SelectedCommit.Hash}}:{{.SelectedLocalBranch.Name}}'
     context: "commits"
     loadingText: 'Pushing selected commit...'
     description: "Pushing selected commit"
     output: log
+    prompts:
+      - type: 'confirm'
+        title: 'Force Push'
+        body: '[PUSH] Are you sure you want to push {{printf "%.8s" .SelectedCommit.Hash}} commit to {{.SelectedLocalBranch.Name}} using force-with-lease?'
   - key: '<c-y>'
     command: "git rev-parse --short=7 {{.SelectedCommit.Sha}} | pbcopy"
     context: 'commits'
     description: 'copy short commit hash'
+
