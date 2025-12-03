@@ -1,1 +1,2 @@
-source "$HOME/.local/share/cargo/env.fish"
+[ -f "$HOME/.local/share/cargo/env.fish" ] && source "$HOME/.local/share/cargo/env.fish"
+
