@@ -17,7 +17,7 @@ keybinding:
     pushFiles: <disabled>
 customCommands:
   - key: '<c-p>'
-    command: 'git push --force-with-lease {{.SelectedRemote.Name}} {{.SelectedCommit.Hash}}:{{.SelectedLocalBranch.Name}}'
+    command: 'git push --force-with-lease {{.SelectedRemote.Name}} {{.SelectedCommit.Hash}}:refs/heads/{{.SelectedLocalBranch.Name}}'
     context: "commits"
     loadingText: 'Pushing selected commit...'
     description: "Pushing selected commit"
