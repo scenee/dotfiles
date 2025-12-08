@@ -30,4 +30,7 @@ customCommands:
     command: "git rev-parse --short=7 {{.SelectedCommit.Sha}} | pbcopy"
     context: 'commits'
     description: 'copy short commit hash'
-
+  # Prevent the remote branch deletion
+  - key: 'd'
+    context: 'remoteBranches'
+    command: 'echo "⛔ Deleting remote branches is prohibited!" && exit 1'
