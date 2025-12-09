@@ -12,6 +12,11 @@ gui:
 refresher:
   refreshInterval: 3
 keybinding:
+  commits:
+    squashDown: 'S'
+    markCommitAsFixup: 'F'
+    createFixupCommit: 'f'
+    squashAboveCommits: 's'
   universal:
     # 'Files' appended for legacy reasons
     pushFiles: <disabled>
