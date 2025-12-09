@@ -1,7 +1,7 @@
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
 gui:
   sidePanelWidth: 0.5
   theme:
@@ -34,3 +34,4 @@ customCommands:
   - key: 'd'
     context: 'remoteBranches'
     command: 'echo "⛔ Deleting remote branches is prohibited!" && exit 1'
+
