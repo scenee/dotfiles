@@ -13,7 +13,7 @@ refresher:
   refreshInterval: 3
 keybinding:
   commits:
-    squashDown: 'S'
+    squashDown: <disabled>
     markCommitAsFixup: 'F'
     createFixupCommit: 'f'
     squashAboveCommits: 's'
