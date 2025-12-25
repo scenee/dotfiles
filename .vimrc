@@ -50,7 +50,8 @@ noremap Q gq
 noremap <Space>h  ^
 noremap <Space>l  $
 noremap <Space>n  %
-inoremap jk <esc>
+inoremap <C-a> <Esc>0i
+inoremap <C-e> <Esc>$a
 " Continuous increment/decrement
 if v:version > 705 || (v:version > 704 && has('patch754'))
 vnoremap <c-a> <c-a>gv
@@ -607,3 +608,4 @@ nn <silent> <M-a> :LspWorkspaceSymbol<cr>
 nn <silent> <M-l> :LspDocumentSymbol<cr>
 
 " }}}
+
