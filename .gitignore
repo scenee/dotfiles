@@ -1,10 +1,15 @@
 .config/git/config.local
 
 .config/fish/
+!.config/fish/functions/
 !.config/fish/conf.d/add_path.fish
 !.config/fish/conf.d/alias.fish
 !.config/fish/conf.d/fzf.fish
 
 .tool-versions
 .claude
+
+.config/git/
+!.config/git/config
+!.config/git/ignore
 
