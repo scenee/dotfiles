@@ -11,8 +11,12 @@ fish_add_path /Applications/"Android Studio.app"/Contents/jbr/Contents/Home/bin
 
 ## for swift android sdk
 
-set android_build_tools_dirs $HOME/Library/Android/sdk/build-tools/*
-set android_ndk_dirs $HOME/Library/Android/sdk/ndk/*
+set -gx ANDROID_HOME $HOME/Library/Android/sdk
+set -gx PATH "$PATH" $ANDROID_HOME/emulator
+
+set android_build_tools_dirs $ANDROID_HOME/build-tools/*
+set android_ndk_dirs $ANDROID_HOME/ndk/*
+
 if test -n "$android_build_tools_dirs"
     set -gx PATH "$PATH" "$android_build_tools_dirs[-1]"
 end

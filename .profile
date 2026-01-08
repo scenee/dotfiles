@@ -122,6 +122,7 @@ then
 	fi
 
 	# ------------------ Android -----------------
+    export ANDROID_HOME="$HOME/Library/Android/sdk"
     JBR_PATH=/Applications/"Android Studio.app"/Contents/jbr
     if test -d "$JBR_PATH";
     then
@@ -129,3 +130,4 @@ then
         export PATH="$JAVA_HOME/bin:$PATH"
     fi
 fi
+
