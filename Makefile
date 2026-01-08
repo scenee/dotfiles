@@ -10,8 +10,12 @@ test:
 setup: clean
 	./scripts/setup.sh
 
-.PHONY: setup-vim
-setup-vim:
+.PHONY: tmux
+tmux:
+	git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+
+.PHONY: vim
+vim:
 	./scripts/vim/install_vim-plug.sh
 	./scripts/vim/install_plugins.sh
 
