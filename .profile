@@ -32,6 +32,12 @@ fi
 >/dev/null command -v stack \
 	&& export PATH="$HOME/.local/bin:$PATH"
 
+# ===================== sdkman =====================
+[ -d "$HOME/.local/share/sdkman" ] \
+    && export SDKMAN_DIR="$HOME/.local/share/sdkman" \
+    && [ -z "$ZSH_VERSION" ] \
+    && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
 # ===================== rg ==========================
 
 >/dev/null command -v rg \
@@ -123,11 +129,5 @@ then
 
 	# ------------------ Android -----------------
     export ANDROID_HOME="$HOME/Library/Android/sdk"
-    JBR_PATH=/Applications/"Android Studio.app"/Contents/jbr
-    if test -d "$JBR_PATH";
-    then
-        export JAVA_HOME="$JBR_PATH/Contents/Home"
-        export PATH="$JAVA_HOME/bin:$PATH"
-    fi
 fi
 

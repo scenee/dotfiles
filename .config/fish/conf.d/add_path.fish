@@ -7,7 +7,6 @@ set -gx PATH "$HOME/.local/share/asdf/shims" $PATH
 
 fish_add_path $HOME/Library/Android/sdk/platform-tools
 fish_add_path $HOME/Library/Android/sdk/cmdline-tools/latest/bin
-fish_add_path /Applications/"Android Studio.app"/Contents/jbr/Contents/Home/bin
 
 ## for swift android sdk
 
