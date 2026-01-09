@@ -8067,7 +8067,18 @@
 			<key>HotKey Activated By Modifier</key>
 			<false/>
 			<key>HotKey Alternate Shortcuts</key>
-			<array/>
+			<array>
+				<dict>
+					<key>characters</key>
+					<string></string>
+					<key>charactersIgnoringModifiers</key>
+					<string></string>
+					<key>keyCode</key>
+					<integer>48</integer>
+					<key>modifiers</key>
+					<integer>393216</integer>
+				</dict>
+			</array>
 			<key>HotKey Characters</key>
 			<string>	</string>
 			<key>HotKey Characters Ignoring Modifiers</key>
